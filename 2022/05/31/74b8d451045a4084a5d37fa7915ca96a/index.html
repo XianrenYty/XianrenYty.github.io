@@ -1,0 +1,226 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>传输层：UDP协议 | Personnal Blog of YUAN Tingyi</title><meta name="author" content="YUAN Tingyi"><meta name="copyright" content="YUAN Tingyi"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="[toc] 从之前介绍的网络层协议来看，通信的两端是两台主机，IP 数据报首部就标明了这两台主机的 IP 地址。但是从传输层来看，是发送方主机中的一个进程与接收方主机中的一个进程在交换数据，因此严格地讲，通信双方不是主机，而是主机中的进程。 传输层协议有 UDP 和 TCP，本节我们就先来介绍 UDP。 主机中常常有多个应用进程同时在与外部通信（比如你的浏览器和 QQ 在同时运行），下图中，A 主">
+<meta property="og:type" content="article">
+<meta property="og:title" content="传输层：UDP协议">
+<meta property="og:url" content="http://example.com/2022/05/31/74b8d451045a4084a5d37fa7915ca96a/index.html">
+<meta property="og:site_name" content="Personnal Blog of YUAN Tingyi">
+<meta property="og:description" content="[toc] 从之前介绍的网络层协议来看，通信的两端是两台主机，IP 数据报首部就标明了这两台主机的 IP 地址。但是从传输层来看，是发送方主机中的一个进程与接收方主机中的一个进程在交换数据，因此严格地讲，通信双方不是主机，而是主机中的进程。 传输层协议有 UDP 和 TCP，本节我们就先来介绍 UDP。 主机中常常有多个应用进程同时在与外部通信（比如你的浏览器和 QQ 在同时运行），下图中，A 主">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/5.jpg">
+<meta property="article:published_time" content="2022-05-31T07:23:29.923Z">
+<meta property="article:modified_time" content="2022-05-31T08:09:36.685Z">
+<meta property="article:author" content="YUAN Tingyi">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/5.jpg"><link rel="shortcut icon" href="/img/favicon-32x32.png"><link rel="canonical" href="http://example.com/2022/05/31/74b8d451045a4084a5d37fa7915ca96a/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '传输层：UDP协议',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-05-31 16:09:36'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">28</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/5.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Personnal Blog of YUAN Tingyi</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">传输层：UDP协议</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-05-31T07:23:29.923Z" title="Created 2022-05-31 15:23:29">2022-05-31</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-05-31T08:09:36.685Z" title="Updated 2022-05-31 16:09:36">2022-05-31</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="传输层：UDP协议"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>[toc]</p>
+<p>从之前介绍的<strong>网络层</strong>协议来看，通信的两端是两台主机，IP 数据报首部就标明了这两台主机的 IP 地址。但是从<strong>传输层</strong>来看，是发送方主机中的一个进程与接收方主机中的一个进程在交换数据，因此严格地讲，通信双方不是主机，而是<strong>主机中的进程</strong>。</p>
+<p>传输层协议有 UDP 和 TCP，本节我们就先来介绍 UDP。</p>
+<p>主机中常常有多个应用进程同时在与外部通信（比如你的浏览器和 QQ 在同时运行），下图中，A 主机的 AP1 进程在与 B 主机的 AP3 进程通信，同时主机 A 的 AP2 进程也在与 B 主机的 AP4 进程通信。</p>
+<p>两个主机的传输层之间有一个灰色双向箭头，写着“传输层提供应用进程间的逻辑通信”。</p>
+<p><strong>逻辑通信</strong>：看起来数据似乎是沿着双向箭头在传输层水平传输的，但实际上是沿图中的虚线经多个协议层次而传输。</p>
+<p><img src="/resource/68f52920e8214708ab0c8e376bc6ea86.png" alt="23779e089ace8ea8ea8e0582e0ede203.png"></p>
+<p>TCP&#x2F;IP 协议栈传输层有两个重要协议——UDP 和 TCP，不同的应用进程在传输层使用 TCP 或 UDP 之一。</p>
+<p>这一节先介绍比较简单的 UDP，比较复杂的 TCP 将在下一节讨论。</p>
+<h2 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h2><p><strong>端口</strong>的作用体现在<strong>传输层</strong>。</p>
+<p>刚才的图中，AP1 与 AP3 的通信与 AP2 与 AP4 的通信可以使用同一个<strong>传输层协议</strong>来传输(TCP 或 UDP)，根据 IP 地址或 MAC 地址都只能把数据传到正确的主机，但具体需要传到哪一个进程，是通过端口来辨认的。</p>
+<p>比如同时使用浏览器和 QQ，浏览器占用 80 端口，而 QQ 占用 4000 端口，那么发送过来的 QQ 消息便会通过 4000 端口显示在 QQ 客户端，而不会错误地显示在浏览器上。</p>
+<p>端口号有 0 ～ 65535 的编号，其中：</p>
+<ul>
+<li>编号 0 ～ 1023 为 <strong>系统端口号</strong> ，这些端口号可以在<a href="www.iana.org">IANA</a> 查询到，它们被指派给了 TCP&#x2F;IP 最重要的一些应用程序，以下是一些常见的系统端口号：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>应用层协议</th>
+<th>FTP</th>
+<th>TELNET</th>
+<th>SMTP</th>
+<th>DNS</th>
+<th>TFTP</th>
+<th>HTTP</th>
+<th>SNMP</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>系统端口号</td>
+<td>21</td>
+<td>23</td>
+<td>25</td>
+<td>53</td>
+<td>69</td>
+<td>80</td>
+<td>161</td>
+</tr>
+</tbody></table>
+<ul>
+<li>编号 1024 ～ 49151 为<strong>登记端口号</strong>，为没有系统端口号的应用程序使用，使用这类端口号必须在 <strong>IANA</strong> 按规定手续登记，以防止重复。</li>
+<li>编号 49152 ～ 65535 为<strong>短暂端口号</strong>，是留给客户进程选择暂时使用的，使用结束后，这类端口号会被放开以供其它程序使用。</li>
+</ul>
+<h2 id="UDP-简述"><a href="#UDP-简述" class="headerlink" title="UDP 简述"></a>UDP 简述</h2><p>UDP(User Datagram Protocol)用户数据报协议，它只在 IP 数据报服务之上增加了很少一点功能，它的主要特点有：</p>
+<ul>
+<li>UDP 是无连接的，发送数据之前不需要建立连接(而 TCP 需要)，减少了开销和时延。</li>
+<li>UDP 尽最大努力交付，不保证交付可靠性。</li>
+<li>UDP 是面向报文的，对于从应用层交付下来的 IP 数据报，只做很简单的封装(8 字节 UDP 报头)，首部开销小。</li>
+<li>UDP 没有拥塞控制，出现网络拥塞时发送方也不会降低发送速率。这种特性对某些实时应用是很重要的，比如 IP 电话，视频会议等，它们允许拥塞时丢失一些数据，因为如果不抛弃这些数据，极可能造成时延的累积。</li>
+<li>UDP 支持一对一、一对多、多对一和多对多的交互通信。</li>
+</ul>
+<p>从应用层到传输层，再到网络层的各层次封装：<br><img src="/resource/3caf822848c74f6998bfaf54844441a8.png" alt="fc8f2aeaec997a83081d3ae83b0a0ce5.png"></p>
+<h2 id="UDP-报文"><a href="#UDP-报文" class="headerlink" title="UDP 报文"></a>UDP 报文</h2><p>UDP 数据报可分为两部分：<strong>UDP 报头</strong>和<strong>数据部分</strong>。其中数据部分是应用层交付下来的数据。UDP 报头总共 8 字节，而这 8 字节又分为 4 个字段：<br><img src="/resource/0845481cd58f49f6a07569bd0e53e4df.png" alt="4f52034695fd2302f086bbd520f65fee.png"></p>
+<ul>
+<li>源端口：2 字节，在对方需要回信时可用，不需要时可以全 0；</li>
+<li>目的端口：2 字节，必须，也是最重要的字段；</li>
+<li>长度：2 字节，长度值包括报头和数据部分；</li>
+<li>校验和：2 字节，用于检验 UDP 数据报在传输过程中是否有出错，有错就丢弃。</li>
+</ul>
+<p><strong>tcpdump 抓取 UDP 报文</strong><br>现在我们动手实践，尝试抓取一个 UDP 数据报，并解读其内容。</p>
+<p>我们需要一个小程序，用于向指定 IP 地址的指定端口发送一个 指定内容 的 UDP 数据报，这个程序已经编写好，依次输入以下命令，下载并编译：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://labfile.oss.aliyuncs.com/courses/98/test.c</span><br><span class="line">gcc -o <span class="built_in">test</span> test.c</span><br></pre></td></tr></table></figure>
+
+<p>这个 C 程序会向 IP 地址 <code>192.168.1.1</code> 的 <code>7777</code> 端口发送一条 “hello” 消息。你可以用编辑器修改程序，向不同的 IP 发送不同的内容。</p>
+<p>编译完成后先别运行，我们还需要使用一个知名的抓包工具 <strong>tcpdump</strong>，依次输入以下命令安装，并运行 tcpdump：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install tcpdump</span><br><span class="line">sudo tcpdump -vvv -X udp port 7777</span><br></pre></td></tr></table></figure>
+
+<p>新开一个终端，输入以下命令运行刚才编译好的 C 程序 test：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./test</span><br></pre></td></tr></table></figure>
+
+<p>test 程序运行结束，返回刚才运行 tcpdump 的终端查看抓包结果：<br><img src="/resource/43e5161379384c2c9f266af27e0ef2a0.png" alt="9f3278c6e36d20cf7702e6727101b94b.png"></p>
+<p><strong>蓝色框</strong>为 16 进制目的端口，<strong>绿色框</strong>为 16 进制目的 IP，<strong>红色框</strong>为 20 字节 IP 报头，<strong>橘色下划线</strong>为 8 字节 UDP 报头，<strong>红色下划线</strong>为 hello 的 ASCII 码。</p>
+<p>从 <code>4500</code> 到 <code>0101</code> 都是 IP 报头，IP 报文在之前已经讲过，这里就不赘述了。后面的部分就是 UDP 报文。</p>
+<p>我们知道 UDP 报头一共 8 字节，所以从 <code>eb39</code> 到 <code>ac82</code> 是 UDP 报头的部分。</p>
+<ul>
+<li><code>eb39</code>：源端口，2 字节，换成十进制也就是 32830</li>
+<li><code>1e61</code>：目的端口，2 字节，十进制为 7777</li>
+<li><code>001c</code>：包长度，单位为字节，换为十进制可知包长度为 28 字节</li>
+<li><code>ac82</code>：校验和</li>
+</ul>
+<p>后面的就是数据内容的 ASCII 码。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">YUAN Tingyi</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2022/05/31/74b8d451045a4084a5d37fa7915ca96a/">http://example.com/2022/05/31/74b8d451045a4084a5d37fa7915ca96a/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/5.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/gh/overtrue/share.js@master/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/05/31/969f2855c2214e66b5f04c2877b56977/"><img class="prev-cover" src="/img/9.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">传输层：TCP协议</div></div></a></div><div class="next-post pull-right"><a href="/2022/05/31/11e941d5517240bd959c71ad81279c28/"><img class="next-cover" src="/img/8.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">网络层其他协议</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">YUAN Tingyi</div><div class="author-info__description">XianrenYty</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">28</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/XianrenYty"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AB%AF%E5%8F%A3"><span class="toc-number">1.</span> <span class="toc-text">端口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UDP-%E7%AE%80%E8%BF%B0"><span class="toc-number">2.</span> <span class="toc-text">UDP 简述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UDP-%E6%8A%A5%E6%96%87"><span class="toc-number">3.</span> <span class="toc-text">UDP 报文</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/06/01/fd61228310d24c999c625f49b503f7ce/" title="train_test_split 参数详解"><img src="/img/8.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="train_test_split 参数详解"/></a><div class="content"><a class="title" href="/2022/06/01/fd61228310d24c999c625f49b503f7ce/" title="train_test_split 参数详解">train_test_split 参数详解</a><time datetime="2022-06-01T12:52:00.000Z" title="Created 2022-06-01 20:52:00">2022-06-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/01/224bdd4444be4fe0b7826959bc6b40a4/" title="StandardScaler(sklearn)参数详解"><img src="/img/8.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="StandardScaler(sklearn)参数详解"/></a><div class="content"><a class="title" href="/2022/06/01/224bdd4444be4fe0b7826959bc6b40a4/" title="StandardScaler(sklearn)参数详解">StandardScaler(sklearn)参数详解</a><time datetime="2022-06-01T12:51:39.966Z" title="Created 2022-06-01 20:51:39">2022-06-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/01/2fd9e712ce6b4a49a24775586e47e44b/" title="八大排序算法(Python实现)"><img src="/img/5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="八大排序算法(Python实现)"/></a><div class="content"><a class="title" href="/2022/06/01/2fd9e712ce6b4a49a24775586e47e44b/" title="八大排序算法(Python实现)">八大排序算法(Python实现)</a><time datetime="2022-06-01T12:51:26.086Z" title="Created 2022-06-01 20:51:26">2022-06-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/01/9d8547900901416593ba964e6757c6c3/" title="ResNet"><img src="/img/9.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ResNet"/></a><div class="content"><a class="title" href="/2022/06/01/9d8547900901416593ba964e6757c6c3/" title="ResNet">ResNet</a><time datetime="2022-06-01T12:50:56.055Z" title="Created 2022-06-01 20:50:56">2022-06-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/01/b6a6cbce3d7f45a8b2511edf86fb5a24/" title="Paddle高层API实现图像分类（CIFAR-100数据集_ResNet101）"><img src="/img/5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Paddle高层API实现图像分类（CIFAR-100数据集_ResNet101）"/></a><div class="content"><a class="title" href="/2022/06/01/b6a6cbce3d7f45a8b2511edf86fb5a24/" title="Paddle高层API实现图像分类（CIFAR-100数据集_ResNet101）">Paddle高层API实现图像分类（CIFAR-100数据集_ResNet101）</a><time datetime="2022-06-01T12:48:23.363Z" title="Created 2022-06-01 20:48:23">2022-06-01</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By YUAN Tingyi</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

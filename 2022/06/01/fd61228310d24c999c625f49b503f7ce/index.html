@@ -1,0 +1,186 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>train_test_split 参数详解 | Personnal Blog of YUAN Tingyi</title><meta name="author" content="YUAN Tingyi"><meta name="copyright" content="YUAN Tingyi"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="简单用法如下：12345from sklearn.model_selection import train_test_splitfrom sklearn.datasets import load_irisiris &#x3D; load_iris()print(iris.data.shape)print(iris.DESCR)  123456789101112131415161718192021222324">
+<meta property="og:type" content="article">
+<meta property="og:title" content="train_test_split 参数详解">
+<meta property="og:url" content="http://example.com/2022/06/01/fd61228310d24c999c625f49b503f7ce/index.html">
+<meta property="og:site_name" content="Personnal Blog of YUAN Tingyi">
+<meta property="og:description" content="简单用法如下：12345from sklearn.model_selection import train_test_splitfrom sklearn.datasets import load_irisiris &#x3D; load_iris()print(iris.data.shape)print(iris.DESCR)  123456789101112131415161718192021222324">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/8.webp">
+<meta property="article:published_time" content="2022-06-01T12:52:00.000Z">
+<meta property="article:modified_time" content="2022-06-01T12:52:00.000Z">
+<meta property="article:author" content="YUAN Tingyi">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/8.webp"><link rel="shortcut icon" href="/img/favicon-32x32.png"><link rel="canonical" href="http://example.com/2022/06/01/fd61228310d24c999c625f49b503f7ce/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'train_test_split 参数详解',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-06-01 20:52:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">28</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/8.webp')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Personnal Blog of YUAN Tingyi</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">train_test_split 参数详解</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-06-01T12:52:00.000Z" title="Created 2022-06-01 20:52:00">2022-06-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-06-01T12:52:00.000Z" title="Updated 2022-06-01 20:52:00">2022-06-01</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="train_test_split 参数详解"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="简单用法如下："><a href="#简单用法如下：" class="headerlink" title="简单用法如下："></a>简单用法如下：</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_iris</span><br><span class="line">iris = load_iris()</span><br><span class="line"><span class="built_in">print</span>(iris.data.shape)</span><br><span class="line"><span class="built_in">print</span>(iris.DESCR)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">(150, 4)</span><br><span class="line">.. _iris_dataset:</span><br><span class="line"></span><br><span class="line">Iris plants dataset</span><br><span class="line">--------------------</span><br><span class="line"></span><br><span class="line">**Data Set Characteristics:**</span><br><span class="line"></span><br><span class="line">    :Number of Instances: 150 (50 in each of three classes)</span><br><span class="line">    :Number of Attributes: 4 numeric, predictive attributes and the class</span><br><span class="line">    :Attribute Information:</span><br><span class="line">        - sepal length in cm</span><br><span class="line">        - sepal width in cm</span><br><span class="line">        - petal length in cm</span><br><span class="line">        - petal width in cm</span><br><span class="line">        - class:</span><br><span class="line">                - Iris-Setosa</span><br><span class="line">                - Iris-Versicolour</span><br><span class="line">                - Iris-Virginica</span><br><span class="line"></span><br><span class="line">    :Summary Statistics:</span><br><span class="line"></span><br><span class="line">    ============== ==== ==== ======= ===== ====================</span><br><span class="line">                    Min  Max   Mean    SD   Class Correlation</span><br><span class="line">    ============== ==== ==== ======= ===== ====================</span><br><span class="line">    sepal length:   4.3  7.9   5.84   0.83    0.7826</span><br><span class="line">    sepal width:    2.0  4.4   3.05   0.43   -0.4194</span><br><span class="line">    petal length:   1.0  6.9   3.76   1.76    0.9490  (high!)</span><br><span class="line">    petal width:    0.1  2.5   1.20   0.76    0.9565  (high!)</span><br><span class="line">    ============== ==== ==== ======= ===== ====================</span><br><span class="line"></span><br><span class="line">    :Missing Attribute Values: None</span><br><span class="line">    :Class Distribution: 33.3% for each of 3 classes.</span><br><span class="line">    :Creator: R.A. Fisher</span><br><span class="line">    :Donor: Michael Marshall (MARSHALL%PLU@io.arc.nasa.gov)</span><br><span class="line">    :Date: July, 1988</span><br><span class="line"></span><br><span class="line">The famous Iris database, first used by Sir R.A. Fisher. The dataset is taken</span><br><span class="line">from Fisher&#x27;s paper. Note that it&#x27;s the same as in R, but not as in the UCI</span><br><span class="line">Machine Learning Repository, which has two wrong data points.</span><br><span class="line"></span><br><span class="line">This is perhaps the best known database to be found in the</span><br><span class="line">pattern recognition literature.  Fisher&#x27;s paper is a classic in the field and</span><br><span class="line">is referenced frequently to this day.  (See Duda &amp; Hart, for example.)  The</span><br><span class="line">data set contains 3 classes of 50 instances each, where each class refers to a</span><br><span class="line">type of iris plant.  One class is linearly separable from the other 2; the</span><br><span class="line">latter are NOT linearly separable from each other.</span><br><span class="line"></span><br><span class="line">.. topic:: References</span><br><span class="line"></span><br><span class="line">   - Fisher, R.A. &quot;The use of multiple measurements in taxonomic problems&quot;</span><br><span class="line">     Annual Eugenics, 7, Part II, 179-188 (1936); also in &quot;Contributions to</span><br><span class="line">     Mathematical Statistics&quot; (John Wiley, NY, 1950).</span><br><span class="line">   - Duda, R.O., &amp; Hart, P.E. (1973) Pattern Classification and Scene Analysis.</span><br><span class="line">     (Q327.D83) John Wiley &amp; Sons.  ISBN 0-471-22361-1.  See page 218.</span><br><span class="line">   - Dasarathy, B.V. (1980) &quot;Nosing Around the Neighborhood: A New System</span><br><span class="line">     Structure and Classification Rule for Recognition in Partially Exposed</span><br><span class="line">     Environments&quot;.  IEEE Transactions on Pattern Analysis and Machine</span><br><span class="line">     Intelligence, Vol. PAMI-2, No. 1, 67-71.</span><br><span class="line">   - Gates, G.W. (1972) &quot;The Reduced Nearest Neighbor Rule&quot;.  IEEE Transactions</span><br><span class="line">     on Information Theory, May 1972, 431-433.</span><br><span class="line">   - See also: 1988 MLC Proceedings, 54-64.  Cheeseman et al&quot;s AUTOCLASS II</span><br><span class="line">     conceptual clustering system finds 3 classes in the data.</span><br><span class="line">   - Many, many more ...</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">X, y = load_iris(return_X_y=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=<span class="number">0.25</span>, random_state=<span class="number">33</span>, stratify=y)</span><br><span class="line"><span class="built_in">print</span>(X_train.shape)</span><br><span class="line"><span class="built_in">print</span>(X_test.shape)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(112, 4)</span><br><span class="line">(38, 4)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>train_target：所要划分的样本结果</p>
+</li>
+<li><p>test_size：样本占比，如果是整数的话就是样本的数量</p>
+</li>
+<li><p>random_state：是随机数的种子。</p>
+</li>
+</ul>
+<p>随机数种子：其实就是该组随机数的编号，在需要重复试验的时候，保证得到一组一样的随机数。比如你每次都填 1，其他参数一样的情况下你得到的随机数组是一样的。但填 0 或不填，每次都会不一样。</p>
+<ul>
+<li>stratify 是为了保持 split 前类的分布。比如有 100 个数据，80 个属于 A 类，20 个属于 B 类。如果 train_test_split(… test_size&#x3D;0.25, stratify &#x3D; y_all), 那么 split 之后数据如下：</li>
+</ul>
+<p>training: 75 个数据，其中 60 个属于 A 类，15 个属于 B 类。<br>testing: 25 个数据，其中 20 个属于 A 类，5 个属于 B 类。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">用了stratify参数，training集和testing集的类的比例是 A：B= 4：1，等同于split前的比例（80：20）。通常在这种类分布不平衡的情况下会用到stratify。</span><br><span class="line"></span><br><span class="line">将stratify=X就是按照X中的比例分配</span><br><span class="line"></span><br><span class="line">将stratify=y就是按照y中的比例分配</span><br></pre></td></tr></table></figure>
+
+<p><strong>整体总结起来各个参数的设置及其类型如下：</strong></p>
+<p>主要参数说明：</p>
+<p>*arrays：可以是列表、numpy 数组、scipy 稀疏矩阵或 pandas 的数据框</p>
+<p>test_size：可以为浮点、整数或 None，默认为 None</p>
+<p>① 若为浮点时，表示测试集占总样本的百分比</p>
+<p>② 若为整数时，表示测试样本样本数</p>
+<p>③ 若为 None 时，test size 自动设置成 0.25</p>
+<p>train_size：可以为浮点、整数或 None，默认为 None</p>
+<p>① 若为浮点时，表示训练集占总样本的百分比</p>
+<p>② 若为整数时，表示训练样本的样本数</p>
+<p>③ 若为 None 时，train_size 自动被设置成 0.75</p>
+<p>random_state：可以为整数、RandomState 实例或 None，默认为 None</p>
+<p>① 若为 None 时，每次生成的数据都是随机，可能不一样</p>
+<p>② 若为整数时，每次生成的数据都相同</p>
+<p>stratify：可以为类似数组或 None</p>
+<p>① 若为 None 时，划分出来的测试集或训练集中，其类标签的比例也是随机的</p>
+<p>② 若不为 None 时，划分出来的测试集或训练集中，其类标签的比例同输入的数组中类标签的比例相同，可以用于处理不均衡的数据集</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">YUAN Tingyi</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2022/06/01/fd61228310d24c999c625f49b503f7ce/">http://example.com/2022/06/01/fd61228310d24c999c625f49b503f7ce/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/8.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/gh/overtrue/share.js@master/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2022/06/01/224bdd4444be4fe0b7826959bc6b40a4/"><img class="next-cover" src="/img/8.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">StandardScaler(sklearn)参数详解</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">YUAN Tingyi</div><div class="author-info__description">XianrenYty</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">28</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/XianrenYty"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E7%94%A8%E6%B3%95%E5%A6%82%E4%B8%8B%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">简单用法如下：</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/06/01/fd61228310d24c999c625f49b503f7ce/" title="train_test_split 参数详解"><img src="/img/8.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="train_test_split 参数详解"/></a><div class="content"><a class="title" href="/2022/06/01/fd61228310d24c999c625f49b503f7ce/" title="train_test_split 参数详解">train_test_split 参数详解</a><time datetime="2022-06-01T12:52:00.000Z" title="Created 2022-06-01 20:52:00">2022-06-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/01/224bdd4444be4fe0b7826959bc6b40a4/" title="StandardScaler(sklearn)参数详解"><img src="/img/8.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="StandardScaler(sklearn)参数详解"/></a><div class="content"><a class="title" href="/2022/06/01/224bdd4444be4fe0b7826959bc6b40a4/" title="StandardScaler(sklearn)参数详解">StandardScaler(sklearn)参数详解</a><time datetime="2022-06-01T12:51:39.966Z" title="Created 2022-06-01 20:51:39">2022-06-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/01/2fd9e712ce6b4a49a24775586e47e44b/" title="八大排序算法(Python实现)"><img src="/img/5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="八大排序算法(Python实现)"/></a><div class="content"><a class="title" href="/2022/06/01/2fd9e712ce6b4a49a24775586e47e44b/" title="八大排序算法(Python实现)">八大排序算法(Python实现)</a><time datetime="2022-06-01T12:51:26.086Z" title="Created 2022-06-01 20:51:26">2022-06-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/01/9d8547900901416593ba964e6757c6c3/" title="ResNet"><img src="/img/9.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ResNet"/></a><div class="content"><a class="title" href="/2022/06/01/9d8547900901416593ba964e6757c6c3/" title="ResNet">ResNet</a><time datetime="2022-06-01T12:50:56.055Z" title="Created 2022-06-01 20:50:56">2022-06-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/01/b6a6cbce3d7f45a8b2511edf86fb5a24/" title="Paddle高层API实现图像分类（CIFAR-100数据集_ResNet101）"><img src="/img/5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Paddle高层API实现图像分类（CIFAR-100数据集_ResNet101）"/></a><div class="content"><a class="title" href="/2022/06/01/b6a6cbce3d7f45a8b2511edf86fb5a24/" title="Paddle高层API实现图像分类（CIFAR-100数据集_ResNet101）">Paddle高层API实现图像分类（CIFAR-100数据集_ResNet101）</a><time datetime="2022-06-01T12:48:23.363Z" title="Created 2022-06-01 20:48:23">2022-06-01</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By YUAN Tingyi</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
