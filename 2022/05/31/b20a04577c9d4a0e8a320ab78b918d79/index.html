@@ -1,19 +1,19 @@
-<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>IP网际协议 | Personnal Blog of YUAN Tingyi</title><meta name="author" content="YUAN Tingyi"><meta name="copyright" content="YUAN Tingyi"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="[toc] IP 数据报：IP 协议位于网络层，它是 TCP&#x2F;IP 协议族中最为核心的协议，所有的 TCP、UDP、ICMP 及 IGMP 数据都以 IP 数据报格式传输。IP 协议提供的是不可靠、无连接的数据报传送服务。 本节实验我们将学习关于 IP 网际协议的进一步知识。 知识点  IP 数据报 IP 地址分类 子网划分 IP 路由选择 NAT 技术 IP 的未来  IP 数据报IP">
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>IP网际协议 | Personnal Blog of YUAN Tingyi</title><meta name="author" content="YUAN Tingyi"><meta name="copyright" content="YUAN Tingyi"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="[toc] IP 数据报：IP 协议位于网络层，它是 TCP&#x2F;IP 协议族中最为核心的协议，所有的 TCP、UDP、ICMP 及 IGMP 数据都以 IP 数据报格式传输。IP 协议提供的是不可靠、无连接的数据报传送服务。 本节实验我们将学习关于 IP 网际协议的进一步知识。 知识点  IP 数据报 IP 地址分类 子网划分 IP 路由选择 NAT 技术 IP 的未来  IP 数据报 IP 协议提">
 <meta property="og:type" content="article">
 <meta property="og:title" content="IP网际协议">
 <meta property="og:url" content="http://example.com/2022/05/31/b20a04577c9d4a0e8a320ab78b918d79/index.html">
 <meta property="og:site_name" content="Personnal Blog of YUAN Tingyi">
-<meta property="og:description" content="[toc] IP 数据报：IP 协议位于网络层，它是 TCP&#x2F;IP 协议族中最为核心的协议，所有的 TCP、UDP、ICMP 及 IGMP 数据都以 IP 数据报格式传输。IP 协议提供的是不可靠、无连接的数据报传送服务。 本节实验我们将学习关于 IP 网际协议的进一步知识。 知识点  IP 数据报 IP 地址分类 子网划分 IP 路由选择 NAT 技术 IP 的未来  IP 数据报IP">
+<meta property="og:description" content="[toc] IP 数据报：IP 协议位于网络层，它是 TCP&#x2F;IP 协议族中最为核心的协议，所有的 TCP、UDP、ICMP 及 IGMP 数据都以 IP 数据报格式传输。IP 协议提供的是不可靠、无连接的数据报传送服务。 本节实验我们将学习关于 IP 网际协议的进一步知识。 知识点  IP 数据报 IP 地址分类 子网划分 IP 路由选择 NAT 技术 IP 的未来  IP 数据报 IP 协议提">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/img/3.png">
+<meta property="og:image" content="http://example.com/img/6.jpg">
 <meta property="article:published_time" content="2022-05-31T02:25:42.159Z">
 <meta property="article:modified_time" content="2022-05-31T03:17:14.251Z">
 <meta property="article:author" content="YUAN Tingyi">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/img/3.png"><link rel="shortcut icon" href="/img/favicon-32x32.png"><link rel="canonical" href="http://example.com/2022/05/31/b20a04577c9d4a0e8a320ab78b918d79/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+<meta name="twitter:image" content="http://example.com/img/6.jpg"><link rel="shortcut icon" href="/img/favicon-32x32.png"><link rel="canonical" href="http://example.com/2022/05/31/b20a04577c9d4a0e8a320ab78b918d79/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
-  localSearch: undefined,
+  localSearch: {"path":"/search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
   translate: undefined,
   noticeOutdate: undefined,
   highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
@@ -141,8 +141,8 @@
       }
     }
     detectApple()
-    })(window)</script><meta name="generator" content="Hexo 6.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">28</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/3.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Personnal Blog of YUAN Tingyi</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">IP网际协议</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-05-31T02:25:42.159Z" title="Created 2022-05-31 10:25:42">2022-05-31</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-05-31T03:17:14.251Z" title="Updated 2022-05-31 11:17:14">2022-05-31</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="IP网际协议"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>[toc]</p>
-<p><strong>IP 数据报</strong>：IP 协议位于网络层，它是 TCP&#x2F;IP 协议族中最为核心的协议，所有的 TCP、UDP、ICMP 及 IGMP 数据都以 IP 数据报格式传输。IP 协议提供的是不可靠、无连接的数据报传送服务。</p>
+    })(window)</script><meta name="generator" content="Hexo 6.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">28</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/6.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Personnal Blog of YUAN Tingyi</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">IP网际协议</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-05-31T02:25:42.159Z" title="Created 2022-05-31 10:25:42">2022-05-31</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-05-31T03:17:14.251Z" title="Updated 2022-05-31 11:17:14">2022-05-31</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="IP网际协议"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>[toc]</p>
+<p><strong>IP 数据报</strong>：IP 协议位于网络层，它是 TCP/IP 协议族中最为核心的协议，所有的 TCP、UDP、ICMP 及 IGMP 数据都以 IP 数据报格式传输。IP 协议提供的是不可靠、无连接的数据报传送服务。</p>
 <p>本节实验我们将学习关于 IP 网际协议的进一步知识。</p>
 <p><strong>知识点</strong></p>
 <ul>
@@ -153,7 +153,8 @@
 <li>NAT 技术</li>
 <li>IP 的未来</li>
 </ul>
-<h2 id="IP-数据报"><a href="#IP-数据报" class="headerlink" title="IP 数据报"></a>IP 数据报</h2><p><strong>IP 协议</strong>提供的数据传送服务是不可靠和无连接的，具体表现如下：</p>
+<h2 id="IP-数据报">IP 数据报</h2>
+<p><strong>IP 协议</strong>提供的数据传送服务是不可靠和无连接的，具体表现如下：</p>
 <ul>
 <li><code>不可靠（unreliable）</code>：IP 协议不能保证数据报能成功地到达目的地，它仅提供传输服务。当发生某种错误时，IP 协议会丢弃该数据报。传输的可靠性全由上层协议来提供。</li>
 <li><code>无连接（connectionless）</code>：IP 协议对每个数据报的处理是相互独立的。这也说明，IP 数据报可以不按发送顺序接收。如果发送方向接收方发送了两个连续的数据报（先是 A，然后是 B），每个数据报可以选择不同的路线，因此 B 可能在 A 到达之前先到达。</li>
@@ -177,9 +178,7 @@
 </ul>
 <p><code>tcpdump</code>抓包工具：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -n ：显示 IP 地址而非域名地址</span></span><br><span class="line"><span class="comment"># -t ：不显示时间戳</span></span><br><span class="line"><span class="comment"># -x ：以十六进制显示包内内容</span></span><br><span class="line"><span class="comment"># -c ：tcpdump 将在接受到几个数据包后退出</span></span><br><span class="line">sudo tcpdump -ntx -c 1</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">shiyanlou:project/ $ sudo tcpdump -ntx -c 1</span><br><span class="line">tcpdump: verbose output suppressed, use -v or -vv <span class="keyword">for</span> full protocol decode</span><br><span class="line">listening on eth0, link-type EN10MB (Ethernet), capture size 262144 bytes</span><br><span class="line">IP 192.168.42.3.3000 &gt; 172.16.6.54.55306: Flags [P.], <span class="built_in">seq</span> 364040095:364040353, ack 2089209678, win 931, options [nop,nop,TS val 1523918276 ecr 3113910914], length 258</span><br><span class="line">        0x0000:  4500 0136 8da1 4000 4006 0f2f c0a8 2a03</span><br><span class="line">        0x0010:  ac10 0636 0bb8 d80a 15b2 cf9f 7c86 cf4e</span><br><span class="line">        0x0020:  8018 03a3 9e1a 0000 0101 080a 5ad5 25c4</span><br><span class="line">        0x0030:  b99a 8282 817e 00fe 7b22 6b69 6e64 223a</span><br><span class="line">        0x0040:  2264 6174 6122 2c22 6964 223a 3139 2c22</span><br><span class="line">        0x0050:  636f 6e74 656e 7422 3a22 7b5c 226a 736f</span><br><span class="line">        0x0060:  6e72 7063 5c22 3a5c 2232 2e30 5c22 2c5c</span><br><span class="line">        0x0070:  226d 6574 686f 645c 223a 5c22 6f6e 4461</span><br><span class="line">        0x0080:  7461 5c22 2c5c 2270 6172 616d 735c 223a</span><br><span class="line">        0x0090:  5c22 7463 7064 756d 703a 2076 6572 626f</span><br><span class="line">        0x00a0:  7365 206f 7574 7075 7420 7375 7070 7265</span><br><span class="line">        0x00b0:  7373 6564 2c20 7573 6520 2d76 206f 7220</span><br><span class="line">        0x00c0:  2d76 7620 666f 7220 6675 6c6c 2070 726f</span><br><span class="line">        0x00d0:  746f 636f 6c20 6465 636f 6465 5c5c 725c</span><br><span class="line">        0x00e0:  5c6e 6c69 7374 656e 696e 6720 6f6e 2065</span><br><span class="line">        0x00f0:  7468 302c 206c 696e 6b2d 7479 7065 2045</span><br><span class="line">        0x0100:  4e31 304d 4220 2845 7468 6572 6e65 7429</span><br><span class="line">        0x0110:  2c20 6361 7074 7572 6520 7369 7a65 2032</span><br><span class="line">        0x0120:  3632 3134 3420 6279 7465 735c 5c72 5c5c</span><br><span class="line">        0x0130:  6e5c 227d 227d</span><br><span class="line">1 packet captured</span><br><span class="line">3 packets received by filter</span><br><span class="line">0 packets dropped by kernel</span><br></pre></td></tr></table></figure>
-
 <p>首先看到开头的 <code>192.168.42.3.3000</code> &gt; <code>172.16.6.54.55306</code> 代表的是源 ip 为 <code>192.168.42.3</code>，端口 <code>3000</code>，目的 ip 为 <code>172.16.6.54</code>，端口 <code>55306</code>。</p>
 <p>然后看到 <code>0x0000</code> 那行：</p>
 <ul>
@@ -194,7 +193,8 @@
 <li>首部校验和：<code>0x0f2f</code>。</li>
 </ul>
 <p>其他信息可依次类推。</p>
-<h2 id="IP-地址分类"><a href="#IP-地址分类" class="headerlink" title="IP 地址分类"></a>IP 地址分类</h2><p>为了便于寻址以及层次化构造网络，每个 IP 地址可被看作是分为两部分，即<strong>网络号</strong>和<strong>主机号</strong>。同一个区域的所有主机有相同的网络号（即 IP 地址的前半部分相同），区域内的每个主机（包括路由器）都有一个主机号与其对应。</p>
+<h2 id="IP-地址分类">IP 地址分类</h2>
+<p>为了便于寻址以及层次化构造网络，每个 IP 地址可被看作是分为两部分，即<strong>网络号</strong>和<strong>主机号</strong>。同一个区域的所有主机有相同的网络号（即 IP 地址的前半部分相同），区域内的每个主机（包括路由器）都有一个主机号与其对应。</p>
 <p>IP 地址被分为 A、B、C、D、E 五类：</p>
 <ul>
 <li>A 类给大型网络或政府机构等；</li>
@@ -212,7 +212,7 @@
 <li>A 类 IP 地址范围：1.0.0.0—127.255.255.255；</li>
 <li>A 类 IP 的私有地址范围：10.0.0.0—10.255.255.255 （所谓的私有地址就是在互联网上不使用，而被用在局域网络中的地址）；</li>
 <li>127.X.X.X 是保留地址，用做循环测试用的；</li>
-<li>因为主机号有 24 位，所以一个 A 类网络号可以容纳 224-2&#x3D;16777214 个主机号。</li>
+<li>因为主机号有 24 位，所以一个 A 类网络号可以容纳 224-2=16777214 个主机号。</li>
 </ul>
 <p><strong>B 类地址</strong>：</p>
 <ul>
@@ -220,25 +220,27 @@
 <li>B 类 IP 地址范围：128.0.0.0—191.255.255.255；</li>
 <li>B 类 IP 的私有地址范围：172.16.0.0—172.31.255.255；</li>
 <li>1- 69.254.X.X 是保留地址；191.255.255.255 是广播地址；</li>
-<li>因为主机号有 16 位，所以一个 B 类网络号可以容纳 216-2&#x3D;65534 个主机号。</li>
+<li>因为主机号有 16 位，所以一个 B 类网络号可以容纳 216-2=65534 个主机号。</li>
 </ul>
 <p><strong>C 类地址</strong>：</p>
 <ul>
 <li>C 类地址网络号范围：192.0.0.0—223.255.255.0；</li>
 <li>C 类 IP 地址范围：192.0.0.0—223.255.255.255；</li>
 <li>C 类 IP 的私有地址范围：192.168.0.0—192.168.255.255；</li>
-<li>因为主机号有 8 位，所以一个 C 类网络号可以容纳 28-2&#x3D;254 个主机号。</li>
+<li>因为主机号有 8 位，所以一个 C 类网络号可以容纳 28-2=254 个主机号。</li>
 </ul>
-<h2 id="子网划分"><a href="#子网划分" class="headerlink" title="子网划分"></a>子网划分</h2><p>IP 地址如果只使用 ABCDE 类来划分，会造成大量的浪费：一个有 500 台主机的网络，无法使用 C 类地址。但如果使用一个 B 类地址，6 万多个主机地址只有 500 个被使用，造成 IP 地址的大量浪费。</p>
+<h2 id="子网划分">子网划分</h2>
+<p>IP 地址如果只使用 ABCDE 类来划分，会造成大量的浪费：一个有 500 台主机的网络，无法使用 C 类地址。但如果使用一个 B 类地址，6 万多个主机地址只有 500 个被使用，造成 IP 地址的大量浪费。</p>
 <p>因此，可以在 ABC 类网络的基础上，进一步划分子网：占用主机号的前几个位，用于表示子网号。</p>
-<p>这样 IP 地址就可看作 IP &#x3D; 网络号 + 子网号 + 主机号。</p>
+<p>这样 IP 地址就可看作 IP = 网络号 + 子网号 + 主机号。</p>
 <p>子网号的位数没有硬性规定，于是我们用子网掩码来确定一个 IP 地址中哪几位是主机号，具体使用方法如图：</p>
 <p><img src="/resource/cd7f6f5e6d1e4bcaad3863cfe168735c.png" alt="2022-05-30-19-22-13.png"></p>
 <p>子网掩码中的 1 标识了 IP 地址中相应的<strong>网络号</strong>和<strong>子网号</strong>，0 标识了<strong>主机号</strong>。将 IP 地址和子网掩码进行逻辑与运算，结果就能区分网络号和子网号。</p>
 <p>在 Linux 系统中使用<code>ifconfig</code>命令也可以查看到子网掩码：</p>
 <p><img src="/resource/6458502b43244e58828762b21cbe77f4.png" alt="558bd34aadd1d65b4e6da00d91f0ae60.png"></p>
-<h2 id="IP-路由选择"><a href="#IP-路由选择" class="headerlink" title="IP 路由选择"></a>IP 路由选择</h2><p>如果发送方与接收方直接相连（点对点）或都在一个共享网络上（以太网），那么 IP 数据报就能直接送达。</p>
-<p>而大多数情况则是发送方与接收方通过若干个路由器(router)连接，那么数据报就需要经过若干个路由器的转发才能送达，它是怎么选择一个合适的路径来”送货”的呢？</p>
+<h2 id="IP-路由选择">IP 路由选择</h2>
+<p>如果发送方与接收方直接相连（点对点）或都在一个共享网络上（以太网），那么 IP 数据报就能直接送达。</p>
+<p>而大多数情况则是发送方与接收方通过若干个路由器(router)连接，那么数据报就需要经过若干个路由器的转发才能送达，它是怎么选择一个合适的路径来&quot;送货&quot;的呢？</p>
 <p>IP 层在内存中有一个路由表（输入命令 <code>route -n</code> 可以查看路由表），当收到一份数据报并进行发送时，都要对该表进行搜索：</p>
 <ul>
 <li>搜索路由表，如果能找到和目的 IP 地址完全一致的主机，则将 IP 数据报发向该主机；</li>
@@ -249,18 +251,126 @@
 <li>接收到数据报的路由器再按照它自己的路由表继续转发，直到数据报被转发到目的主机；</li>
 <li>如果在转发过程中，IP 数据报的 TTL（生命周期）已经被减为 0，则该 IP 数据报就被抛弃。</li>
 </ul>
-<p>可以使用 <code>route -n</code> 查看路由表：<br><img src="/resource/432cf1d025ea42c18fd56cd9a8ae87a3.png" alt="c671cdefc8f9360248463e39276433b3.png"></p>
-<p>可以使用 <code>traceroute</code> 来追踪路由过程。<br><img src="/resource/df90993276e34fd7ba58e331b6ba8ef3.png" alt="d551e8e2b416319c051aed65d6bd9946.png"></p>
+<p>可以使用 <code>route -n</code> 查看路由表：<br>
+<img src="/resource/432cf1d025ea42c18fd56cd9a8ae87a3.png" alt="c671cdefc8f9360248463e39276433b3.png"></p>
+<p>可以使用 <code>traceroute</code> 来追踪路由过程。<br>
+<img src="/resource/df90993276e34fd7ba58e331b6ba8ef3.png" alt="d551e8e2b416319c051aed65d6bd9946.png"></p>
 <p>记录按序列号从 1 开始，每个记录就是一跳，每跳表示一个网关，我们看到每行有三个时间，单位是 ms，这是探测数据包向每个网关发送三个数据包后，网关响应后返回的时间。用这三个时间来表示到达这个结点的网络速度。</p>
 <p>我们会看到有一些行是以星号表示的。出现这样的情况，可能是防火墙封掉了 ICMP 的返回信息，所以我们得不到什么相关的数据包返回数据。</p>
-<h2 id="NAT-技术"><a href="#NAT-技术" class="headerlink" title="NAT 技术"></a>NAT 技术</h2><p>当你用 ifconfig 查看 IP 地址时，有时你会发现自己的 IP 地址是这样的———192.168.X.X 或 172.16.X.X。这是 C 类网和 B 类网的私有地址，就是俗称的<strong>内网 IP</strong>。这是因为你的路由器采用了 <strong>NAT 技术</strong>。</p>
+<h2 id="NAT-技术">NAT 技术</h2>
+<p>当你用 ifconfig 查看 IP 地址时，有时你会发现自己的 IP 地址是这样的———192.168.X.X 或 172.16.X.X。这是 C 类网和 B 类网的私有地址，就是俗称的<strong>内网 IP</strong>。这是因为你的路由器采用了 <strong>NAT 技术</strong>。</p>
 <p>NAT（Network Address Translation，网络地址转换）是 1994 年提出的。当在专用网内部的一些主机本来已经分配到了内网 IP 地址，但现在又想和因特网上的主机通信时，NAT 技术将其内网 IP 地址转换成全球 IP 地址，然后与因特网连接，也就是说，内网的数台主机使用了同一个全球 IP 地址在上网。</p>
 <p>NAT 技术实现了宽带共享，而且有助于缓解 IP 地址空间枯竭的问题。</p>
-<p>使用 <code>ifconfig eth0</code> 查看内网 ip：<br><img src="/resource/1580bd4ba0b5463cb2e32d2f2e1ead8e.png" alt="9c6a98946797cee1c8574d85bd903ab8.png"></p>
-<h2 id="IP-的未来"><a href="#IP-的未来" class="headerlink" title="IP 的未来"></a>IP 的未来</h2><p>我们现在使用的 <strong>IPv4</strong> 协议版本从理论上讲，可以编址 1600 万个网络、40 亿台主机。但采用 A、B、C 三类编址方式后，可用的网络地址和主机地址的数目大打折扣，以至 IP 地址已于 <strong>2011 年 2 月 3 日</strong>分配完毕。</p>
-<p>其中北美占有 3&#x2F;4，约 30 亿个，而人口最多的亚洲只有不到 4 亿个，中国截止 2010 年 6 月 IPv4 地址数量达到 2.5 亿，落后于 4.2 亿网民的需求。地址不足，严重地制约了中国及其他国家互联网的应用和发展。</p>
+<p>使用 <code>ifconfig eth0</code> 查看内网 ip：<br>
+<img src="/resource/1580bd4ba0b5463cb2e32d2f2e1ead8e.png" alt="9c6a98946797cee1c8574d85bd903ab8.png"></p>
+<h2 id="IP-的未来">IP 的未来</h2>
+<p>我们现在使用的 <strong>IPv4</strong> 协议版本从理论上讲，可以编址 1600 万个网络、40 亿台主机。但采用 A、B、C 三类编址方式后，可用的网络地址和主机地址的数目大打折扣，以至 IP 地址已于 <strong>2011 年 2 月 3 日</strong>分配完毕。</p>
+<p>其中北美占有 3/4，约 30 亿个，而人口最多的亚洲只有不到 4 亿个，中国截止 2010 年 6 月 IPv4 地址数量达到 2.5 亿，落后于 4.2 亿网民的需求。地址不足，严重地制约了中国及其他国家互联网的应用和发展。</p>
 <p>随着网络技术的发展，计算机网络将进入人们的日常生活，可能身边的每一样东西都需要连入全球因特网，在这样的环境下，IPv6 应运而生。</p>
 <p><strong>IPv6</strong> 的地址长度是 128 位，通常将这 128 位的地址按每 16 位划分为一个段，将每个段转换成十六进制数字，并用冒号隔开，比如：<code>2000:0000:0000:0000:0001:2345:6789:abcd</code> 就是一个 IPv6 地址。</p>
 <p>单从数量级上来说，IPv6 所拥有的地址容量是 IPv4 的约 $8\times10^{28}$ 倍，达到 $2^{128}$（算上全零的）个。这不但解决了网络地址资源数量的问题，同时也为除电脑外的设备连入互联网在数量限制上扫清了障碍。</p>
 <p>随着 IPv4 不足，支持 IPv6 的网络迅速增长，现在全球已经有 5% 的网络使用 IPv6。</p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">YUAN Tingyi</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2022/05/31/b20a04577c9d4a0e8a320ab78b918d79/">http://example.com/2022/05/31/b20a04577c9d4a0e8a320ab78b918d79/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/3.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/gh/overtrue/share.js@master/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/05/31/11e941d5517240bd959c71ad81279c28/"><img class="prev-cover" src="/img/8.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">网络层其他协议</div></div></a></div><div class="next-post pull-right"><a href="/2022/05/31/9296969af88e42cdbeabe44e49cd49d3/"><img class="next-cover" src="/img/8.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">链路层介绍</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">YUAN Tingyi</div><div class="author-info__description">XianrenYty</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">28</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/XianrenYty"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#IP-%E6%95%B0%E6%8D%AE%E6%8A%A5"><span class="toc-number">1.</span> <span class="toc-text">IP 数据报</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IP-%E5%9C%B0%E5%9D%80%E5%88%86%E7%B1%BB"><span class="toc-number">2.</span> <span class="toc-text">IP 地址分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%90%E7%BD%91%E5%88%92%E5%88%86"><span class="toc-number">3.</span> <span class="toc-text">子网划分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IP-%E8%B7%AF%E7%94%B1%E9%80%89%E6%8B%A9"><span class="toc-number">4.</span> <span class="toc-text">IP 路由选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NAT-%E6%8A%80%E6%9C%AF"><span class="toc-number">5.</span> <span class="toc-text">NAT 技术</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IP-%E7%9A%84%E6%9C%AA%E6%9D%A5"><span class="toc-number">6.</span> <span class="toc-text">IP 的未来</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/06/01/fd61228310d24c999c625f49b503f7ce/" title="train_test_split 参数详解"><img src="/img/8.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="train_test_split 参数详解"/></a><div class="content"><a class="title" href="/2022/06/01/fd61228310d24c999c625f49b503f7ce/" title="train_test_split 参数详解">train_test_split 参数详解</a><time datetime="2022-06-01T12:52:00.000Z" title="Created 2022-06-01 20:52:00">2022-06-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/01/224bdd4444be4fe0b7826959bc6b40a4/" title="StandardScaler(sklearn)参数详解"><img src="/img/8.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="StandardScaler(sklearn)参数详解"/></a><div class="content"><a class="title" href="/2022/06/01/224bdd4444be4fe0b7826959bc6b40a4/" title="StandardScaler(sklearn)参数详解">StandardScaler(sklearn)参数详解</a><time datetime="2022-06-01T12:51:39.966Z" title="Created 2022-06-01 20:51:39">2022-06-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/01/2fd9e712ce6b4a49a24775586e47e44b/" title="八大排序算法(Python实现)"><img src="/img/5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="八大排序算法(Python实现)"/></a><div class="content"><a class="title" href="/2022/06/01/2fd9e712ce6b4a49a24775586e47e44b/" title="八大排序算法(Python实现)">八大排序算法(Python实现)</a><time datetime="2022-06-01T12:51:26.086Z" title="Created 2022-06-01 20:51:26">2022-06-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/01/9d8547900901416593ba964e6757c6c3/" title="ResNet"><img src="/img/9.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ResNet"/></a><div class="content"><a class="title" href="/2022/06/01/9d8547900901416593ba964e6757c6c3/" title="ResNet">ResNet</a><time datetime="2022-06-01T12:50:56.055Z" title="Created 2022-06-01 20:50:56">2022-06-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/01/b6a6cbce3d7f45a8b2511edf86fb5a24/" title="Paddle高层API实现图像分类（CIFAR-100数据集_ResNet101）"><img src="/img/5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Paddle高层API实现图像分类（CIFAR-100数据集_ResNet101）"/></a><div class="content"><a class="title" href="/2022/06/01/b6a6cbce3d7f45a8b2511edf86fb5a24/" title="Paddle高层API实现图像分类（CIFAR-100数据集_ResNet101）">Paddle高层API实现图像分类（CIFAR-100数据集_ResNet101）</a><time datetime="2022-06-01T12:48:23.363Z" title="Created 2022-06-01 20:48:23">2022-06-01</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By YUAN Tingyi</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">YUAN Tingyi</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2022/05/31/b20a04577c9d4a0e8a320ab78b918d79/">http://example.com/2022/05/31/b20a04577c9d4a0e8a320ab78b918d79/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/6.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/gh/overtrue/share.js@master/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/05/31/11e941d5517240bd959c71ad81279c28/"><img class="prev-cover" src="/img/7.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">网络层其他协议</div></div></a></div><div class="next-post pull-right"><a href="/2022/05/31/9296969af88e42cdbeabe44e49cd49d3/"><img class="next-cover" src="/img/6.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">链路层介绍</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div><div id="comment-switch"><span class="first-comment">Valine</span><span class="switch-btn"></span><span class="second-comment">Disqus</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">YUAN Tingyi</div><div class="author-info__description">XianrenYty</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">28</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/XianrenYty"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#IP-%E6%95%B0%E6%8D%AE%E6%8A%A5"><span class="toc-number">1.</span> <span class="toc-text">IP 数据报</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IP-%E5%9C%B0%E5%9D%80%E5%88%86%E7%B1%BB"><span class="toc-number">2.</span> <span class="toc-text">IP 地址分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%90%E7%BD%91%E5%88%92%E5%88%86"><span class="toc-number">3.</span> <span class="toc-text">子网划分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IP-%E8%B7%AF%E7%94%B1%E9%80%89%E6%8B%A9"><span class="toc-number">4.</span> <span class="toc-text">IP 路由选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NAT-%E6%8A%80%E6%9C%AF"><span class="toc-number">5.</span> <span class="toc-text">NAT 技术</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IP-%E7%9A%84%E6%9C%AA%E6%9D%A5"><span class="toc-number">6.</span> <span class="toc-text">IP 的未来</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/06/01/fd61228310d24c999c625f49b503f7ce/" title="train_test_split 参数详解"><img src="/img/8.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="train_test_split 参数详解"/></a><div class="content"><a class="title" href="/2022/06/01/fd61228310d24c999c625f49b503f7ce/" title="train_test_split 参数详解">train_test_split 参数详解</a><time datetime="2022-06-01T12:52:00.000Z" title="Created 2022-06-01 20:52:00">2022-06-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/01/224bdd4444be4fe0b7826959bc6b40a4/" title="StandardScaler(sklearn)参数详解"><img src="/img/1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="StandardScaler(sklearn)参数详解"/></a><div class="content"><a class="title" href="/2022/06/01/224bdd4444be4fe0b7826959bc6b40a4/" title="StandardScaler(sklearn)参数详解">StandardScaler(sklearn)参数详解</a><time datetime="2022-06-01T12:51:39.966Z" title="Created 2022-06-01 20:51:39">2022-06-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/01/2fd9e712ce6b4a49a24775586e47e44b/" title="八大排序算法(Python实现)"><img src="/img/6.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="八大排序算法(Python实现)"/></a><div class="content"><a class="title" href="/2022/06/01/2fd9e712ce6b4a49a24775586e47e44b/" title="八大排序算法(Python实现)">八大排序算法(Python实现)</a><time datetime="2022-06-01T12:51:26.086Z" title="Created 2022-06-01 20:51:26">2022-06-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/01/9d8547900901416593ba964e6757c6c3/" title="ResNet"><img src="/img/2.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ResNet"/></a><div class="content"><a class="title" href="/2022/06/01/9d8547900901416593ba964e6757c6c3/" title="ResNet">ResNet</a><time datetime="2022-06-01T12:50:56.055Z" title="Created 2022-06-01 20:50:56">2022-06-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/01/b6a6cbce3d7f45a8b2511edf86fb5a24/" title="Paddle高层API实现图像分类（CIFAR-100数据集_ResNet101）"><img src="/img/8.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Paddle高层API实现图像分类（CIFAR-100数据集_ResNet101）"/></a><div class="content"><a class="title" href="/2022/06/01/b6a6cbce3d7f45a8b2511edf86fb5a24/" title="Paddle高层API实现图像分类（CIFAR-100数据集_ResNet101）">Paddle高层API实现图像分类（CIFAR-100数据集_ResNet101）</a><time datetime="2022-06-01T12:48:23.363Z" title="Created 2022-06-01 20:48:23">2022-06-01</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By YUAN Tingyi</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.2
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container:not\([display]\)').forEach(node => {
+            const target = node.parentNode
+            if (target.nodeName.toLowerCase() === 'li') {
+              target.parentNode.classList.add('has-jax')
+            } else {
+              target.classList.add('has-jax')
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '',
+      appKey: '',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script>function loadDisqus () {
+  var disqus_config = function () {
+    this.page.url = 'http://example.com/2022/05/31/b20a04577c9d4a0e8a320ab78b918d79/'
+    this.page.identifier = '2022/05/31/b20a04577c9d4a0e8a320ab78b918d79/'
+    this.page.title = 'IP网际协议'
+  };
+
+  window.disqusReset = () => {
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  if (window.DISQUS) disqusReset()
+  else {
+    (function() { 
+      var d = document, s = d.createElement('script');
+      s.src = 'https://.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+}
+
+if ('Valine' === 'Disqus' || !true) {
+  if (true) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+  else loadDisqus()
+} else {
+  function loadOtherComment () {
+    loadDisqus()
+  }
+}
+</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

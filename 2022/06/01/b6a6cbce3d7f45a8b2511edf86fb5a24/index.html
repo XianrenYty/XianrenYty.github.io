@@ -5,15 +5,15 @@
 <meta property="og:site_name" content="Personnal Blog of YUAN Tingyi">
 <meta property="og:description" content="[toc] 『深度学习 7 日打卡营·大作业』 零基础解锁深度学习神器飞桨框架高层 API，七天时间助你掌握 CV、NLP 领域最火模型及应用。  课程地址  传送门：https:&#x2F;&#x2F;aistudio.baidu.com&#x2F;aistudio&#x2F;course&#x2F;introduce&#x2F;6771  目标   掌握深度学习常用模型基础知识 熟练掌握一种国产开源深度学习框架 具备独立完成相关深度学习任务的能力 能用">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/img/5.jpg">
+<meta property="og:image" content="http://example.com/img/8.webp">
 <meta property="article:published_time" content="2022-06-01T12:48:23.363Z">
 <meta property="article:modified_time" content="2022-06-01T12:48:31.723Z">
 <meta property="article:author" content="YUAN Tingyi">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/img/5.jpg"><link rel="shortcut icon" href="/img/favicon-32x32.png"><link rel="canonical" href="http://example.com/2022/06/01/b6a6cbce3d7f45a8b2511edf86fb5a24/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+<meta name="twitter:image" content="http://example.com/img/8.webp"><link rel="shortcut icon" href="/img/favicon-32x32.png"><link rel="canonical" href="http://example.com/2022/06/01/b6a6cbce3d7f45a8b2511edf86fb5a24/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
-  localSearch: undefined,
+  localSearch: {"path":"/search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
   translate: undefined,
   noticeOutdate: undefined,
   highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
@@ -141,7 +141,7 @@
       }
     }
     detectApple()
-    })(window)</script><meta name="generator" content="Hexo 6.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">28</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/5.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Personnal Blog of YUAN Tingyi</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Paddle高层API实现图像分类（CIFAR-100数据集_ResNet101）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-06-01T12:48:23.363Z" title="Created 2022-06-01 20:48:23">2022-06-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-06-01T12:48:31.723Z" title="Updated 2022-06-01 20:48:31">2022-06-01</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Paddle高层API实现图像分类（CIFAR-100数据集_ResNet101）"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>[toc]</p>
+    })(window)</script><meta name="generator" content="Hexo 6.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">28</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/8.webp')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Personnal Blog of YUAN Tingyi</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Paddle高层API实现图像分类（CIFAR-100数据集_ResNet101）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-06-01T12:48:23.363Z" title="Created 2022-06-01 20:48:23">2022-06-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-06-01T12:48:31.723Z" title="Updated 2022-06-01 20:48:31">2022-06-01</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Paddle高层API实现图像分类（CIFAR-100数据集_ResNet101）"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>[toc]</p>
 <p>『深度学习 7 日打卡营·大作业』</p>
 <p>零基础解锁深度学习神器飞桨框架高层 API，七天时间助你掌握 CV、NLP 领域最火模型及应用。</p>
 <ol>
@@ -157,659 +157,751 @@
 <li>具备独立完成相关深度学习任务的能力</li>
 <li>能用所学为 AI 加一份年味</li>
 </ul>
-<h2 id="数据集："><a href="#数据集：" class="headerlink" title="数据集："></a>数据集：</h2><p>指定数据集：cifar100，通过高层 API 调用。</p>
+<h2 id="数据集：">数据集：</h2>
+<p>指定数据集：cifar100，通过高层 API 调用。</p>
 <p>可以自己写数据增强和数据预处理功能。</p>
-<h2 id="模型："><a href="#模型：" class="headerlink" title="模型："></a>模型：</h2><p>随便选，模型参数初始化（如：uniform 和 normal）可以随意调整。</p>
-<h2 id="模型训练"><a href="#模型训练" class="headerlink" title="模型训练"></a>模型训练</h2><p>各种超参数（如：epochs、batch_size）可以随意调整。</p>
-<h2 id="评判标准"><a href="#评判标准" class="headerlink" title="评判标准"></a>评判标准</h2><p>最终以 model.evaluate 的精度输出值（格式如下），计算方式是将 eval_dataset 送入 evaluate 接口即可，需要在 model.prepare 中配置评估指标 Accuracy，所用数据集不能被用于训练过。</p>
+<h2 id="模型：">模型：</h2>
+<p>随便选，模型参数初始化（如：uniform 和 normal）可以随意调整。</p>
+<h2 id="模型训练-2">模型训练</h2>
+<p>各种超参数（如：epochs、batch_size）可以随意调整。</p>
+<h2 id="评判标准">评判标准</h2>
+<p>最终以 model.evaluate 的精度输出值（格式如下），计算方式是将 eval_dataset 送入 evaluate 接口即可，需要在 model.prepare 中配置评估指标 Accuracy，所用数据集不能被用于训练过。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#x27;loss&#x27;: [6.4980035], &#x27;acc&#x27;: 0.8485721442885772&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="导入相关库"><a href="#导入相关库" class="headerlink" title="导入相关库"></a>导入相关库</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> paddle</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">paddle.__version__</span><br></pre></td></tr></table></figure>
-
+<h2 id="导入相关库">导入相关库</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> paddle</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">paddle.__version__</span><br></pre></td></tr></table></figure>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x27;2.0.0&#x27;</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置GPU</span></span><br><span class="line">paddle.set_device(<span class="string">&#x27;gpu&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CUDAPlace(0)</span><br></pre></td></tr></table></figure>
-
-<h1 id="②-数据准备"><a href="#②-数据准备" class="headerlink" title="② 数据准备"></a>② 数据准备</h1><p><img src="https://img-blog.csdnimg.cn/img_convert/32c6c5b1cc1baffbff4b5c850d3f18f2.png"></p>
-<h2 id="数据增强"><a href="#数据增强" class="headerlink" title="数据增强"></a>数据增强</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">   <span class="comment">#mean and std of cifar100 dataset</span></span><br><span class="line">   CIFAR100_TRAIN_MEAN = (<span class="number">0.5070751592371323</span>, <span class="number">0.48654887331495095</span>, <span class="number">0.4409178433670343</span>)</span><br><span class="line">   CIFAR100_TRAIN_STD = (<span class="number">0.2673342858792401</span>, <span class="number">0.2564384629170883</span>, <span class="number">0.27615047132568404</span>)</span><br><span class="line"></span><br><span class="line">train_transfrom = T.Compose([</span><br><span class="line">           T.Resize((<span class="number">256</span>, <span class="number">256</span>)),</span><br><span class="line">           T.CenterCrop((<span class="number">224</span>, <span class="number">224</span>)),</span><br><span class="line">           T.RandomHorizontalFlip(<span class="number">0.5</span>),        <span class="comment"># 随机水平翻转</span></span><br><span class="line">           T.RandomRotation(degrees=<span class="number">15</span>),       <span class="comment"># （-degrees，+degrees）</span></span><br><span class="line">           T.ToTensor(),                      <span class="comment"># 数据的格式转换和标准化 HWC =&gt; CHW</span></span><br><span class="line">           T.Normalize(mean=CIFAR100_MEAN, std=CIFAR100_STD)  <span class="comment"># 图像归一化</span></span><br><span class="line">       ])</span><br><span class="line"></span><br><span class="line">  eval_transfrom = T.Compose([</span><br><span class="line">           T.Resize(<span class="number">224</span>),</span><br><span class="line">           T.ToTensor(),                       <span class="comment"># 数据的格式转换和标准化 HWC =&gt; CHW</span></span><br><span class="line">           T.Normalize(mean=CIFAR100_MEAN, std=CIFAR100_STD)  <span class="comment"># 图像归一化</span></span><br><span class="line">       ])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
+<h1>② 数据准备</h1>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/32c6c5b1cc1baffbff4b5c850d3f18f2.png" alt=""></p>
+<h2 id="数据增强">数据增强</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">   <span class="comment">#mean and std of cifar100 dataset</span></span><br><span class="line">   CIFAR100_TRAIN_MEAN = (<span class="number">0.5070751592371323</span>, <span class="number">0.48654887331495095</span>, <span class="number">0.4409178433670343</span>)</span><br><span class="line">   CIFAR100_TRAIN_STD = (<span class="number">0.2673342858792401</span>, <span class="number">0.2564384629170883</span>, <span class="number">0.27615047132568404</span>)</span><br><span class="line"></span><br><span class="line">train_transfrom = T.Compose([</span><br><span class="line">           T.Resize((<span class="number">256</span>, <span class="number">256</span>)),</span><br><span class="line">           T.CenterCrop((<span class="number">224</span>, <span class="number">224</span>)),</span><br><span class="line">           T.RandomHorizontalFlip(<span class="number">0.5</span>),        <span class="comment"># 随机水平翻转</span></span><br><span class="line">           T.RandomRotation(degrees=<span class="number">15</span>),       <span class="comment"># （-degrees，+degrees）</span></span><br><span class="line">           T.ToTensor(),                      <span class="comment"># 数据的格式转换和标准化 HWC =&gt; CHW</span></span><br><span class="line">           T.Normalize(mean=CIFAR100_MEAN, std=CIFAR100_STD)  <span class="comment"># 图像归一化</span></span><br><span class="line">       ])</span><br><span class="line"></span><br><span class="line">  eval_transfrom = T.Compose([</span><br><span class="line">           T.Resize(<span class="number">224</span>),</span><br><span class="line">           T.ToTensor(),                       <span class="comment"># 数据的格式转换和标准化 HWC =&gt; CHW</span></span><br><span class="line">           T.Normalize(mean=CIFAR100_MEAN, std=CIFAR100_STD)  <span class="comment"># 图像归一化</span></span><br><span class="line">       ])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>class paddle.vision.transforms.ToTensor</p>
 </blockquote>
 <p>将形状为 （H x W x C）的输入数据 PIL.Image 或 numpy.ndarray 转换为 (C x H x W)。 如果想保持形状不变，可以将参数 data_format 设置为 ‘HWC’。</p>
-<p>同时，如果输入的 PIL.Image 的 mode 是 (L, LA, P, I, F, RGB, YCbCr, RGBA, CMYK, 1) 其中一种，或者输入的 <code>numpy.ndarray</code> 数据类型是<code> &#39;uint8&#39;</code>，那个会将输入数据从<code>（0-255）</code>的范围缩放到 <code>（0-1）</code>的范围。其他的情况，则保持输入不变。</p>
+<p>同时，如果输入的 PIL.Image 的 mode 是 (L, LA, P, I, F, RGB, YCbCr, RGBA, CMYK, 1) 其中一种，或者输入的 <code>numpy.ndarray</code> 数据类型是<code> 'uint8'</code>，那个会将输入数据从<code>（0-255）</code>的范围缩放到 <code>（0-1）</code>的范围。其他的情况，则保持输入不变。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 训练数据集</span></span><br><span class="line">train_dataset = paddle.vision.datasets.Cifar100(mode=<span class="string">&#x27;train&#x27;</span>, transform=paddle.vision.transforms.ToTensor())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证数据集</span></span><br><span class="line">eval_dataset = paddle.vision.datasets.Cifar100(mode=<span class="string">&#x27;test&#x27;</span>, transform=paddle.vision.transforms.ToTensor())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 合并数据集</span></span><br><span class="line">dataset = paddle.concat([d[<span class="number">0</span>] <span class="keyword">for</span> d <span class="keyword">in</span> paddle.io.DataLoader(train_dataset)] + [d[<span class="number">0</span>] <span class="keyword">for</span> d <span class="keyword">in</span> paddle.io.DataLoader(eval_dataset)])</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 计算数据均值和方差</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;mean:<span class="subst">&#123;dataset.mean(axis=[<span class="number">0</span>, <span class="number">2</span>, <span class="number">3</span>]).numpy()&#125;</span> \n std:<span class="subst">&#123;dataset.std(axis=[<span class="number">0</span>, <span class="number">2</span>, <span class="number">3</span>]).numpy()&#125;</span>&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mean:[0.5073715 0.4867007 0.441096 ]</span><br><span class="line"> std:[0.26750046 0.25658613 0.27630225]</span><br></pre></td></tr></table></figure>
-
 <p>由于要调用<code>resnet101</code>的预训练模型，这里把 CIFAR 的$32\times 32$的图像<code>resize</code>为$224\times 224$的图像，保持特征尺寸和感受野的一致。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> paddle.vision.transforms <span class="keyword">as</span> T</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># CIFAR100_TRAIN_MEAN = (0.5070751592371323, 0.48654887331495095, 0.4409178433670343)</span></span><br><span class="line"><span class="comment"># CIFAR100_TRAIN_STD = (0.2673342858792401, 0.2564384629170883, 0.27615047132568404)</span></span><br><span class="line"></span><br><span class="line">CIFAR100_MEAN = [<span class="number">0.5073715</span>, <span class="number">0.4867007</span>, <span class="number">0.441096</span>]</span><br><span class="line">CIFAR100_STD = [<span class="number">0.26750046</span>, <span class="number">0.25658613</span>, <span class="number">0.27630225</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># mean=[0.485, 0.456, 0.406]</span></span><br><span class="line"><span class="comment"># std=[0.229, 0.224, 0.225]</span></span><br><span class="line"></span><br><span class="line">train_transfrom = T.Compose([</span><br><span class="line">            T.Resize((<span class="number">256</span>, <span class="number">256</span>)),</span><br><span class="line">            T.CenterCrop((<span class="number">224</span>, <span class="number">224</span>)),</span><br><span class="line">            T.RandomHorizontalFlip(<span class="number">0.5</span>),        <span class="comment"># 随机水平翻转</span></span><br><span class="line">            T.RandomRotation(degrees=<span class="number">15</span>),       <span class="comment"># （-degrees，+degrees）</span></span><br><span class="line">            T.ToTensor(),                      <span class="comment"># 数据的格式转换和标准化 HWC =&gt; CHW</span></span><br><span class="line">            T.Normalize(mean=CIFAR100_MEAN, std=CIFAR100_STD)  <span class="comment"># 图像归一化</span></span><br><span class="line">        ])</span><br><span class="line"></span><br><span class="line">eval_transfrom = T.Compose([</span><br><span class="line">            T.Resize(<span class="number">224</span>),</span><br><span class="line">            T.ToTensor(),                       <span class="comment"># 数据的格式转换和标准化 HWC =&gt; CHW</span></span><br><span class="line">            T.Normalize(mean=CIFAR100_MEAN, std=CIFAR100_STD)  <span class="comment"># 图像归一化</span></span><br><span class="line">        ])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 训练数据集</span></span><br><span class="line">train_dataset = paddle.vision.datasets.Cifar100(mode=<span class="string">&#x27;train&#x27;</span>, transform=train_transfrom)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证数据集</span></span><br><span class="line">eval_dataset = paddle.vision.datasets.Cifar100(mode=<span class="string">&#x27;test&#x27;</span>, transform=eval_transfrom)</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;训练集大小: <span class="subst">&#123;<span class="built_in">len</span>(train_dataset)&#125;</span>, 测试集大小: <span class="subst">&#123;<span class="built_in">len</span>(eval_dataset)&#125;</span>&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;train data shape:&quot;</span>, train_dataset[<span class="number">0</span>][<span class="number">0</span>].shape)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;eval data shape:&quot;</span>, eval_dataset[<span class="number">0</span>][<span class="number">0</span>].shape)</span><br><span class="line"></span><br><span class="line"><span class="comment"># train_dataset[3][0]</span></span><br></pre></td></tr></table></figure>
-
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">训练集大小: 50000, 测试集大小: 10000</span><br><span class="line">train data shape: [3, 224, 224]</span><br><span class="line">eval data shape: [3, 224, 224]</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">idx = np.random.randint(<span class="number">0</span>, <span class="number">50000</span>, size=<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> idx:</span><br><span class="line">    img = train_dataset[i][<span class="number">0</span>].numpy().transpose([<span class="number">1</span>, <span class="number">2</span>, <span class="number">0</span>])</span><br><span class="line">    plt.imshow(img)</span><br><span class="line">    plt.title(train_dataset[i][<span class="number">1</span>])</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[WARNING 2021-02-11 13:53:09,315 image.py:664] Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://img-blog.csdnimg.cn/20210211193754486.png" alt="在这里插入图片描述"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[WARNING 2021-02-11 13:53:09,435 image.py:664] Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://img-blog.csdnimg.cn/20210211193804797.png" alt="在这里插入图片描述"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[WARNING 2021-02-11 13:53:09,532 image.py:664] Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://img-blog.csdnimg.cn/2021021119380875.png" alt="在这里插入图片描述"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[WARNING 2021-02-11 13:53:09,644 image.py:664] Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).</span><br><span class="line">[WARNING 2021-02-11 13:53:09,756 image.py:664] Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).</span><br><span class="line">[WARNING 2021-02-11 13:53:09,879 image.py:664] Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://img-blog.csdnimg.cn/20210211193813389.png" alt="在这里插入图片描述"></p>
 <p><img src="https://img-blog.csdnimg.cn/20210211193817397.png" alt="在这里插入图片描述"></p>
 <p><img src="https://img-blog.csdnimg.cn/20210211193821204.png" alt="在这里插入图片描述"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[WARNING 2021-02-11 13:53:09,994 image.py:664] Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://img-blog.csdnimg.cn/20210211193825246.png" alt="在这里插入图片描述"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[WARNING 2021-02-11 13:53:10,117 image.py:664] Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://img-blog.csdnimg.cn/20210211193830261.png" alt="在这里插入图片描述"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[WARNING 2021-02-11 13:53:10,240 image.py:664] Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://img-blog.csdnimg.cn/20210211193833189.png" alt="在这里插入图片描述"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[WARNING 2021-02-11 13:53:10,339 image.py:664] Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://img-blog.csdnimg.cn/20210211193837699.png" alt="在这里插入图片描述"></p>
-<h2 id="3-1-模型开发"><a href="#3-1-模型开发" class="headerlink" title="3.1 模型开发"></a>3.1 模型开发</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">network = paddle.vision.models.resnet101(num_classes=<span class="number">100</span>, pretrained=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
-
+<h2 id="3-1-模型开发">3.1 模型开发</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">network = paddle.vision.models.resnet101(num_classes=<span class="number">100</span>, pretrained=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/opt/conda/envs/python35-paddle120-env/lib/python3.7/site-packages/paddle/fluid/dygraph/layers.py:1263: UserWarning: Skip loading for fc.weight. fc.weight receives a shape [2048, 1000], but the expected shape is [2048, 100].</span><br><span class="line">  warnings.warn((&quot;Skip loading for &#123;&#125;. &quot;.format(key) + str(err)))</span><br><span class="line">/opt/conda/envs/python35-paddle120-env/lib/python3.7/site-packages/paddle/fluid/dygraph/layers.py:1263: UserWarning: Skip loading for fc.bias. fc.bias receives a shape [1000], but the expected shape is [100].</span><br><span class="line">  warnings.warn((&quot;Skip loading for &#123;&#125;. &quot;.format(key) + str(err)))</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-2-模型可视化"><a href="#3-2-模型可视化" class="headerlink" title="3.2 模型可视化"></a>3.2 模型可视化</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">model = paddle.Model(network)</span><br><span class="line"></span><br><span class="line">model.summary((-<span class="number">1</span>, <span class="number">3</span>, <span class="number">224</span>, <span class="number">224</span>))</span><br></pre></td></tr></table></figure>
-
+<h2 id="3-2-模型可视化">3.2 模型可视化</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">model = paddle.Model(network)</span><br><span class="line"></span><br><span class="line">model.summary((-<span class="number">1</span>, <span class="number">3</span>, <span class="number">224</span>, <span class="number">224</span>))</span><br></pre></td></tr></table></figure>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br></pre></td><td class="code"><pre><span class="line">-------------------------------------------------------------------------------</span><br><span class="line">   Layer (type)         Input Shape          Output Shape         Param #</span><br><span class="line">===============================================================================</span><br><span class="line">    Conv2D-105       [[1, 3, 224, 224]]   [1, 64, 112, 112]        9,408</span><br><span class="line">  BatchNorm2D-105   [[1, 64, 112, 112]]   [1, 64, 112, 112]         256</span><br><span class="line">      ReLU-35       [[1, 64, 112, 112]]   [1, 64, 112, 112]          0</span><br><span class="line">    MaxPool2D-2     [[1, 64, 112, 112]]    [1, 64, 56, 56]           0</span><br><span class="line">    Conv2D-107       [[1, 64, 56, 56]]     [1, 64, 56, 56]         4,096</span><br><span class="line">  BatchNorm2D-107    [[1, 64, 56, 56]]     [1, 64, 56, 56]          256</span><br><span class="line">      ReLU-36        [[1, 256, 56, 56]]    [1, 256, 56, 56]          0</span><br><span class="line">    Conv2D-108       [[1, 64, 56, 56]]     [1, 64, 56, 56]        36,864</span><br><span class="line">  BatchNorm2D-108    [[1, 64, 56, 56]]     [1, 64, 56, 56]          256</span><br><span class="line">    Conv2D-109       [[1, 64, 56, 56]]     [1, 256, 56, 56]       16,384</span><br><span class="line">  BatchNorm2D-109    [[1, 256, 56, 56]]    [1, 256, 56, 56]        1,024</span><br><span class="line">    Conv2D-106       [[1, 64, 56, 56]]     [1, 256, 56, 56]       16,384</span><br><span class="line">  BatchNorm2D-106    [[1, 256, 56, 56]]    [1, 256, 56, 56]        1,024</span><br><span class="line">BottleneckBlock-34   [[1, 64, 56, 56]]     [1, 256, 56, 56]          0</span><br><span class="line">    Conv2D-110       [[1, 256, 56, 56]]    [1, 64, 56, 56]        16,384</span><br><span class="line">  BatchNorm2D-110    [[1, 64, 56, 56]]     [1, 64, 56, 56]          256</span><br><span class="line">      ReLU-37        [[1, 256, 56, 56]]    [1, 256, 56, 56]          0</span><br><span class="line">    Conv2D-111       [[1, 64, 56, 56]]     [1, 64, 56, 56]        36,864</span><br><span class="line">  BatchNorm2D-111    [[1, 64, 56, 56]]     [1, 64, 56, 56]          256</span><br><span class="line">    Conv2D-112       [[1, 64, 56, 56]]     [1, 256, 56, 56]       16,384</span><br><span class="line">  BatchNorm2D-112    [[1, 256, 56, 56]]    [1, 256, 56, 56]        1,024</span><br><span class="line">BottleneckBlock-35   [[1, 256, 56, 56]]    [1, 256, 56, 56]          0</span><br><span class="line">    Conv2D-113       [[1, 256, 56, 56]]    [1, 64, 56, 56]        16,384</span><br><span class="line">  BatchNorm2D-113    [[1, 64, 56, 56]]     [1, 64, 56, 56]          256</span><br><span class="line">      ReLU-38        [[1, 256, 56, 56]]    [1, 256, 56, 56]          0</span><br><span class="line">    Conv2D-114       [[1, 64, 56, 56]]     [1, 64, 56, 56]        36,864</span><br><span class="line">  BatchNorm2D-114    [[1, 64, 56, 56]]     [1, 64, 56, 56]          256</span><br><span class="line">    Conv2D-115       [[1, 64, 56, 56]]     [1, 256, 56, 56]       16,384</span><br><span class="line">  BatchNorm2D-115    [[1, 256, 56, 56]]    [1, 256, 56, 56]        1,024</span><br><span class="line">BottleneckBlock-36   [[1, 256, 56, 56]]    [1, 256, 56, 56]          0</span><br><span class="line">    Conv2D-117       [[1, 256, 56, 56]]    [1, 128, 56, 56]       32,768</span><br><span class="line">  BatchNorm2D-117    [[1, 128, 56, 56]]    [1, 128, 56, 56]         512</span><br><span class="line">      ReLU-39        [[1, 512, 28, 28]]    [1, 512, 28, 28]          0</span><br><span class="line">    Conv2D-118       [[1, 128, 56, 56]]    [1, 128, 28, 28]       147,456</span><br><span class="line">  BatchNorm2D-118    [[1, 128, 28, 28]]    [1, 128, 28, 28]         512</span><br><span class="line">    Conv2D-119       [[1, 128, 28, 28]]    [1, 512, 28, 28]       65,536</span><br><span class="line">  BatchNorm2D-119    [[1, 512, 28, 28]]    [1, 512, 28, 28]        2,048</span><br><span class="line">    Conv2D-116       [[1, 256, 56, 56]]    [1, 512, 28, 28]       131,072</span><br><span class="line">  BatchNorm2D-116    [[1, 512, 28, 28]]    [1, 512, 28, 28]        2,048</span><br><span class="line">BottleneckBlock-37   [[1, 256, 56, 56]]    [1, 512, 28, 28]          0</span><br><span class="line">    Conv2D-120       [[1, 512, 28, 28]]    [1, 128, 28, 28]       65,536</span><br><span class="line">  BatchNorm2D-120    [[1, 128, 28, 28]]    [1, 128, 28, 28]         512</span><br><span class="line">      ReLU-40        [[1, 512, 28, 28]]    [1, 512, 28, 28]          0</span><br><span class="line">    Conv2D-121       [[1, 128, 28, 28]]    [1, 128, 28, 28]       147,456</span><br><span class="line">  BatchNorm2D-121    [[1, 128, 28, 28]]    [1, 128, 28, 28]         512</span><br><span class="line">    Conv2D-122       [[1, 128, 28, 28]]    [1, 512, 28, 28]       65,536</span><br><span class="line">  BatchNorm2D-122    [[1, 512, 28, 28]]    [1, 512, 28, 28]        2,048</span><br><span class="line">BottleneckBlock-38   [[1, 512, 28, 28]]    [1, 512, 28, 28]          0</span><br><span class="line">    Conv2D-123       [[1, 512, 28, 28]]    [1, 128, 28, 28]       65,536</span><br><span class="line">  BatchNorm2D-123    [[1, 128, 28, 28]]    [1, 128, 28, 28]         512</span><br><span class="line">      ReLU-41        [[1, 512, 28, 28]]    [1, 512, 28, 28]          0</span><br><span class="line">    Conv2D-124       [[1, 128, 28, 28]]    [1, 128, 28, 28]       147,456</span><br><span class="line">  BatchNorm2D-124    [[1, 128, 28, 28]]    [1, 128, 28, 28]         512</span><br><span class="line">    Conv2D-125       [[1, 128, 28, 28]]    [1, 512, 28, 28]       65,536</span><br><span class="line">  BatchNorm2D-125    [[1, 512, 28, 28]]    [1, 512, 28, 28]        2,048</span><br><span class="line">BottleneckBlock-39   [[1, 512, 28, 28]]    [1, 512, 28, 28]          0</span><br><span class="line">    Conv2D-126       [[1, 512, 28, 28]]    [1, 128, 28, 28]       65,536</span><br><span class="line">  BatchNorm2D-126    [[1, 128, 28, 28]]    [1, 128, 28, 28]         512</span><br><span class="line">      ReLU-42        [[1, 512, 28, 28]]    [1, 512, 28, 28]          0</span><br><span class="line">    Conv2D-127       [[1, 128, 28, 28]]    [1, 128, 28, 28]       147,456</span><br><span class="line">  BatchNorm2D-127    [[1, 128, 28, 28]]    [1, 128, 28, 28]         512</span><br><span class="line">    Conv2D-128       [[1, 128, 28, 28]]    [1, 512, 28, 28]       65,536</span><br><span class="line">  BatchNorm2D-128    [[1, 512, 28, 28]]    [1, 512, 28, 28]        2,048</span><br><span class="line">BottleneckBlock-40   [[1, 512, 28, 28]]    [1, 512, 28, 28]          0</span><br><span class="line">    Conv2D-130       [[1, 512, 28, 28]]    [1, 256, 28, 28]       131,072</span><br><span class="line">  BatchNorm2D-130    [[1, 256, 28, 28]]    [1, 256, 28, 28]        1,024</span><br><span class="line">      ReLU-43       [[1, 1024, 14, 14]]   [1, 1024, 14, 14]          0</span><br><span class="line">    Conv2D-131       [[1, 256, 28, 28]]    [1, 256, 14, 14]       589,824</span><br><span class="line">  BatchNorm2D-131    [[1, 256, 14, 14]]    [1, 256, 14, 14]        1,024</span><br><span class="line">    Conv2D-132       [[1, 256, 14, 14]]   [1, 1024, 14, 14]       262,144</span><br><span class="line">  BatchNorm2D-132   [[1, 1024, 14, 14]]   [1, 1024, 14, 14]        4,096</span><br><span class="line">    Conv2D-129       [[1, 512, 28, 28]]   [1, 1024, 14, 14]       524,288</span><br><span class="line">  BatchNorm2D-129   [[1, 1024, 14, 14]]   [1, 1024, 14, 14]        4,096</span><br><span class="line">BottleneckBlock-41   [[1, 512, 28, 28]]   [1, 1024, 14, 14]          0</span><br><span class="line">    Conv2D-133      [[1, 1024, 14, 14]]    [1, 256, 14, 14]       262,144</span><br><span class="line">  BatchNorm2D-133    [[1, 256, 14, 14]]    [1, 256, 14, 14]        1,024</span><br><span class="line">      ReLU-44       [[1, 1024, 14, 14]]   [1, 1024, 14, 14]          0</span><br><span class="line">    Conv2D-134       [[1, 256, 14, 14]]    [1, 256, 14, 14]       589,824</span><br><span class="line">  BatchNorm2D-134    [[1, 256, 14, 14]]    [1, 256, 14, 14]        1,024</span><br><span class="line">    Conv2D-135       [[1, 256, 14, 14]]   [1, 1024, 14, 14]       262,144</span><br><span class="line">  BatchNorm2D-135   [[1, 1024, 14, 14]]   [1, 1024, 14, 14]        4,096</span><br><span class="line">BottleneckBlock-42  [[1, 1024, 14, 14]]   [1, 1024, 14, 14]          0</span><br><span class="line">    Conv2D-136      [[1, 1024, 14, 14]]    [1, 256, 14, 14]       262,144</span><br><span class="line">  BatchNorm2D-136    [[1, 256, 14, 14]]    [1, 256, 14, 14]        1,024</span><br><span class="line">      ReLU-45       [[1, 1024, 14, 14]]   [1, 1024, 14, 14]          0</span><br><span class="line">    Conv2D-137       [[1, 256, 14, 14]]    [1, 256, 14, 14]       589,824</span><br><span class="line">  BatchNorm2D-137    [[1, 256, 14, 14]]    [1, 256, 14, 14]        1,024</span><br><span class="line">    Conv2D-138       [[1, 256, 14, 14]]   [1, 1024, 14, 14]       262,144</span><br><span class="line">  BatchNorm2D-138   [[1, 1024, 14, 14]]   [1, 1024, 14, 14]        4,096</span><br><span class="line">BottleneckBlock-43  [[1, 1024, 14, 14]]   [1, 1024, 14, 14]          0</span><br><span class="line">    Conv2D-139      [[1, 1024, 14, 14]]    [1, 256, 14, 14]       262,144</span><br><span class="line">  BatchNorm2D-139    [[1, 256, 14, 14]]    [1, 256, 14, 14]        1,024</span><br><span class="line">      ReLU-46       [[1, 1024, 14, 14]]   [1, 1024, 14, 14]          0</span><br><span class="line">    Conv2D-140       [[1, 256, 14, 14]]    [1, 256, 14, 14]       589,824</span><br><span class="line">  BatchNorm2D-140    [[1, 256, 14, 14]]    [1, 256, 14, 14]        1,024</span><br><span class="line">    Conv2D-141       [[1, 256, 14, 14]]   [1, 1024, 14, 14]       262,144</span><br><span class="line">  BatchNorm2D-141   [[1, 1024, 14, 14]]   [1, 1024, 14, 14]        4,096</span><br><span class="line">BottleneckBlock-44  [[1, 1024, 14, 14]]   [1, 1024, 14, 14]          0</span><br><span class="line">    Conv2D-142      [[1, 1024, 14, 14]]    [1, 256, 14, 14]       262,144</span><br><span class="line">  BatchNorm2D-142    [[1, 256, 14, 14]]    [1, 256, 14, 14]        1,024</span><br><span class="line">      ReLU-47       [[1, 1024, 14, 14]]   [1, 1024, 14, 14]          0</span><br><span class="line">    Conv2D-143       [[1, 256, 14, 14]]    [1, 256, 14, 14]       589,824</span><br><span class="line">  BatchNorm2D-143    [[1, 256, 14, 14]]    [1, 256, 14, 14]        1,024</span><br><span class="line">    Conv2D-144       [[1, 256, 14, 14]]   [1, 1024, 14, 14]       262,144</span><br><span class="line">  BatchNorm2D-144   [[1, 1024, 14, 14]]   [1, 1024, 14, 14]        4,096</span><br><span class="line">BottleneckBlock-45  [[1, 1024, 14, 14]]   [1, 1024, 14, 14]          0</span><br><span class="line">    Conv2D-145      [[1, 1024, 14, 14]]    [1, 256, 14, 14]       262,144</span><br><span class="line">  BatchNorm2D-145    [[1, 256, 14, 14]]    [1, 256, 14, 14]        1,024</span><br><span class="line">      ReLU-48       [[1, 1024, 14, 14]]   [1, 1024, 14, 14]          0</span><br><span class="line">    Conv2D-146       [[1, 256, 14, 14]]    [1, 256, 14, 14]       589,824</span><br><span class="line">  BatchNorm2D-146    [[1, 256, 14, 14]]    [1, 256, 14, 14]        1,024</span><br><span class="line">    Conv2D-147       [[1, 256, 14, 14]]   [1, 1024, 14, 14]       262,144</span><br><span class="line">  BatchNorm2D-147   [[1, 1024, 14, 14]]   [1, 1024, 14, 14]        4,096</span><br><span class="line">BottleneckBlock-46  [[1, 1024, 14, 14]]   [1, 1024, 14, 14]          0</span><br><span class="line">    Conv2D-148      [[1, 1024, 14, 14]]    [1, 256, 14, 14]       262,144</span><br><span class="line">  BatchNorm2D-148    [[1, 256, 14, 14]]    [1, 256, 14, 14]        1,024</span><br><span class="line">      ReLU-49       [[1, 1024, 14, 14]]   [1, 1024, 14, 14]          0</span><br><span class="line">    Conv2D-149       [[1, 256, 14, 14]]    [1, 256, 14, 14]       589,824</span><br><span class="line">  BatchNorm2D-149    [[1, 256, 14, 14]]    [1, 256, 14, 14]        1,024</span><br><span class="line">    Conv2D-150       [[1, 256, 14, 14]]   [1, 1024, 14, 14]       262,144</span><br><span class="line">  BatchNorm2D-150   [[1, 1024, 14, 14]]   [1, 1024, 14, 14]        4,096</span><br><span class="line">BottleneckBlock-47  [[1, 1024, 14, 14]]   [1, 1024, 14, 14]          0</span><br><span class="line">    Conv2D-151      [[1, 1024, 14, 14]]    [1, 256, 14, 14]       262,144</span><br><span class="line">  BatchNorm2D-151    [[1, 256, 14, 14]]    [1, 256, 14, 14]        1,024</span><br><span class="line">      ReLU-50       [[1, 1024, 14, 14]]   [1, 1024, 14, 14]          0</span><br><span class="line">    Conv2D-152       [[1, 256, 14, 14]]    [1, 256, 14, 14]       589,824</span><br><span class="line">  BatchNorm2D-152    [[1, 256, 14, 14]]    [1, 256, 14, 14]        1,024</span><br><span class="line">    Conv2D-153       [[1, 256, 14, 14]]   [1, 1024, 14, 14]       262,144</span><br><span class="line">  BatchNorm2D-153   [[1, 1024, 14, 14]]   [1, 1024, 14, 14]        4,096</span><br><span class="line">BottleneckBlock-48  [[1, 1024, 14, 14]]   [1, 1024, 14, 14]          0</span><br><span class="line">    Conv2D-154      [[1, 1024, 14, 14]]    [1, 256, 14, 14]       262,144</span><br><span class="line">  BatchNorm2D-154    [[1, 256, 14, 14]]    [1, 256, 14, 14]        1,024</span><br><span class="line">      ReLU-51       [[1, 1024, 14, 14]]   [1, 1024, 14, 14]          0</span><br><span class="line">    Conv2D-155       [[1, 256, 14, 14]]    [1, 256, 14, 14]       589,824</span><br><span class="line">  BatchNorm2D-155    [[1, 256, 14, 14]]    [1, 256, 14, 14]        1,024</span><br><span class="line">    Conv2D-156       [[1, 256, 14, 14]]   [1, 1024, 14, 14]       262,144</span><br><span class="line">  BatchNorm2D-156   [[1, 1024, 14, 14]]   [1, 1024, 14, 14]        4,096</span><br><span class="line">BottleneckBlock-49  [[1, 1024, 14, 14]]   [1, 1024, 14, 14]          0</span><br><span class="line">    Conv2D-157      [[1, 1024, 14, 14]]    [1, 256, 14, 14]       262,144</span><br><span class="line">  BatchNorm2D-157    [[1, 256, 14, 14]]    [1, 256, 14, 14]        1,024</span><br><span class="line">      ReLU-52       [[1, 1024, 14, 14]]   [1, 1024, 14, 14]          0</span><br><span class="line">    Conv2D-158       [[1, 256, 14, 14]]    [1, 256, 14, 14]       589,824</span><br><span class="line">  BatchNorm2D-158    [[1, 256, 14, 14]]    [1, 256, 14, 14]        1,024</span><br><span class="line">    Conv2D-159       [[1, 256, 14, 14]]   [1, 1024, 14, 14]       262,144</span><br><span class="line">  BatchNorm2D-159   [[1, 1024, 14, 14]]   [1, 1024, 14, 14]        4,096</span><br><span class="line">BottleneckBlock-50  [[1, 1024, 14, 14]]   [1, 1024, 14, 14]          0</span><br><span class="line">    Conv2D-160      [[1, 1024, 14, 14]]    [1, 256, 14, 14]       262,144</span><br><span class="line">  BatchNorm2D-160    [[1, 256, 14, 14]]    [1, 256, 14, 14]        1,024</span><br><span class="line">      ReLU-53       [[1, 1024, 14, 14]]   [1, 1024, 14, 14]          0</span><br><span class="line">    Conv2D-161       [[1, 256, 14, 14]]    [1, 256, 14, 14]       589,824</span><br><span class="line">  BatchNorm2D-161    [[1, 256, 14, 14]]    [1, 256, 14, 14]        1,024</span><br><span class="line">    Conv2D-162       [[1, 256, 14, 14]]   [1, 1024, 14, 14]       262,144</span><br><span class="line">  BatchNorm2D-162   [[1, 1024, 14, 14]]   [1, 1024, 14, 14]        4,096</span><br><span class="line">BottleneckBlock-51  [[1, 1024, 14, 14]]   [1, 1024, 14, 14]          0</span><br><span class="line">    Conv2D-163      [[1, 1024, 14, 14]]    [1, 256, 14, 14]       262,144</span><br><span class="line">  BatchNorm2D-163    [[1, 256, 14, 14]]    [1, 256, 14, 14]        1,024</span><br><span class="line">      ReLU-54       [[1, 1024, 14, 14]]   [1, 1024, 14, 14]          0</span><br><span class="line">    Conv2D-164       [[1, 256, 14, 14]]    [1, 256, 14, 14]       589,824</span><br><span class="line">  BatchNorm2D-164    [[1, 256, 14, 14]]    [1, 256, 14, 14]        1,024</span><br><span class="line">    Conv2D-165       [[1, 256, 14, 14]]   [1, 1024, 14, 14]       262,144</span><br><span class="line">  BatchNorm2D-165   [[1, 1024, 14, 14]]   [1, 1024, 14, 14]        4,096</span><br><span class="line">BottleneckBlock-52  [[1, 1024, 14, 14]]   [1, 1024, 14, 14]          0</span><br><span class="line">    Conv2D-166      [[1, 1024, 14, 14]]    [1, 256, 14, 14]       262,144</span><br><span class="line">  BatchNorm2D-166    [[1, 256, 14, 14]]    [1, 256, 14, 14]        1,024</span><br><span class="line">      ReLU-55       [[1, 1024, 14, 14]]   [1, 1024, 14, 14]          0</span><br><span class="line">    Conv2D-167       [[1, 256, 14, 14]]    [1, 256, 14, 14]       589,824</span><br><span class="line">  BatchNorm2D-167    [[1, 256, 14, 14]]    [1, 256, 14, 14]        1,024</span><br><span class="line">    Conv2D-168       [[1, 256, 14, 14]]   [1, 1024, 14, 14]       262,144</span><br><span class="line">  BatchNorm2D-168   [[1, 1024, 14, 14]]   [1, 1024, 14, 14]        4,096</span><br><span class="line">BottleneckBlock-53  [[1, 1024, 14, 14]]   [1, 1024, 14, 14]          0</span><br><span class="line">    Conv2D-169      [[1, 1024, 14, 14]]    [1, 256, 14, 14]       262,144</span><br><span class="line">  BatchNorm2D-169    [[1, 256, 14, 14]]    [1, 256, 14, 14]        1,024</span><br><span class="line">      ReLU-56       [[1, 1024, 14, 14]]   [1, 1024, 14, 14]          0</span><br><span class="line">    Conv2D-170       [[1, 256, 14, 14]]    [1, 256, 14, 14]       589,824</span><br><span class="line">  BatchNorm2D-170    [[1, 256, 14, 14]]    [1, 256, 14, 14]        1,024</span><br><span class="line">    Conv2D-171       [[1, 256, 14, 14]]   [1, 1024, 14, 14]       262,144</span><br><span class="line">  BatchNorm2D-171   [[1, 1024, 14, 14]]   [1, 1024, 14, 14]        4,096</span><br><span class="line">BottleneckBlock-54  [[1, 1024, 14, 14]]   [1, 1024, 14, 14]          0</span><br><span class="line">    Conv2D-172      [[1, 1024, 14, 14]]    [1, 256, 14, 14]       262,144</span><br><span class="line">  BatchNorm2D-172    [[1, 256, 14, 14]]    [1, 256, 14, 14]        1,024</span><br><span class="line">      ReLU-57       [[1, 1024, 14, 14]]   [1, 1024, 14, 14]          0</span><br><span class="line">    Conv2D-173       [[1, 256, 14, 14]]    [1, 256, 14, 14]       589,824</span><br><span class="line">  BatchNorm2D-173    [[1, 256, 14, 14]]    [1, 256, 14, 14]        1,024</span><br><span class="line">    Conv2D-174       [[1, 256, 14, 14]]   [1, 1024, 14, 14]       262,144</span><br><span class="line">  BatchNorm2D-174   [[1, 1024, 14, 14]]   [1, 1024, 14, 14]        4,096</span><br><span class="line">BottleneckBlock-55  [[1, 1024, 14, 14]]   [1, 1024, 14, 14]          0</span><br><span class="line">    Conv2D-175      [[1, 1024, 14, 14]]    [1, 256, 14, 14]       262,144</span><br><span class="line">  BatchNorm2D-175    [[1, 256, 14, 14]]    [1, 256, 14, 14]        1,024</span><br><span class="line">      ReLU-58       [[1, 1024, 14, 14]]   [1, 1024, 14, 14]          0</span><br><span class="line">    Conv2D-176       [[1, 256, 14, 14]]    [1, 256, 14, 14]       589,824</span><br><span class="line">  BatchNorm2D-176    [[1, 256, 14, 14]]    [1, 256, 14, 14]        1,024</span><br><span class="line">    Conv2D-177       [[1, 256, 14, 14]]   [1, 1024, 14, 14]       262,144</span><br><span class="line">  BatchNorm2D-177   [[1, 1024, 14, 14]]   [1, 1024, 14, 14]        4,096</span><br><span class="line">BottleneckBlock-56  [[1, 1024, 14, 14]]   [1, 1024, 14, 14]          0</span><br><span class="line">    Conv2D-178      [[1, 1024, 14, 14]]    [1, 256, 14, 14]       262,144</span><br><span class="line">  BatchNorm2D-178    [[1, 256, 14, 14]]    [1, 256, 14, 14]        1,024</span><br><span class="line">      ReLU-59       [[1, 1024, 14, 14]]   [1, 1024, 14, 14]          0</span><br><span class="line">    Conv2D-179       [[1, 256, 14, 14]]    [1, 256, 14, 14]       589,824</span><br><span class="line">  BatchNorm2D-179    [[1, 256, 14, 14]]    [1, 256, 14, 14]        1,024</span><br><span class="line">    Conv2D-180       [[1, 256, 14, 14]]   [1, 1024, 14, 14]       262,144</span><br><span class="line">  BatchNorm2D-180   [[1, 1024, 14, 14]]   [1, 1024, 14, 14]        4,096</span><br><span class="line">BottleneckBlock-57  [[1, 1024, 14, 14]]   [1, 1024, 14, 14]          0</span><br><span class="line">    Conv2D-181      [[1, 1024, 14, 14]]    [1, 256, 14, 14]       262,144</span><br><span class="line">  BatchNorm2D-181    [[1, 256, 14, 14]]    [1, 256, 14, 14]        1,024</span><br><span class="line">      ReLU-60       [[1, 1024, 14, 14]]   [1, 1024, 14, 14]          0</span><br><span class="line">    Conv2D-182       [[1, 256, 14, 14]]    [1, 256, 14, 14]       589,824</span><br><span class="line">  BatchNorm2D-182    [[1, 256, 14, 14]]    [1, 256, 14, 14]        1,024</span><br><span class="line">    Conv2D-183       [[1, 256, 14, 14]]   [1, 1024, 14, 14]       262,144</span><br><span class="line">  BatchNorm2D-183   [[1, 1024, 14, 14]]   [1, 1024, 14, 14]        4,096</span><br><span class="line">BottleneckBlock-58  [[1, 1024, 14, 14]]   [1, 1024, 14, 14]          0</span><br><span class="line">    Conv2D-184      [[1, 1024, 14, 14]]    [1, 256, 14, 14]       262,144</span><br><span class="line">  BatchNorm2D-184    [[1, 256, 14, 14]]    [1, 256, 14, 14]        1,024</span><br><span class="line">      ReLU-61       [[1, 1024, 14, 14]]   [1, 1024, 14, 14]          0</span><br><span class="line">    Conv2D-185       [[1, 256, 14, 14]]    [1, 256, 14, 14]       589,824</span><br><span class="line">  BatchNorm2D-185    [[1, 256, 14, 14]]    [1, 256, 14, 14]        1,024</span><br><span class="line">    Conv2D-186       [[1, 256, 14, 14]]   [1, 1024, 14, 14]       262,144</span><br><span class="line">  BatchNorm2D-186   [[1, 1024, 14, 14]]   [1, 1024, 14, 14]        4,096</span><br><span class="line">BottleneckBlock-59  [[1, 1024, 14, 14]]   [1, 1024, 14, 14]          0</span><br><span class="line">    Conv2D-187      [[1, 1024, 14, 14]]    [1, 256, 14, 14]       262,144</span><br><span class="line">  BatchNorm2D-187    [[1, 256, 14, 14]]    [1, 256, 14, 14]        1,024</span><br><span class="line">      ReLU-62       [[1, 1024, 14, 14]]   [1, 1024, 14, 14]          0</span><br><span class="line">    Conv2D-188       [[1, 256, 14, 14]]    [1, 256, 14, 14]       589,824</span><br><span class="line">  BatchNorm2D-188    [[1, 256, 14, 14]]    [1, 256, 14, 14]        1,024</span><br><span class="line">    Conv2D-189       [[1, 256, 14, 14]]   [1, 1024, 14, 14]       262,144</span><br><span class="line">  BatchNorm2D-189   [[1, 1024, 14, 14]]   [1, 1024, 14, 14]        4,096</span><br><span class="line">BottleneckBlock-60  [[1, 1024, 14, 14]]   [1, 1024, 14, 14]          0</span><br><span class="line">    Conv2D-190      [[1, 1024, 14, 14]]    [1, 256, 14, 14]       262,144</span><br><span class="line">  BatchNorm2D-190    [[1, 256, 14, 14]]    [1, 256, 14, 14]        1,024</span><br><span class="line">      ReLU-63       [[1, 1024, 14, 14]]   [1, 1024, 14, 14]          0</span><br><span class="line">    Conv2D-191       [[1, 256, 14, 14]]    [1, 256, 14, 14]       589,824</span><br><span class="line">  BatchNorm2D-191    [[1, 256, 14, 14]]    [1, 256, 14, 14]        1,024</span><br><span class="line">    Conv2D-192       [[1, 256, 14, 14]]   [1, 1024, 14, 14]       262,144</span><br><span class="line">  BatchNorm2D-192   [[1, 1024, 14, 14]]   [1, 1024, 14, 14]        4,096</span><br><span class="line">BottleneckBlock-61  [[1, 1024, 14, 14]]   [1, 1024, 14, 14]          0</span><br><span class="line">    Conv2D-193      [[1, 1024, 14, 14]]    [1, 256, 14, 14]       262,144</span><br><span class="line">  BatchNorm2D-193    [[1, 256, 14, 14]]    [1, 256, 14, 14]        1,024</span><br><span class="line">      ReLU-64       [[1, 1024, 14, 14]]   [1, 1024, 14, 14]          0</span><br><span class="line">    Conv2D-194       [[1, 256, 14, 14]]    [1, 256, 14, 14]       589,824</span><br><span class="line">  BatchNorm2D-194    [[1, 256, 14, 14]]    [1, 256, 14, 14]        1,024</span><br><span class="line">    Conv2D-195       [[1, 256, 14, 14]]   [1, 1024, 14, 14]       262,144</span><br><span class="line">  BatchNorm2D-195   [[1, 1024, 14, 14]]   [1, 1024, 14, 14]        4,096</span><br><span class="line">BottleneckBlock-62  [[1, 1024, 14, 14]]   [1, 1024, 14, 14]          0</span><br><span class="line">    Conv2D-196      [[1, 1024, 14, 14]]    [1, 256, 14, 14]       262,144</span><br><span class="line">  BatchNorm2D-196    [[1, 256, 14, 14]]    [1, 256, 14, 14]        1,024</span><br><span class="line">      ReLU-65       [[1, 1024, 14, 14]]   [1, 1024, 14, 14]          0</span><br><span class="line">    Conv2D-197       [[1, 256, 14, 14]]    [1, 256, 14, 14]       589,824</span><br><span class="line">  BatchNorm2D-197    [[1, 256, 14, 14]]    [1, 256, 14, 14]        1,024</span><br><span class="line">    Conv2D-198       [[1, 256, 14, 14]]   [1, 1024, 14, 14]       262,144</span><br><span class="line">  BatchNorm2D-198   [[1, 1024, 14, 14]]   [1, 1024, 14, 14]        4,096</span><br><span class="line">BottleneckBlock-63  [[1, 1024, 14, 14]]   [1, 1024, 14, 14]          0</span><br><span class="line">    Conv2D-200      [[1, 1024, 14, 14]]    [1, 512, 14, 14]       524,288</span><br><span class="line">  BatchNorm2D-200    [[1, 512, 14, 14]]    [1, 512, 14, 14]        2,048</span><br><span class="line">      ReLU-66        [[1, 2048, 7, 7]]     [1, 2048, 7, 7]           0</span><br><span class="line">    Conv2D-201       [[1, 512, 14, 14]]     [1, 512, 7, 7]       2,359,296</span><br><span class="line">  BatchNorm2D-201     [[1, 512, 7, 7]]      [1, 512, 7, 7]         2,048</span><br><span class="line">    Conv2D-202        [[1, 512, 7, 7]]     [1, 2048, 7, 7]       1,048,576</span><br><span class="line">  BatchNorm2D-202    [[1, 2048, 7, 7]]     [1, 2048, 7, 7]         8,192</span><br><span class="line">    Conv2D-199      [[1, 1024, 14, 14]]    [1, 2048, 7, 7]       2,097,152</span><br><span class="line">  BatchNorm2D-199    [[1, 2048, 7, 7]]     [1, 2048, 7, 7]         8,192</span><br><span class="line">BottleneckBlock-64  [[1, 1024, 14, 14]]    [1, 2048, 7, 7]           0</span><br><span class="line">    Conv2D-203       [[1, 2048, 7, 7]]      [1, 512, 7, 7]       1,048,576</span><br><span class="line">  BatchNorm2D-203     [[1, 512, 7, 7]]      [1, 512, 7, 7]         2,048</span><br><span class="line">      ReLU-67        [[1, 2048, 7, 7]]     [1, 2048, 7, 7]           0</span><br><span class="line">    Conv2D-204        [[1, 512, 7, 7]]      [1, 512, 7, 7]       2,359,296</span><br><span class="line">  BatchNorm2D-204     [[1, 512, 7, 7]]      [1, 512, 7, 7]         2,048</span><br><span class="line">    Conv2D-205        [[1, 512, 7, 7]]     [1, 2048, 7, 7]       1,048,576</span><br><span class="line">  BatchNorm2D-205    [[1, 2048, 7, 7]]     [1, 2048, 7, 7]         8,192</span><br><span class="line">BottleneckBlock-65   [[1, 2048, 7, 7]]     [1, 2048, 7, 7]           0</span><br><span class="line">    Conv2D-206       [[1, 2048, 7, 7]]      [1, 512, 7, 7]       1,048,576</span><br><span class="line">  BatchNorm2D-206     [[1, 512, 7, 7]]      [1, 512, 7, 7]         2,048</span><br><span class="line">      ReLU-68        [[1, 2048, 7, 7]]     [1, 2048, 7, 7]           0</span><br><span class="line">    Conv2D-207        [[1, 512, 7, 7]]      [1, 512, 7, 7]       2,359,296</span><br><span class="line">  BatchNorm2D-207     [[1, 512, 7, 7]]      [1, 512, 7, 7]         2,048</span><br><span class="line">    Conv2D-208        [[1, 512, 7, 7]]     [1, 2048, 7, 7]       1,048,576</span><br><span class="line">  BatchNorm2D-208    [[1, 2048, 7, 7]]     [1, 2048, 7, 7]         8,192</span><br><span class="line">BottleneckBlock-66   [[1, 2048, 7, 7]]     [1, 2048, 7, 7]           0</span><br><span class="line">AdaptiveAvgPool2D-2  [[1, 2048, 7, 7]]     [1, 2048, 1, 1]           0</span><br><span class="line">     Linear-2           [[1, 2048]]            [1, 100]           204,900</span><br><span class="line">===============================================================================</span><br><span class="line">Total params: 42,810,404</span><br><span class="line">Trainable params: 42,599,716</span><br><span class="line">Non-trainable params: 210,688</span><br><span class="line">-------------------------------------------------------------------------------</span><br><span class="line">Input size (MB): 0.57</span><br><span class="line">Forward/backward pass size (MB): 391.63</span><br><span class="line">Params size (MB): 163.31</span><br><span class="line">Estimated Total Size (MB): 555.52</span><br><span class="line">-------------------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#123;&#x27;total_params&#x27;: 42810404, &#x27;trainable_params&#x27;: 42599716&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="④-模型训练和调优"><a href="#④-模型训练和调优" class="headerlink" title="④ 模型训练和调优"></a>④ 模型训练和调优</h1><blockquote>
-<p>class paddle.optimizer.lr.PiecewiseDecay(boundaries, values, last_epoch&#x3D;- 1, verbose&#x3D;False)</p>
+<h1>④ 模型训练和调优</h1>
+<blockquote>
+<p>class paddle.optimizer.lr.PiecewiseDecay(boundaries, values, last_epoch=- 1, verbose=False)</p>
 </blockquote>
 <p>该接口提供分段设置学习率的策略。</p>
 <blockquote>
-<p>class paddle.optimizer.lr.LinearWarmup(learing_rate, warmup_steps, start_lr, end_lr, last_epoch&#x3D;- 1, verbose&#x3D;False)</p>
+<p>class paddle.optimizer.lr.LinearWarmup(learing_rate, warmup_steps, start_lr, end_lr, last_epoch=- 1, verbose=False)</p>
 </blockquote>
 <p>该接口提供一种学习率优化策略-线性学习率热身(warm up)对学习率进行初步调整。在正常调整学习率之前，先逐步增大学习率。</p>
 <blockquote>
-<p>class paddle.callbacks.EarlyStopping(monitor&#x3D;’loss’, mode&#x3D;’auto’, patience&#x3D;0, verbose&#x3D;1, min_delta&#x3D;0, baseline&#x3D;None, save_best_model&#x3D;True)</p>
+<p>class paddle.callbacks.EarlyStopping(monitor=‘loss’, mode=‘auto’, patience=0, verbose=1, min_delta=0, baseline=None, save_best_model=True)</p>
 </blockquote>
 <p>在模型评估阶段，模型效果如果没有提升，<code>EarlyStopping</code> 会让模型提前停止训练。</p>
 <ul>
-<li><p>monitor (str，可选) - 监控量。该量作为模型是否停止学习的监控指标。默认值：’loss’。</p>
+<li>
+<p>monitor (str，可选) - 监控量。该量作为模型是否停止学习的监控指标。默认值：‘loss’。</p>
 </li>
-<li><p>mode (str，可选) - 可以是’auto’、’min’或者’max’。在 min 模式下，模型会在监控量的值不再减少时停止训练；max 模式下，模型会在监控量的值不再增加时停止训练；auto 模式下，实际的模式会从 <code>monitor </code>推断出来。如果<code>monitor</code>中有’acc’，将会认为是 max 模式，其它情况下，都会被推断为 min 模式。默认值：’auto’。</p>
+<li>
+<p>mode (str，可选) - 可以是’auto’、‘min’或者’max’。在 min 模式下，模型会在监控量的值不再减少时停止训练；max 模式下，模型会在监控量的值不再增加时停止训练；auto 模式下，实际的模式会从 <code>monitor </code>推断出来。如果<code>monitor</code>中有’acc’，将会认为是 max 模式，其它情况下，都会被推断为 min 模式。默认值：‘auto’。</p>
 </li>
-<li><p>patience (int，可选) - 多少个 epoch 模型效果未提升会使模型提前停止训练。默认值：0。</p>
+<li>
+<p>patience (int，可选) - 多少个 epoch 模型效果未提升会使模型提前停止训练。默认值：0。</p>
 </li>
-<li><p>verbose (int，可选) - 可以是 0 或者 1。1 代表不打印模型提前停止训练的日志，1 代表打印日志。默认值：1。</p>
+<li>
+<p>verbose (int，可选) - 可以是 0 或者 1。1 代表不打印模型提前停止训练的日志，1 代表打印日志。默认值：1。</p>
 </li>
-<li><p>min_delta (int|float，可选) - 监控量最小改变值。当 evaluation 的监控变量改变值小于<code> min_delta</code> ，就认为模型没有变化。默认值：0。</p>
+<li>
+<p>min_delta (int|float，可选) - 监控量最小改变值。当 evaluation 的监控变量改变值小于<code> min_delta</code> ，就认为模型没有变化。默认值：0。</p>
 </li>
-<li><p>baseline (int|float，可选) - 监控量的基线。如果模型在训练 <code>patience</code> 个 epoch 后效果对比基线没有提升，将会停止训练。如果是 None，代表没有基线。默认值：None。</p>
+<li>
+<p>baseline (int|float，可选) - 监控量的基线。如果模型在训练 <code>patience</code> 个 epoch 后效果对比基线没有提升，将会停止训练。如果是 None，代表没有基线。默认值：None。</p>
 </li>
-<li><p>save_best_model (bool，可选) - 是否保存效果最好的模型（监控量的值最优）。文件会保存在 <code>fit</code> 中传入的参数 <code>save_dir</code> 下，前缀名为 best_model，默认值: True。</p>
+<li>
+<p>save_best_model (bool，可选) - 是否保存效果最好的模型（监控量的值最优）。文件会保存在 <code>fit</code> 中传入的参数 <code>save_dir</code> 下，前缀名为 best_model，默认值: True。</p>
 </li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">make_optimizer</span>(<span class="params">parameters=<span class="literal">None</span>, momentum=<span class="number">0.9</span>, weight_decay=<span class="number">5e-4</span>, boundaries=<span class="literal">None</span>, values=<span class="literal">None</span></span>):</span><br><span class="line"></span><br><span class="line">    learning_rate = paddle.optimizer.lr.PiecewiseDecay(</span><br><span class="line">        boundaries=boundaries,</span><br><span class="line">        values=values,</span><br><span class="line">        verbose=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># learning_rate = paddle.optimizer.lr.LinearWarmup(</span></span><br><span class="line">    <span class="comment">#     learning_rate=learning_rate,</span></span><br><span class="line">    <span class="comment">#     warmup_steps=wamup_steps,</span></span><br><span class="line">    <span class="comment">#     start_lr=base_lr / 5.,</span></span><br><span class="line">    <span class="comment">#     end_lr=base_lr,</span></span><br><span class="line">    <span class="comment">#     verbose=False)</span></span><br><span class="line"></span><br><span class="line">    optimizer = paddle.optimizer.Momentum(</span><br><span class="line">        learning_rate=learning_rate,</span><br><span class="line">        weight_decay=weight_decay,</span><br><span class="line">        momentum=momentum,</span><br><span class="line">        parameters=parameters)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># optimizer = paddle.optimizer.AdamW(</span></span><br><span class="line">    <span class="comment">#     learning_rate=learning_rate,</span></span><br><span class="line">    <span class="comment">#     weight_decay=weight_decay,</span></span><br><span class="line">    <span class="comment">#     parameters=parameters)</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> optimizer</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">base_lr = <span class="number">5e-4</span></span><br><span class="line">boundaries = [<span class="number">5</span>, <span class="number">10</span>]</span><br><span class="line"></span><br><span class="line">optimizer = make_optimizer(boundaries=boundaries, values=[base_lr, base_lr*<span class="number">0.2</span>, base_lr*<span class="number">0.1</span>], parameters=model.parameters())</span><br><span class="line"></span><br><span class="line">model.prepare(</span><br><span class="line">    <span class="comment"># optimizer=paddle.optimizer.Adam(learning_rate=5e-4, weight_decay=paddle.regularizer.L2Decay(5e-4), parameters=model.parameters()),</span></span><br><span class="line">    optimizer=optimizer,</span><br><span class="line">    loss=paddle.nn.CrossEntropyLoss(),</span><br><span class="line">    metrics=paddle.metric.Accuracy(topk=(<span class="number">1</span>, <span class="number">5</span>))</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># callbacks</span></span><br><span class="line">visualdl = paddle.callbacks.VisualDL(<span class="string">&#x27;./visualdl/resnet101&#x27;</span>)</span><br><span class="line">earlystop = paddle.callbacks.EarlyStopping( <span class="comment"># acc不在上升时停止</span></span><br><span class="line">    <span class="string">&#x27;acc&#x27;</span>,</span><br><span class="line">    mode=<span class="string">&#x27;max&#x27;</span>,</span><br><span class="line">    patience=<span class="number">5</span>,</span><br><span class="line">    verbose=<span class="number">1</span>,</span><br><span class="line">    min_delta=<span class="number">0</span>,</span><br><span class="line">    baseline=<span class="literal">None</span>,</span><br><span class="line">    save_best_model=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">model.fit(</span><br><span class="line">    train_dataset,</span><br><span class="line">    eval_dataset,</span><br><span class="line">    epochs=<span class="number">20</span>,</span><br><span class="line">    batch_size=<span class="number">128</span>,</span><br><span class="line">    save_freq=<span class="number">2</span>,</span><br><span class="line">    save_dir=<span class="string">&#x27;checkpoint/resnet101&#x27;</span>,</span><br><span class="line">    callbacks=[visualdl, earlystop],</span><br><span class="line">    verbose=<span class="number">1</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br></pre></td><td class="code"><pre><span class="line">The loss value printed in the log is the current step, and the metric is the average value of previous step.</span><br><span class="line">Epoch 1/20</span><br><span class="line">step 391/391 [==============================] - loss: 1.6645 - acc_top1: 0.5995 - acc_top5: 0.8853 - 889ms/step</span><br><span class="line">save checkpoint at /home/aistudio/checkpoint/resnet101/0</span><br><span class="line">Eval begin...</span><br><span class="line">The loss value printed in the log is the current batch, and the metric is the average value of previous step.</span><br><span class="line">step 79/79 [==============================] - loss: 1.5161 - acc_top1: 0.6217 - acc_top5: 0.8958 - 421ms/step</span><br><span class="line">Eval samples: 10000</span><br><span class="line">Epoch 2/20</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/opt/conda/envs/python35-paddle120-env/lib/python3.7/site-packages/paddle/hapi/callbacks.py:808: UserWarning: Monitor of EarlyStopping should be loss or metric name.</span><br><span class="line">  &#x27;Monitor of EarlyStopping should be loss or metric name.&#x27;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">step 391/391 [==============================] - loss: 1.6678 - acc_top1: 0.6264 - acc_top5: 0.8994 - 891ms/step</span><br><span class="line">Eval begin...</span><br><span class="line">The loss value printed in the log is the current batch, and the metric is the average value of previous step.</span><br><span class="line">step 79/79 [==============================] - loss: 1.3930 - acc_top1: 0.6398 - acc_top5: 0.9048 - 421ms/step</span><br><span class="line">Eval samples: 10000</span><br><span class="line">Epoch 3/20</span><br><span class="line">step 391/391 [==============================] - loss: 1.4620 - acc_top1: 0.6483 - acc_top5: 0.9111 - 890ms/step</span><br><span class="line">save checkpoint at /home/aistudio/checkpoint/resnet101/2</span><br><span class="line">Eval begin...</span><br><span class="line">The loss value printed in the log is the current batch, and the metric is the average value of previous step.</span><br><span class="line">step 79/79 [==============================] - loss: 1.2873 - acc_top1: 0.6574 - acc_top5: 0.9170 - 419ms/step</span><br><span class="line">Eval samples: 10000</span><br><span class="line">Epoch 4/20</span><br><span class="line">step 391/391 [==============================] - loss: 1.2918 - acc_top1: 0.6655 - acc_top5: 0.9203 - 888ms/step</span><br><span class="line">Eval begin...</span><br><span class="line">The loss value printed in the log is the current batch, and the metric is the average value of previous step.</span><br><span class="line">step 79/79 [==============================] - loss: 1.2550 - acc_top1: 0.6713 - acc_top5: 0.9235 - 422ms/step</span><br><span class="line">Eval samples: 10000</span><br><span class="line">Epoch 5/20</span><br><span class="line">step 391/391 [==============================] - loss: 1.2747 - acc_top1: 0.6815 - acc_top5: 0.9260 - 890ms/step</span><br><span class="line">save checkpoint at /home/aistudio/checkpoint/resnet101/4</span><br><span class="line">Eval begin...</span><br><span class="line">The loss value printed in the log is the current batch, and the metric is the average value of previous step.</span><br><span class="line">step 79/79 [==============================] - loss: 1.1627 - acc_top1: 0.6817 - acc_top5: 0.9289 - 432ms/step</span><br><span class="line">Eval samples: 10000</span><br><span class="line">Epoch 6/20</span><br><span class="line">step 391/391 [==============================] - loss: 1.2274 - acc_top1: 0.6934 - acc_top5: 0.9329 - 896ms/step</span><br><span class="line">Eval begin...</span><br><span class="line">The loss value printed in the log is the current batch, and the metric is the average value of previous step.</span><br><span class="line">step 79/79 [==============================] - loss: 1.1079 - acc_top1: 0.6979 - acc_top5: 0.9341 - 429ms/step</span><br><span class="line">Eval samples: 10000</span><br><span class="line">Epoch 7/20</span><br><span class="line">step 391/391 [==============================] - loss: 1.0835 - acc_top1: 0.7030 - acc_top5: 0.9362 - 895ms/step</span><br><span class="line">save checkpoint at /home/aistudio/checkpoint/resnet101/6</span><br><span class="line">Eval begin...</span><br><span class="line">The loss value printed in the log is the current batch, and the metric is the average value of previous step.</span><br><span class="line">step 79/79 [==============================] - loss: 1.0728 - acc_top1: 0.7092 - acc_top5: 0.9389 - 427ms/step</span><br><span class="line">Eval samples: 10000</span><br><span class="line">Epoch 8/20</span><br><span class="line">step 391/391 [==============================] - loss: 1.0596 - acc_top1: 0.7117 - acc_top5: 0.9420 - 895ms/step</span><br><span class="line">Eval begin...</span><br><span class="line">The loss value printed in the log is the current batch, and the metric is the average value of previous step.</span><br><span class="line">step 79/79 [==============================] - loss: 1.0304 - acc_top1: 0.7185 - acc_top5: 0.9434 - 428ms/step</span><br><span class="line">Eval samples: 10000</span><br><span class="line">Epoch 9/20</span><br><span class="line">step 391/391 [==============================] - loss: 1.0755 - acc_top1: 0.7246 - acc_top5: 0.9442 - 895ms/step</span><br><span class="line">save checkpoint at /home/aistudio/checkpoint/resnet101/8</span><br><span class="line">Eval begin...</span><br><span class="line">The loss value printed in the log is the current batch, and the metric is the average value of previous step.</span><br><span class="line">step 79/79 [==============================] - loss: 1.0199 - acc_top1: 0.7282 - acc_top5: 0.9452 - 424ms/step</span><br><span class="line">Eval samples: 10000</span><br><span class="line">Epoch 10/20</span><br><span class="line">step 391/391 [==============================] - loss: 1.1637 - acc_top1: 0.7312 - acc_top5: 0.9478 - 893ms/step</span><br><span class="line">Eval begin...</span><br><span class="line">The loss value printed in the log is the current batch, and the metric is the average value of previous step.</span><br><span class="line">step 79/79 [==============================] - loss: 1.0062 - acc_top1: 0.7315 - acc_top5: 0.9464 - 428ms/step</span><br><span class="line">Eval samples: 10000</span><br><span class="line">Epoch 11/20</span><br><span class="line">step 391/391 [==============================] - loss: 1.0794 - acc_top1: 0.7399 - acc_top5: 0.9518 - 894ms/step</span><br><span class="line">save checkpoint at /home/aistudio/checkpoint/resnet101/10</span><br><span class="line">Eval begin...</span><br><span class="line">The loss value printed in the log is the current batch, and the metric is the average value of previous step.</span><br><span class="line">step 79/79 [==============================] - loss: 0.9966 - acc_top1: 0.7390 - acc_top5: 0.9493 - 426ms/step</span><br><span class="line">Eval samples: 10000</span><br><span class="line">Epoch 12/20</span><br><span class="line">step 391/391 [==============================] - loss: 0.8478 - acc_top1: 0.7469 - acc_top5: 0.9539 - 894ms/step</span><br><span class="line">Eval begin...</span><br><span class="line">The loss value printed in the log is the current batch, and the metric is the average value of previous step.</span><br><span class="line">step 79/79 [==============================] - loss: 0.9767 - acc_top1: 0.7424 - acc_top5: 0.9512 - 425ms/step</span><br><span class="line">Eval samples: 10000</span><br><span class="line">Epoch 13/20</span><br><span class="line">step 391/391 [==============================] - loss: 0.9958 - acc_top1: 0.7526 - acc_top5: 0.9555 - 890ms/step</span><br><span class="line">save checkpoint at /home/aistudio/checkpoint/resnet101/12</span><br><span class="line">Eval begin...</span><br><span class="line">The loss value printed in the log is the current batch, and the metric is the average value of previous step.</span><br><span class="line">step 79/79 [==============================] - loss: 0.9697 - acc_top1: 0.7490 - acc_top5: 0.9539 - 426ms/step</span><br><span class="line">Eval samples: 10000</span><br><span class="line">Epoch 14/20</span><br><span class="line">step 391/391 [==============================] - loss: 0.7780 - acc_top1: 0.7584 - acc_top5: 0.9579 - 894ms/step</span><br><span class="line">Eval begin...</span><br><span class="line">The loss value printed in the log is the current batch, and the metric is the average value of previous step.</span><br><span class="line">step 79/79 [==============================] - loss: 0.9391 - acc_top1: 0.7539 - acc_top5: 0.9564 - 423ms/step</span><br><span class="line">Eval samples: 10000</span><br><span class="line">Epoch 15/20</span><br><span class="line">step 391/391 [==============================] - loss: 1.0491 - acc_top1: 0.7658 - acc_top5: 0.9614 - 891ms/step</span><br><span class="line">save checkpoint at /home/aistudio/checkpoint/resnet101/14</span><br><span class="line">Eval begin...</span><br><span class="line">The loss value printed in the log is the current batch, and the metric is the average value of previous step.</span><br><span class="line">step 79/79 [==============================] - loss: 0.9187 - acc_top1: 0.7583 - acc_top5: 0.9571 - 420ms/step</span><br><span class="line">Eval samples: 10000</span><br><span class="line">Epoch 16/20</span><br><span class="line">step 391/391 [==============================] - loss: 0.8458 - acc_top1: 0.7696 - acc_top5: 0.9617 - 890ms/step</span><br><span class="line">Eval begin...</span><br><span class="line">The loss value printed in the log is the current batch, and the metric is the average value of previous step.</span><br><span class="line">step 79/79 [==============================] - loss: 0.9076 - acc_top1: 0.7623 - acc_top5: 0.9589 - 422ms/step</span><br><span class="line">Eval samples: 10000</span><br><span class="line">Epoch 17/20</span><br><span class="line">step 391/391 [==============================] - loss: 1.0365 - acc_top1: 0.7758 - acc_top5: 0.9628 - 892ms/step</span><br><span class="line">save checkpoint at /home/aistudio/checkpoint/resnet101/16</span><br><span class="line">Eval begin...</span><br><span class="line">The loss value printed in the log is the current batch, and the metric is the average value of previous step.</span><br><span class="line">step 79/79 [==============================] - loss: 0.8588 - acc_top1: 0.7638 - acc_top5: 0.9598 - 424ms/step</span><br><span class="line">Eval samples: 10000</span><br><span class="line">Epoch 18/20</span><br><span class="line">step 391/391 [==============================] - loss: 0.9865 - acc_top1: 0.7814 - acc_top5: 0.9650 - 890ms/step</span><br><span class="line">Eval begin...</span><br><span class="line">The loss value printed in the log is the current batch, and the metric is the average value of previous step.</span><br><span class="line">step 79/79 [==============================] - loss: 0.8834 - acc_top1: 0.7701 - acc_top5: 0.9618 - 429ms/step</span><br><span class="line">Eval samples: 10000</span><br><span class="line">Epoch 19/20</span><br><span class="line">step 391/391 [==============================] - loss: 0.6649 - acc_top1: 0.7834 - acc_top5: 0.9670 - 893ms/step</span><br><span class="line">save checkpoint at /home/aistudio/checkpoint/resnet101/18</span><br><span class="line">Eval begin...</span><br><span class="line">The loss value printed in the log is the current batch, and the metric is the average value of previous step.</span><br><span class="line">step 79/79 [==============================] - loss: 0.9119 - acc_top1: 0.7721 - acc_top5: 0.9620 - 427ms/step</span><br><span class="line">Eval samples: 10000</span><br><span class="line">Epoch 20/20</span><br><span class="line">step 391/391 [==============================] - loss: 0.6904 - acc_top1: 0.7891 - acc_top5: 0.9680 - 898ms/step</span><br><span class="line">Eval begin...</span><br><span class="line">The loss value printed in the log is the current batch, and the metric is the average value of previous step.</span><br><span class="line">step 79/79 [==============================] - loss: 0.8655 - acc_top1: 0.7740 - acc_top5: 0.9628 - 430ms/step</span><br><span class="line">Eval samples: 10000</span><br><span class="line">save checkpoint at /home/aistudio/checkpoint/resnet101/final</span><br></pre></td></tr></table></figure>
-
 <p><code>VisualDL</code></p>
 <p><img src="https://img-blog.csdnimg.cn/img_convert/bb7b375314b4ac8ea386f7a9eb6f3d88.png" alt="resize_epoch20_lr5e-4"></p>
 <p>loss 还在下降，继续训练</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 加载finetuning模型训练</span></span><br><span class="line">model.load(<span class="string">&#x27;./checkpoint/resnet101/14&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">make_optimizer</span>(<span class="params">parameters=<span class="literal">None</span>, momentum=<span class="number">0.9</span>, weight_decay=<span class="number">5e-4</span>, boundaries=<span class="literal">None</span>, values=<span class="literal">None</span></span>):</span><br><span class="line"></span><br><span class="line">    learning_rate = paddle.optimizer.lr.PiecewiseDecay(</span><br><span class="line">        boundaries=boundaries,</span><br><span class="line">        values=values,</span><br><span class="line">        verbose=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># learning_rate = paddle.optimizer.lr.LinearWarmup(</span></span><br><span class="line">    <span class="comment">#     learning_rate=learning_rate,</span></span><br><span class="line">    <span class="comment">#     warmup_steps=wamup_steps,</span></span><br><span class="line">    <span class="comment">#     start_lr=base_lr / 5.,</span></span><br><span class="line">    <span class="comment">#     end_lr=base_lr,</span></span><br><span class="line">    <span class="comment">#     verbose=False)</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># optimizer = paddle.optimizer.Momentum(</span></span><br><span class="line">    <span class="comment">#     learning_rate=learning_rate,</span></span><br><span class="line">    <span class="comment">#     weight_decay=weight_decay,</span></span><br><span class="line">    <span class="comment">#     momentum=momentum,</span></span><br><span class="line">    <span class="comment">#     parameters=parameters)</span></span><br><span class="line"></span><br><span class="line">    optimizer = paddle.optimizer.Adam(</span><br><span class="line">        learning_rate=learning_rate,</span><br><span class="line">        weight_decay=weight_decay,</span><br><span class="line">        parameters=parameters)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> optimizer</span><br><span class="line"></span><br><span class="line">base_lr = <span class="number">5e-5</span></span><br><span class="line">boundaries = [<span class="number">5</span>]</span><br><span class="line"></span><br><span class="line">optimizer = make_optimizer(boundaries=boundaries, values=[base_lr, base_lr*<span class="number">0.2</span>], parameters=model.parameters())</span><br><span class="line"></span><br><span class="line">model.prepare(</span><br><span class="line">    optimizer=optimizer,</span><br><span class="line">    loss=paddle.nn.CrossEntropyLoss(),</span><br><span class="line">    metrics=paddle.metric.Accuracy(topk=(<span class="number">1</span>, <span class="number">5</span>))</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># callbacks</span></span><br><span class="line">visualdl = paddle.callbacks.VisualDL(<span class="string">&#x27;./visualdl/resnet101/14&#x27;</span>)</span><br><span class="line">earlystop = paddle.callbacks.EarlyStopping(</span><br><span class="line">    <span class="comment"># acc不在上升时停止</span></span><br><span class="line">    <span class="string">&#x27;acc&#x27;</span>,</span><br><span class="line">    mode=<span class="string">&#x27;max&#x27;</span>,</span><br><span class="line">    patience=<span class="number">4</span>,</span><br><span class="line">    verbose=<span class="number">1</span>,</span><br><span class="line">    min_delta=<span class="number">0</span>,</span><br><span class="line">    baseline=<span class="literal">None</span>,</span><br><span class="line">    save_best_model=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">model.fit(</span><br><span class="line">    train_dataset,</span><br><span class="line">    eval_dataset,</span><br><span class="line">    epochs=<span class="number">10</span>,</span><br><span class="line">    batch_size=<span class="number">128</span>,</span><br><span class="line">    save_freq=<span class="number">2</span>,</span><br><span class="line">    save_dir=<span class="string">&#x27;checkpoint/resnet101/14&#x27;</span>,</span><br><span class="line">    callbacks=[visualdl],</span><br><span class="line">    verbose=<span class="number">1</span></span><br><span class="line">_dataset,</span><br><span class="line">    eval_dataset,</span><br><span class="line">    epochs=<span class="number">10</span>,</span><br><span class="line">    batch_size=<span class="number">128</span>,</span><br><span class="line">    save_freq=<span class="number">2</span>,</span><br><span class="line">    save_dir=<span class="string">&#x27;checkpoint/resnet101/14&#x27;</span>,</span><br><span class="line">    callbacks=[visualdl],</span><br><span class="line">    verbose=<span class="number">1</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">The loss value printed in the log is the current step, and the metric is the average value of previous step.</span><br><span class="line">Epoch 1/10</span><br><span class="line">step 391/391 [==============================] - loss: 0.7212 - acc_top1: 0.7760 - acc_top5: 0.9648 - 892ms/step</span><br><span class="line">save checkpoint at /home/aistudio/checkpoint/resnet101/14/0</span><br><span class="line">Eval begin...</span><br><span class="line">The loss value printed in the log is the current batch, and the metric is the average value of previous step.</span><br><span class="line">step 79/79 [==============================] - loss: 0.9302 - acc_top1: 0.7996 - acc_top5: 0.9680 - 421ms/step</span><br><span class="line">Eval samples: 10000</span><br><span class="line">Epoch 2/10</span><br><span class="line">step 391/391 [==============================] - loss: 0.5295 - acc_top1: 0.8301 - acc_top5: 0.9776 - 893ms/step</span><br><span class="line">Eval begin...</span><br><span class="line">The loss value printed in the log is the current batch, and the metric is the average value of previous step.</span><br><span class="line">step 79/79 [==============================] - loss: 0.8164 - acc_top1: 0.8103 - acc_top5: 0.9732 - 416ms/step</span><br><span class="line">Eval samples: 10000</span><br><span class="line">Epoch 3/10</span><br><span class="line">step 391/391 [==============================] - loss: 0.4092 - acc_top1: 0.8622 - acc_top5: 0.9853 - 895ms/step</span><br><span class="line">save checkpoint at /home/aistudio/checkpoint/resnet101/14/2</span><br><span class="line">Eval begin...</span><br><span class="line">The loss value printed in the log is the current batch, and the metric is the average value of previous step.</span><br><span class="line">step 79/79 [==============================] - loss: 0.8366 - acc_top1: 0.8297 - acc_top5: 0.9747 - 416ms/step</span><br><span class="line">Eval samples: 10000</span><br><span class="line">Epoch 4/10</span><br><span class="line">step 391/391 [==============================] - loss: 0.3479 - acc_top1: 0.8860 - acc_top5: 0.9896 - 899ms/step</span><br><span class="line">Eval begin...</span><br><span class="line">The loss value printed in the log is the current batch, and the metric is the average value of previous step.</span><br><span class="line">step 79/79 [==============================] - loss: 0.7397 - acc_top1: 0.8325 - acc_top5: 0.9757 - 428ms/step</span><br><span class="line">Eval samples: 10000</span><br><span class="line">Epoch 5/10</span><br><span class="line">step 391/391 [==============================] - loss: 0.3405 - acc_top1: 0.9086 - acc_top5: 0.9925 - 906ms/step</span><br><span class="line">save checkpoint at /home/aistudio/checkpoint/resnet101/14/4</span><br><span class="line">Eval begin...</span><br><span class="line">The loss value printed in the log is the current batch, and the metric is the average value of previous step.</span><br><span class="line">step 79/79 [==============================] - loss: 0.8492 - acc_top1: 0.8373 - acc_top5: 0.9780 - 430ms/step</span><br><span class="line">Eval samples: 10000</span><br><span class="line">Epoch 6/10</span><br><span class="line">step 391/391 [==============================] - loss: 0.1852 - acc_top1: 0.9242 - acc_top5: 0.9948 - 902ms/step</span><br><span class="line">Eval begin...</span><br><span class="line">The loss value printed in the log is the current batch, and the metric is the average value of previous step.</span><br><span class="line">step 79/79 [==============================] - loss: 0.7244 - acc_top1: 0.8436 - acc_top5: 0.9761 - 422ms/step</span><br><span class="line">Eval samples: 10000</span><br><span class="line">Epoch 7/10</span><br><span class="line">step 391/391 [==============================] - loss: 0.3084 - acc_top1: 0.9387 - acc_top5: 0.9969 - 895ms/step</span><br><span class="line">save checkpoint at /home/aistudio/checkpoint/resnet101/14/6</span><br><span class="line">Eval begin...</span><br><span class="line">The loss value printed in the log is the current batch, and the metric is the average value of previous step.</span><br><span class="line">step 79/79 [==============================] - loss: 0.8724 - acc_top1: 0.8458 - acc_top5: 0.9767 - 419ms/step</span><br><span class="line">Eval samples: 10000</span><br><span class="line">Epoch 8/10</span><br><span class="line">step 391/391 [==============================] - loss: 0.1378 - acc_top1: 0.9529 - acc_top5: 0.9979 - 893ms/step</span><br><span class="line">Eval begin...</span><br><span class="line">The loss value printed in the log is the current batch, and the metric is the average value of previous step.</span><br><span class="line">step 79/79 [==============================] - loss: 0.8844 - acc_top1: 0.8443 - acc_top5: 0.9765 - 419ms/step</span><br><span class="line">Eval samples: 10000</span><br><span class="line">Epoch 9/10</span><br><span class="line">step 391/391 [==============================] - loss: 0.1667 - acc_top1: 0.9623 - acc_top5: 0.9981 - 894ms/step</span><br><span class="line">save checkpoint at /home/aistudio/checkpoint/resnet101/14/8</span><br><span class="line">Eval begin...</span><br><span class="line">The loss value printed in the log is the current batch, and the metric is the average value of previous step.</span><br><span class="line">step 79/79 [==============================] - loss: 0.7474 - acc_top1: 0.8490 - acc_top5: 0.9775 - 416ms/step</span><br><span class="line">Eval samples: 10000</span><br><span class="line">Epoch 10/10</span><br><span class="line">step 391/391 [==============================] - loss: 0.1841 - acc_top1: 0.9697 - acc_top5: 0.9989 - 895ms/step</span><br><span class="line">Eval begin...</span><br><span class="line">The loss value printed in the log is the current batch, and the metric is the average value of previous step.</span><br><span class="line">step 79/79 [==============================] - loss: 0.7419 - acc_top1: 0.8471 - acc_top5: 0.9758 - 428ms/step</span><br><span class="line">Eval samples: 10000</span><br><span class="line">save checkpoint at /home/aistudio/checkpoint/resnet101/14/final</span><br></pre></td></tr></table></figure>
-
-<h2 id="VisualDL"><a href="#VisualDL" class="headerlink" title="VisualDL"></a>VisualDL</h2><p><img src="https://img-blog.csdnimg.cn/img_convert/4bf477cbced30b62fd6911e12e30399b.png"></p>
+<h2 id="VisualDL">VisualDL</h2>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/4bf477cbced30b62fd6911e12e30399b.png" alt=""></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">model.save(<span class="string">&#x27;./finetuning/resnet101/model&#x27;</span>, training=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
-
-<h2 id="评分输出"><a href="#评分输出" class="headerlink" title="评分输出"></a>评分输出</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Eval samples: 10000</span><br><span class="line">&#123;&#x27;loss&#x27;: [1.4640276], &#x27;acc_top1&#x27;: 0.6361581096849475, &#x27;acc_top5&#x27;: 0.8786464410735122&#125;</span><br></pre></td></tr></table></figure>
-
+<h2 id="评分输出">评分输出</h2>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Eval samples: 10000</span><br><span class="line">&#123;&#x27;loss&#x27;: [1.4640276], &#x27;acc_top1&#x27;: 0.6361581096849475, &#x27;acc_top5&#x27;: 0.8786464410735122&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">result = model.evaluate(eval_dataset, batch_size=<span class="number">128</span>, verbose=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(result)</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Eval begin...</span><br><span class="line">The loss value printed in the log is the current batch, and the metric is the average value of previous step.</span><br><span class="line">step 79/79 [==============================] - loss: 0.7419 - acc_top1: 0.8468 - acc_top5: 0.9757 - 417ms/step</span><br><span class="line">Eval samples: 10000</span><br><span class="line">&#123;&#x27;loss&#x27;: [0.74186254], &#x27;acc_top1&#x27;: 0.8467935528120714, &#x27;acc_top5&#x27;: 0.9757373113854595&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="CIFAR-100-网络模型效果参考"><a href="#CIFAR-100-网络模型效果参考" class="headerlink" title="CIFAR-100 网络模型效果参考"></a>CIFAR-100 网络模型效果参考</h2><p><a target="_blank" rel="noopener" href="https://paperswithcode.com/sota/image-classification-on-cifar-100">https://paperswithcode.com/sota/image-classification-on-cifar-100</a></p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/0a7e9ebc85083f4a4edef5b43c127894.png"></p>
+<h2 id="CIFAR-100-网络模型效果参考">CIFAR-100 网络模型效果参考</h2>
+<p><a target="_blank" rel="noopener" href="https://paperswithcode.com/sota/image-classification-on-cifar-100">https://paperswithcode.com/sota/image-classification-on-cifar-100</a></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/0a7e9ebc85083f4a4edef5b43c127894.png" alt=""></p>
 <p>自定义模型训练结果参考：</p>
 <table>
 <thead>
 <tr>
-<th align="center">dataset</th>
-<th align="center">network</th>
-<th align="center">params</th>
-<th align="center">top1 err</th>
-<th align="center">top5 err</th>
-<th align="center">epoch(lr &#x3D; 0.1)</th>
-<th align="center">epoch(lr &#x3D; 0.02)</th>
-<th align="center">epoch(lr &#x3D; 0.004)</th>
-<th align="center">epoch(lr &#x3D; 0.0008)</th>
-<th align="center">total epoch</th>
+<th style="text-align:center">dataset</th>
+<th style="text-align:center">network</th>
+<th style="text-align:center">params</th>
+<th style="text-align:center">top1 err</th>
+<th style="text-align:center">top5 err</th>
+<th style="text-align:center">epoch(lr = 0.1)</th>
+<th style="text-align:center">epoch(lr = 0.02)</th>
+<th style="text-align:center">epoch(lr = 0.004)</th>
+<th style="text-align:center">epoch(lr = 0.0008)</th>
+<th style="text-align:center">total epoch</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">cifar100</td>
-<td align="center">mobilenet</td>
-<td align="center">3.3M</td>
-<td align="center">34.02</td>
-<td align="center">10.56</td>
-<td align="center">60</td>
-<td align="center">60</td>
-<td align="center">40</td>
-<td align="center">40</td>
-<td align="center">200</td>
+<tbody>
+<tr>
+<td style="text-align:center">cifar100</td>
+<td style="text-align:center">mobilenet</td>
+<td style="text-align:center">3.3M</td>
+<td style="text-align:center">34.02</td>
+<td style="text-align:center">10.56</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">200</td>
 </tr>
 <tr>
-<td align="center">cifar100</td>
-<td align="center">mobilenetv2</td>
-<td align="center">2.36M</td>
-<td align="center">31.92</td>
-<td align="center">09.02</td>
-<td align="center">60</td>
-<td align="center">60</td>
-<td align="center">40</td>
-<td align="center">40</td>
-<td align="center">200</td>
+<td style="text-align:center">cifar100</td>
+<td style="text-align:center">mobilenetv2</td>
+<td style="text-align:center">2.36M</td>
+<td style="text-align:center">31.92</td>
+<td style="text-align:center">09.02</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">200</td>
 </tr>
 <tr>
-<td align="center">cifar100</td>
-<td align="center">squeezenet</td>
-<td align="center">0.78M</td>
-<td align="center">30.59</td>
-<td align="center">8.36</td>
-<td align="center">60</td>
-<td align="center">60</td>
-<td align="center">40</td>
-<td align="center">40</td>
-<td align="center">200</td>
+<td style="text-align:center">cifar100</td>
+<td style="text-align:center">squeezenet</td>
+<td style="text-align:center">0.78M</td>
+<td style="text-align:center">30.59</td>
+<td style="text-align:center">8.36</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">200</td>
 </tr>
 <tr>
-<td align="center">cifar100</td>
-<td align="center">shufflenet</td>
-<td align="center">1.0M</td>
-<td align="center">29.94</td>
-<td align="center">8.35</td>
-<td align="center">60</td>
-<td align="center">60</td>
-<td align="center">40</td>
-<td align="center">40</td>
-<td align="center">200</td>
+<td style="text-align:center">cifar100</td>
+<td style="text-align:center">shufflenet</td>
+<td style="text-align:center">1.0M</td>
+<td style="text-align:center">29.94</td>
+<td style="text-align:center">8.35</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">200</td>
 </tr>
 <tr>
-<td align="center">cifar100</td>
-<td align="center">shufflenetv2</td>
-<td align="center">1.3M</td>
-<td align="center">30.49</td>
-<td align="center">8.49</td>
-<td align="center">60</td>
-<td align="center">60</td>
-<td align="center">40</td>
-<td align="center">40</td>
-<td align="center">200</td>
+<td style="text-align:center">cifar100</td>
+<td style="text-align:center">shufflenetv2</td>
+<td style="text-align:center">1.3M</td>
+<td style="text-align:center">30.49</td>
+<td style="text-align:center">8.49</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">200</td>
 </tr>
 <tr>
-<td align="center">cifar100</td>
-<td align="center">vgg11_bn</td>
-<td align="center">28.5M</td>
-<td align="center">31.36</td>
-<td align="center">11.85</td>
-<td align="center">60</td>
-<td align="center">60</td>
-<td align="center">40</td>
-<td align="center">40</td>
-<td align="center">200</td>
+<td style="text-align:center">cifar100</td>
+<td style="text-align:center">vgg11_bn</td>
+<td style="text-align:center">28.5M</td>
+<td style="text-align:center">31.36</td>
+<td style="text-align:center">11.85</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">200</td>
 </tr>
 <tr>
-<td align="center">cifar100</td>
-<td align="center">vgg13_bn</td>
-<td align="center">28.7M</td>
-<td align="center">28.00</td>
-<td align="center">9.71</td>
-<td align="center">60</td>
-<td align="center">60</td>
-<td align="center">40</td>
-<td align="center">40</td>
-<td align="center">200</td>
+<td style="text-align:center">cifar100</td>
+<td style="text-align:center">vgg13_bn</td>
+<td style="text-align:center">28.7M</td>
+<td style="text-align:center">28.00</td>
+<td style="text-align:center">9.71</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">200</td>
 </tr>
 <tr>
-<td align="center">cifar100</td>
-<td align="center">vgg16_bn</td>
-<td align="center">34.0M</td>
-<td align="center">27.07</td>
-<td align="center">8.84</td>
-<td align="center">60</td>
-<td align="center">60</td>
-<td align="center">40</td>
-<td align="center">40</td>
-<td align="center">200</td>
+<td style="text-align:center">cifar100</td>
+<td style="text-align:center">vgg16_bn</td>
+<td style="text-align:center">34.0M</td>
+<td style="text-align:center">27.07</td>
+<td style="text-align:center">8.84</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">200</td>
 </tr>
 <tr>
-<td align="center">cifar100</td>
-<td align="center">vgg19_bn</td>
-<td align="center">39.0M</td>
-<td align="center">27.77</td>
-<td align="center">8.84</td>
-<td align="center">60</td>
-<td align="center">60</td>
-<td align="center">40</td>
-<td align="center">40</td>
-<td align="center">200</td>
+<td style="text-align:center">cifar100</td>
+<td style="text-align:center">vgg19_bn</td>
+<td style="text-align:center">39.0M</td>
+<td style="text-align:center">27.77</td>
+<td style="text-align:center">8.84</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">200</td>
 </tr>
 <tr>
-<td align="center">cifar100</td>
-<td align="center">resnet18</td>
-<td align="center">11.2M</td>
-<td align="center">24.39</td>
-<td align="center">6.95</td>
-<td align="center">60</td>
-<td align="center">60</td>
-<td align="center">40</td>
-<td align="center">40</td>
-<td align="center">200</td>
+<td style="text-align:center">cifar100</td>
+<td style="text-align:center">resnet18</td>
+<td style="text-align:center">11.2M</td>
+<td style="text-align:center">24.39</td>
+<td style="text-align:center">6.95</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">200</td>
 </tr>
 <tr>
-<td align="center">cifar100</td>
-<td align="center">resnet34</td>
-<td align="center">21.3M</td>
-<td align="center">23.24</td>
-<td align="center">6.63</td>
-<td align="center">60</td>
-<td align="center">60</td>
-<td align="center">40</td>
-<td align="center">40</td>
-<td align="center">200</td>
+<td style="text-align:center">cifar100</td>
+<td style="text-align:center">resnet34</td>
+<td style="text-align:center">21.3M</td>
+<td style="text-align:center">23.24</td>
+<td style="text-align:center">6.63</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">200</td>
 </tr>
 <tr>
-<td align="center">cifar100</td>
-<td align="center">resnet50</td>
-<td align="center">23.7M</td>
-<td align="center">22.61</td>
-<td align="center">6.04</td>
-<td align="center">60</td>
-<td align="center">60</td>
-<td align="center">40</td>
-<td align="center">40</td>
-<td align="center">200</td>
+<td style="text-align:center">cifar100</td>
+<td style="text-align:center">resnet50</td>
+<td style="text-align:center">23.7M</td>
+<td style="text-align:center">22.61</td>
+<td style="text-align:center">6.04</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">200</td>
 </tr>
 <tr>
-<td align="center">cifar100</td>
-<td align="center">resnet101</td>
-<td align="center">42.7M</td>
-<td align="center">22.22</td>
-<td align="center">5.61</td>
-<td align="center">60</td>
-<td align="center">60</td>
-<td align="center">40</td>
-<td align="center">40</td>
-<td align="center">200</td>
+<td style="text-align:center">cifar100</td>
+<td style="text-align:center">resnet101</td>
+<td style="text-align:center">42.7M</td>
+<td style="text-align:center">22.22</td>
+<td style="text-align:center">5.61</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">200</td>
 </tr>
 <tr>
-<td align="center">cifar100</td>
-<td align="center">resnet152</td>
-<td align="center">58.3M</td>
-<td align="center">22.31</td>
-<td align="center">5.81</td>
-<td align="center">60</td>
-<td align="center">60</td>
-<td align="center">40</td>
-<td align="center">40</td>
-<td align="center">200</td>
+<td style="text-align:center">cifar100</td>
+<td style="text-align:center">resnet152</td>
+<td style="text-align:center">58.3M</td>
+<td style="text-align:center">22.31</td>
+<td style="text-align:center">5.81</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">200</td>
 </tr>
 <tr>
-<td align="center">cifar100</td>
-<td align="center">preactresnet18</td>
-<td align="center">11.3M</td>
-<td align="center">27.08</td>
-<td align="center">8.53</td>
-<td align="center">60</td>
-<td align="center">60</td>
-<td align="center">40</td>
-<td align="center">40</td>
-<td align="center">200</td>
+<td style="text-align:center">cifar100</td>
+<td style="text-align:center">preactresnet18</td>
+<td style="text-align:center">11.3M</td>
+<td style="text-align:center">27.08</td>
+<td style="text-align:center">8.53</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">200</td>
 </tr>
 <tr>
-<td align="center">cifar100</td>
-<td align="center">preactresnet34</td>
-<td align="center">21.5M</td>
-<td align="center">24.79</td>
-<td align="center">7.68</td>
-<td align="center">60</td>
-<td align="center">60</td>
-<td align="center">40</td>
-<td align="center">40</td>
-<td align="center">200</td>
+<td style="text-align:center">cifar100</td>
+<td style="text-align:center">preactresnet34</td>
+<td style="text-align:center">21.5M</td>
+<td style="text-align:center">24.79</td>
+<td style="text-align:center">7.68</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">200</td>
 </tr>
 <tr>
-<td align="center">cifar100</td>
-<td align="center">preactresnet50</td>
-<td align="center">23.9M</td>
-<td align="center">25.73</td>
-<td align="center">8.15</td>
-<td align="center">60</td>
-<td align="center">60</td>
-<td align="center">40</td>
-<td align="center">40</td>
-<td align="center">200</td>
+<td style="text-align:center">cifar100</td>
+<td style="text-align:center">preactresnet50</td>
+<td style="text-align:center">23.9M</td>
+<td style="text-align:center">25.73</td>
+<td style="text-align:center">8.15</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">200</td>
 </tr>
 <tr>
-<td align="center">cifar100</td>
-<td align="center">preactresnet101</td>
-<td align="center">42.9M</td>
-<td align="center">24.84</td>
-<td align="center">7.83</td>
-<td align="center">60</td>
-<td align="center">60</td>
-<td align="center">40</td>
-<td align="center">40</td>
-<td align="center">200</td>
+<td style="text-align:center">cifar100</td>
+<td style="text-align:center">preactresnet101</td>
+<td style="text-align:center">42.9M</td>
+<td style="text-align:center">24.84</td>
+<td style="text-align:center">7.83</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">200</td>
 </tr>
 <tr>
-<td align="center">cifar100</td>
-<td align="center">preactresnet152</td>
-<td align="center">58.6M</td>
-<td align="center">22.71</td>
-<td align="center">6.62</td>
-<td align="center">60</td>
-<td align="center">60</td>
-<td align="center">40</td>
-<td align="center">40</td>
-<td align="center">200</td>
+<td style="text-align:center">cifar100</td>
+<td style="text-align:center">preactresnet152</td>
+<td style="text-align:center">58.6M</td>
+<td style="text-align:center">22.71</td>
+<td style="text-align:center">6.62</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">200</td>
 </tr>
 <tr>
-<td align="center">cifar100</td>
-<td align="center">resnext50</td>
-<td align="center">14.8M</td>
-<td align="center">22.23</td>
-<td align="center">6.00</td>
-<td align="center">60</td>
-<td align="center">60</td>
-<td align="center">40</td>
-<td align="center">40</td>
-<td align="center">200</td>
+<td style="text-align:center">cifar100</td>
+<td style="text-align:center">resnext50</td>
+<td style="text-align:center">14.8M</td>
+<td style="text-align:center">22.23</td>
+<td style="text-align:center">6.00</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">200</td>
 </tr>
 <tr>
-<td align="center">cifar100</td>
-<td align="center">resnext101</td>
-<td align="center">25.3M</td>
-<td align="center">22.22</td>
-<td align="center">5.99</td>
-<td align="center">60</td>
-<td align="center">60</td>
-<td align="center">40</td>
-<td align="center">40</td>
-<td align="center">200</td>
+<td style="text-align:center">cifar100</td>
+<td style="text-align:center">resnext101</td>
+<td style="text-align:center">25.3M</td>
+<td style="text-align:center">22.22</td>
+<td style="text-align:center">5.99</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">200</td>
 </tr>
 <tr>
-<td align="center">cifar100</td>
-<td align="center">resnext152</td>
-<td align="center">33.3M</td>
-<td align="center">22.40</td>
-<td align="center">5.58</td>
-<td align="center">60</td>
-<td align="center">60</td>
-<td align="center">40</td>
-<td align="center">40</td>
-<td align="center">200</td>
+<td style="text-align:center">cifar100</td>
+<td style="text-align:center">resnext152</td>
+<td style="text-align:center">33.3M</td>
+<td style="text-align:center">22.40</td>
+<td style="text-align:center">5.58</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">200</td>
 </tr>
 <tr>
-<td align="center">cifar100</td>
-<td align="center">attention59</td>
-<td align="center">55.7M</td>
-<td align="center">33.75</td>
-<td align="center">12.90</td>
-<td align="center">60</td>
-<td align="center">60</td>
-<td align="center">40</td>
-<td align="center">40</td>
-<td align="center">200</td>
+<td style="text-align:center">cifar100</td>
+<td style="text-align:center">attention59</td>
+<td style="text-align:center">55.7M</td>
+<td style="text-align:center">33.75</td>
+<td style="text-align:center">12.90</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">200</td>
 </tr>
 <tr>
-<td align="center">cifar100</td>
-<td align="center">attention92</td>
-<td align="center">102.5M</td>
-<td align="center">36.52</td>
-<td align="center">11.47</td>
-<td align="center">60</td>
-<td align="center">60</td>
-<td align="center">40</td>
-<td align="center">40</td>
-<td align="center">200</td>
+<td style="text-align:center">cifar100</td>
+<td style="text-align:center">attention92</td>
+<td style="text-align:center">102.5M</td>
+<td style="text-align:center">36.52</td>
+<td style="text-align:center">11.47</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">200</td>
 </tr>
 <tr>
-<td align="center">cifar100</td>
-<td align="center">densenet121</td>
-<td align="center">7.0M</td>
-<td align="center">22.99</td>
-<td align="center">6.45</td>
-<td align="center">60</td>
-<td align="center">60</td>
-<td align="center">40</td>
-<td align="center">40</td>
-<td align="center">200</td>
+<td style="text-align:center">cifar100</td>
+<td style="text-align:center">densenet121</td>
+<td style="text-align:center">7.0M</td>
+<td style="text-align:center">22.99</td>
+<td style="text-align:center">6.45</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">200</td>
 </tr>
 <tr>
-<td align="center">cifar100</td>
-<td align="center">densenet161</td>
-<td align="center">26M</td>
-<td align="center">21.56</td>
-<td align="center">6.04</td>
-<td align="center">60</td>
-<td align="center">60</td>
-<td align="center">60</td>
-<td align="center">40</td>
-<td align="center">200</td>
+<td style="text-align:center">cifar100</td>
+<td style="text-align:center">densenet161</td>
+<td style="text-align:center">26M</td>
+<td style="text-align:center">21.56</td>
+<td style="text-align:center">6.04</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">200</td>
 </tr>
 <tr>
-<td align="center">cifar100</td>
-<td align="center">densenet201</td>
-<td align="center">18M</td>
-<td align="center">21.46</td>
-<td align="center">5.9</td>
-<td align="center">60</td>
-<td align="center">60</td>
-<td align="center">40</td>
-<td align="center">40</td>
-<td align="center">200</td>
+<td style="text-align:center">cifar100</td>
+<td style="text-align:center">densenet201</td>
+<td style="text-align:center">18M</td>
+<td style="text-align:center">21.46</td>
+<td style="text-align:center">5.9</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">200</td>
 </tr>
 <tr>
-<td align="center">cifar100</td>
-<td align="center">googlenet</td>
-<td align="center">6.2M</td>
-<td align="center">21.97</td>
-<td align="center">5.94</td>
-<td align="center">60</td>
-<td align="center">60</td>
-<td align="center">40</td>
-<td align="center">40</td>
-<td align="center">200</td>
+<td style="text-align:center">cifar100</td>
+<td style="text-align:center">googlenet</td>
+<td style="text-align:center">6.2M</td>
+<td style="text-align:center">21.97</td>
+<td style="text-align:center">5.94</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">200</td>
 </tr>
 <tr>
-<td align="center">cifar100</td>
-<td align="center">inceptionv3</td>
-<td align="center">22.3M</td>
-<td align="center">22.81</td>
-<td align="center">6.39</td>
-<td align="center">60</td>
-<td align="center">60</td>
-<td align="center">40</td>
-<td align="center">40</td>
-<td align="center">200</td>
+<td style="text-align:center">cifar100</td>
+<td style="text-align:center">inceptionv3</td>
+<td style="text-align:center">22.3M</td>
+<td style="text-align:center">22.81</td>
+<td style="text-align:center">6.39</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">200</td>
 </tr>
 <tr>
-<td align="center">cifar100</td>
-<td align="center">inceptionv4</td>
-<td align="center">41.3M</td>
-<td align="center">24.14</td>
-<td align="center">6.90</td>
-<td align="center">60</td>
-<td align="center">60</td>
-<td align="center">40</td>
-<td align="center">40</td>
-<td align="center">200</td>
+<td style="text-align:center">cifar100</td>
+<td style="text-align:center">inceptionv4</td>
+<td style="text-align:center">41.3M</td>
+<td style="text-align:center">24.14</td>
+<td style="text-align:center">6.90</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">200</td>
 </tr>
 <tr>
-<td align="center">cifar100</td>
-<td align="center">inceptionresnetv2</td>
-<td align="center">65.4M</td>
-<td align="center">27.51</td>
-<td align="center">9.11</td>
-<td align="center">60</td>
-<td align="center">60</td>
-<td align="center">40</td>
-<td align="center">40</td>
-<td align="center">200</td>
+<td style="text-align:center">cifar100</td>
+<td style="text-align:center">inceptionresnetv2</td>
+<td style="text-align:center">65.4M</td>
+<td style="text-align:center">27.51</td>
+<td style="text-align:center">9.11</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">200</td>
 </tr>
 <tr>
-<td align="center">cifar100</td>
-<td align="center">xception</td>
-<td align="center">21.0M</td>
-<td align="center">25.07</td>
-<td align="center">7.32</td>
-<td align="center">60</td>
-<td align="center">60</td>
-<td align="center">40</td>
-<td align="center">40</td>
-<td align="center">200</td>
+<td style="text-align:center">cifar100</td>
+<td style="text-align:center">xception</td>
+<td style="text-align:center">21.0M</td>
+<td style="text-align:center">25.07</td>
+<td style="text-align:center">7.32</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">200</td>
 </tr>
 <tr>
-<td align="center">cifar100</td>
-<td align="center">seresnet18</td>
-<td align="center">11.4M</td>
-<td align="center">23.56</td>
-<td align="center">6.68</td>
-<td align="center">60</td>
-<td align="center">60</td>
-<td align="center">40</td>
-<td align="center">40</td>
-<td align="center">200</td>
+<td style="text-align:center">cifar100</td>
+<td style="text-align:center">seresnet18</td>
+<td style="text-align:center">11.4M</td>
+<td style="text-align:center">23.56</td>
+<td style="text-align:center">6.68</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">200</td>
 </tr>
 <tr>
-<td align="center">cifar100</td>
-<td align="center">seresnet34</td>
-<td align="center">21.6M</td>
-<td align="center">22.07</td>
-<td align="center">6.12</td>
-<td align="center">60</td>
-<td align="center">60</td>
-<td align="center">40</td>
-<td align="center">40</td>
-<td align="center">200</td>
+<td style="text-align:center">cifar100</td>
+<td style="text-align:center">seresnet34</td>
+<td style="text-align:center">21.6M</td>
+<td style="text-align:center">22.07</td>
+<td style="text-align:center">6.12</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">200</td>
 </tr>
 <tr>
-<td align="center">cifar100</td>
-<td align="center">seresnet50</td>
-<td align="center">26.5M</td>
-<td align="center">21.42</td>
-<td align="center">5.58</td>
-<td align="center">60</td>
-<td align="center">60</td>
-<td align="center">40</td>
-<td align="center">40</td>
-<td align="center">200</td>
+<td style="text-align:center">cifar100</td>
+<td style="text-align:center">seresnet50</td>
+<td style="text-align:center">26.5M</td>
+<td style="text-align:center">21.42</td>
+<td style="text-align:center">5.58</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">200</td>
 </tr>
 <tr>
-<td align="center">cifar100</td>
-<td align="center">seresnet101</td>
-<td align="center">47.7M</td>
-<td align="center">20.98</td>
-<td align="center">5.41</td>
-<td align="center">60</td>
-<td align="center">60</td>
-<td align="center">40</td>
-<td align="center">40</td>
-<td align="center">200</td>
+<td style="text-align:center">cifar100</td>
+<td style="text-align:center">seresnet101</td>
+<td style="text-align:center">47.7M</td>
+<td style="text-align:center">20.98</td>
+<td style="text-align:center">5.41</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">200</td>
 </tr>
 <tr>
-<td align="center">cifar100</td>
-<td align="center">seresnet152</td>
-<td align="center">66.2M</td>
-<td align="center">20.66</td>
-<td align="center">5.19</td>
-<td align="center">60</td>
-<td align="center">60</td>
-<td align="center">40</td>
-<td align="center">40</td>
-<td align="center">200</td>
+<td style="text-align:center">cifar100</td>
+<td style="text-align:center">seresnet152</td>
+<td style="text-align:center">66.2M</td>
+<td style="text-align:center">20.66</td>
+<td style="text-align:center">5.19</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">200</td>
 </tr>
 <tr>
-<td align="center">cifar100</td>
-<td align="center">nasnet</td>
-<td align="center">5.2M</td>
-<td align="center">22.71</td>
-<td align="center">5.91</td>
-<td align="center">60</td>
-<td align="center">60</td>
-<td align="center">40</td>
-<td align="center">40</td>
-<td align="center">200</td>
+<td style="text-align:center">cifar100</td>
+<td style="text-align:center">nasnet</td>
+<td style="text-align:center">5.2M</td>
+<td style="text-align:center">22.71</td>
+<td style="text-align:center">5.91</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">200</td>
 </tr>
 <tr>
-<td align="center">cifar100</td>
-<td align="center">wideresnet-40-10</td>
-<td align="center">55.9M</td>
-<td align="center">21.25</td>
-<td align="center">5.77</td>
-<td align="center">60</td>
-<td align="center">60</td>
-<td align="center">40</td>
-<td align="center">40</td>
-<td align="center">200</td>
+<td style="text-align:center">cifar100</td>
+<td style="text-align:center">wideresnet-40-10</td>
+<td style="text-align:center">55.9M</td>
+<td style="text-align:center">21.25</td>
+<td style="text-align:center">5.77</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">200</td>
 </tr>
 <tr>
-<td align="center">cifar100</td>
-<td align="center">stochasticdepth18</td>
-<td align="center">11.22M</td>
-<td align="center">31.40</td>
-<td align="center">8.84</td>
-<td align="center">60</td>
-<td align="center">60</td>
-<td align="center">40</td>
-<td align="center">40</td>
-<td align="center">200</td>
+<td style="text-align:center">cifar100</td>
+<td style="text-align:center">stochasticdepth18</td>
+<td style="text-align:center">11.22M</td>
+<td style="text-align:center">31.40</td>
+<td style="text-align:center">8.84</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">200</td>
 </tr>
 <tr>
-<td align="center">cifar100</td>
-<td align="center">stochasticdepth34</td>
-<td align="center">21.36M</td>
-<td align="center">27.72</td>
-<td align="center">7.32</td>
-<td align="center">60</td>
-<td align="center">60</td>
-<td align="center">40</td>
-<td align="center">40</td>
-<td align="center">200</td>
+<td style="text-align:center">cifar100</td>
+<td style="text-align:center">stochasticdepth34</td>
+<td style="text-align:center">21.36M</td>
+<td style="text-align:center">27.72</td>
+<td style="text-align:center">7.32</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">200</td>
 </tr>
 <tr>
-<td align="center">cifar100</td>
-<td align="center">stochasticdepth50</td>
-<td align="center">23.71M</td>
-<td align="center">23.35</td>
-<td align="center">5.76</td>
-<td align="center">60</td>
-<td align="center">60</td>
-<td align="center">40</td>
-<td align="center">40</td>
-<td align="center">200</td>
+<td style="text-align:center">cifar100</td>
+<td style="text-align:center">stochasticdepth50</td>
+<td style="text-align:center">23.71M</td>
+<td style="text-align:center">23.35</td>
+<td style="text-align:center">5.76</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">200</td>
 </tr>
 <tr>
-<td align="center">cifar100</td>
-<td align="center">stochasticdepth101</td>
-<td align="center">42.69M</td>
-<td align="center">21.28</td>
-<td align="center">5.39</td>
-<td align="center">60</td>
-<td align="center">60</td>
-<td align="center">40</td>
-<td align="center">40</td>
-<td align="center">200</td>
+<td style="text-align:center">cifar100</td>
+<td style="text-align:center">stochasticdepth101</td>
+<td style="text-align:center">42.69M</td>
+<td style="text-align:center">21.28</td>
+<td style="text-align:center">5.39</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">40</td>
+<td style="text-align:center">200</td>
 </tr>
-</tbody></table>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">YUAN Tingyi</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2022/06/01/b6a6cbce3d7f45a8b2511edf86fb5a24/">http://example.com/2022/06/01/b6a6cbce3d7f45a8b2511edf86fb5a24/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/5.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/gh/overtrue/share.js@master/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/06/01/9d8547900901416593ba964e6757c6c3/"><img class="prev-cover" src="/img/9.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">ResNet</div></div></a></div><div class="next-post pull-right"><a href="/2022/06/01/24aa2ecdd35b4df9b7f071254f4fb025/"><img class="next-cover" src="/img/3.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">paddle2.0实现DNN（minst数据集）</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">YUAN Tingyi</div><div class="author-info__description">XianrenYty</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">28</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/XianrenYty"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">数据集：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%EF%BC%9A"><span class="toc-number">2.</span> <span class="toc-text">模型：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83"><span class="toc-number">3.</span> <span class="toc-text">模型训练</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%84%E5%88%A4%E6%A0%87%E5%87%86"><span class="toc-number">4.</span> <span class="toc-text">评判标准</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%BC%E5%85%A5%E7%9B%B8%E5%85%B3%E5%BA%93"><span class="toc-number">5.</span> <span class="toc-text">导入相关库</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E2%91%A1-%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87"><span class="toc-number"></span> <span class="toc-text">② 数据准备</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%A2%9E%E5%BC%BA"><span class="toc-number">1.</span> <span class="toc-text">数据增强</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E6%A8%A1%E5%9E%8B%E5%BC%80%E5%8F%91"><span class="toc-number">2.</span> <span class="toc-text">3.1 模型开发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E6%A8%A1%E5%9E%8B%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="toc-number">3.</span> <span class="toc-text">3.2 模型可视化</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E2%91%A3-%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83%E5%92%8C%E8%B0%83%E4%BC%98"><span class="toc-number"></span> <span class="toc-text">④ 模型训练和调优</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#VisualDL"><span class="toc-number">1.</span> <span class="toc-text">VisualDL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%84%E5%88%86%E8%BE%93%E5%87%BA"><span class="toc-number">2.</span> <span class="toc-text">评分输出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CIFAR-100-%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B%E6%95%88%E6%9E%9C%E5%8F%82%E8%80%83"><span class="toc-number">3.</span> <span class="toc-text">CIFAR-100 网络模型效果参考</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/06/01/fd61228310d24c999c625f49b503f7ce/" title="train_test_split 参数详解"><img src="/img/8.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="train_test_split 参数详解"/></a><div class="content"><a class="title" href="/2022/06/01/fd61228310d24c999c625f49b503f7ce/" title="train_test_split 参数详解">train_test_split 参数详解</a><time datetime="2022-06-01T12:52:00.000Z" title="Created 2022-06-01 20:52:00">2022-06-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/01/224bdd4444be4fe0b7826959bc6b40a4/" title="StandardScaler(sklearn)参数详解"><img src="/img/8.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="StandardScaler(sklearn)参数详解"/></a><div class="content"><a class="title" href="/2022/06/01/224bdd4444be4fe0b7826959bc6b40a4/" title="StandardScaler(sklearn)参数详解">StandardScaler(sklearn)参数详解</a><time datetime="2022-06-01T12:51:39.966Z" title="Created 2022-06-01 20:51:39">2022-06-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/01/2fd9e712ce6b4a49a24775586e47e44b/" title="八大排序算法(Python实现)"><img src="/img/5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="八大排序算法(Python实现)"/></a><div class="content"><a class="title" href="/2022/06/01/2fd9e712ce6b4a49a24775586e47e44b/" title="八大排序算法(Python实现)">八大排序算法(Python实现)</a><time datetime="2022-06-01T12:51:26.086Z" title="Created 2022-06-01 20:51:26">2022-06-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/01/9d8547900901416593ba964e6757c6c3/" title="ResNet"><img src="/img/9.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ResNet"/></a><div class="content"><a class="title" href="/2022/06/01/9d8547900901416593ba964e6757c6c3/" title="ResNet">ResNet</a><time datetime="2022-06-01T12:50:56.055Z" title="Created 2022-06-01 20:50:56">2022-06-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/01/b6a6cbce3d7f45a8b2511edf86fb5a24/" title="Paddle高层API实现图像分类（CIFAR-100数据集_ResNet101）"><img src="/img/5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Paddle高层API实现图像分类（CIFAR-100数据集_ResNet101）"/></a><div class="content"><a class="title" href="/2022/06/01/b6a6cbce3d7f45a8b2511edf86fb5a24/" title="Paddle高层API实现图像分类（CIFAR-100数据集_ResNet101）">Paddle高层API实现图像分类（CIFAR-100数据集_ResNet101）</a><time datetime="2022-06-01T12:48:23.363Z" title="Created 2022-06-01 20:48:23">2022-06-01</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By YUAN Tingyi</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+</tbody>
+</table>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">YUAN Tingyi</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2022/06/01/b6a6cbce3d7f45a8b2511edf86fb5a24/">http://example.com/2022/06/01/b6a6cbce3d7f45a8b2511edf86fb5a24/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/8.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/gh/overtrue/share.js@master/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/06/01/9d8547900901416593ba964e6757c6c3/"><img class="prev-cover" src="/img/2.jpeg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">ResNet</div></div></a></div><div class="next-post pull-right"><a href="/2022/06/01/24aa2ecdd35b4df9b7f071254f4fb025/"><img class="next-cover" src="/img/7.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">paddle2.0实现DNN（minst数据集）</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div><div id="comment-switch"><span class="first-comment">Valine</span><span class="switch-btn"></span><span class="second-comment">Disqus</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">YUAN Tingyi</div><div class="author-info__description">XianrenYty</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">28</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/XianrenYty"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">数据集：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%EF%BC%9A"><span class="toc-number">2.</span> <span class="toc-text">模型：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83-2"><span class="toc-number">3.</span> <span class="toc-text">模型训练</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%84%E5%88%A4%E6%A0%87%E5%87%86"><span class="toc-number">4.</span> <span class="toc-text">评判标准</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%BC%E5%85%A5%E7%9B%B8%E5%85%B3%E5%BA%93"><span class="toc-number">5.</span> <span class="toc-text">导入相关库</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">② 数据准备</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%A2%9E%E5%BC%BA"><span class="toc-number">1.</span> <span class="toc-text">数据增强</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E6%A8%A1%E5%9E%8B%E5%BC%80%E5%8F%91"><span class="toc-number">2.</span> <span class="toc-text">3.1 模型开发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E6%A8%A1%E5%9E%8B%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="toc-number">3.</span> <span class="toc-text">3.2 模型可视化</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">④ 模型训练和调优</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#VisualDL"><span class="toc-number">1.</span> <span class="toc-text">VisualDL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%84%E5%88%86%E8%BE%93%E5%87%BA"><span class="toc-number">2.</span> <span class="toc-text">评分输出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CIFAR-100-%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B%E6%95%88%E6%9E%9C%E5%8F%82%E8%80%83"><span class="toc-number">3.</span> <span class="toc-text">CIFAR-100 网络模型效果参考</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/06/01/fd61228310d24c999c625f49b503f7ce/" title="train_test_split 参数详解"><img src="/img/8.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="train_test_split 参数详解"/></a><div class="content"><a class="title" href="/2022/06/01/fd61228310d24c999c625f49b503f7ce/" title="train_test_split 参数详解">train_test_split 参数详解</a><time datetime="2022-06-01T12:52:00.000Z" title="Created 2022-06-01 20:52:00">2022-06-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/01/224bdd4444be4fe0b7826959bc6b40a4/" title="StandardScaler(sklearn)参数详解"><img src="/img/1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="StandardScaler(sklearn)参数详解"/></a><div class="content"><a class="title" href="/2022/06/01/224bdd4444be4fe0b7826959bc6b40a4/" title="StandardScaler(sklearn)参数详解">StandardScaler(sklearn)参数详解</a><time datetime="2022-06-01T12:51:39.966Z" title="Created 2022-06-01 20:51:39">2022-06-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/01/2fd9e712ce6b4a49a24775586e47e44b/" title="八大排序算法(Python实现)"><img src="/img/6.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="八大排序算法(Python实现)"/></a><div class="content"><a class="title" href="/2022/06/01/2fd9e712ce6b4a49a24775586e47e44b/" title="八大排序算法(Python实现)">八大排序算法(Python实现)</a><time datetime="2022-06-01T12:51:26.086Z" title="Created 2022-06-01 20:51:26">2022-06-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/01/9d8547900901416593ba964e6757c6c3/" title="ResNet"><img src="/img/2.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ResNet"/></a><div class="content"><a class="title" href="/2022/06/01/9d8547900901416593ba964e6757c6c3/" title="ResNet">ResNet</a><time datetime="2022-06-01T12:50:56.055Z" title="Created 2022-06-01 20:50:56">2022-06-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/01/b6a6cbce3d7f45a8b2511edf86fb5a24/" title="Paddle高层API实现图像分类（CIFAR-100数据集_ResNet101）"><img src="/img/8.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Paddle高层API实现图像分类（CIFAR-100数据集_ResNet101）"/></a><div class="content"><a class="title" href="/2022/06/01/b6a6cbce3d7f45a8b2511edf86fb5a24/" title="Paddle高层API实现图像分类（CIFAR-100数据集_ResNet101）">Paddle高层API实现图像分类（CIFAR-100数据集_ResNet101）</a><time datetime="2022-06-01T12:48:23.363Z" title="Created 2022-06-01 20:48:23">2022-06-01</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By YUAN Tingyi</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.2
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container:not\([display]\)').forEach(node => {
+            const target = node.parentNode
+            if (target.nodeName.toLowerCase() === 'li') {
+              target.parentNode.classList.add('has-jax')
+            } else {
+              target.classList.add('has-jax')
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '',
+      appKey: '',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script>function loadDisqus () {
+  var disqus_config = function () {
+    this.page.url = 'http://example.com/2022/06/01/b6a6cbce3d7f45a8b2511edf86fb5a24/'
+    this.page.identifier = '2022/06/01/b6a6cbce3d7f45a8b2511edf86fb5a24/'
+    this.page.title = 'Paddle高层API实现图像分类（CIFAR-100数据集_ResNet101）'
+  };
+
+  window.disqusReset = () => {
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  if (window.DISQUS) disqusReset()
+  else {
+    (function() { 
+      var d = document, s = d.createElement('script');
+      s.src = 'https://.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+}
+
+if ('Valine' === 'Disqus' || !true) {
+  if (true) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+  else loadDisqus()
+} else {
+  function loadOtherComment () {
+    loadDisqus()
+  }
+}
+</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

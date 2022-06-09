@@ -1,19 +1,19 @@
-<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Linux进程管理 | Personnal Blog of YUAN Tingyi</title><meta name="author" content="YUAN Tingyi"><meta name="copyright" content="YUAN Tingyi"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="[toc] 进程的概念首先程序与进程是什么？程序与进程又有什么区别？  程序（procedure）：不太精确地说，程序就是执行一系列有逻辑、有顺序结构的指令，帮我们达成某个结果。就如我们去餐馆，给服务员说我要牛肉盖浇饭，她执行了做牛肉盖浇饭这么一个程序，最后我们得到了这么一盘牛肉盖浇饭。它需要去执行，不然它就像一本武功秘籍，放在那里等人翻看。 进程（process）：进程是程序在一个数据集合上的一">
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Linux进程管理 | Personnal Blog of YUAN Tingyi</title><meta name="author" content="YUAN Tingyi"><meta name="copyright" content="YUAN Tingyi"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="[toc] 进程的概念 首先程序与进程是什么？程序与进程又有什么区别？  程序（procedure）：不太精确地说，程序就是执行一系列有逻辑、有顺序结构的指令，帮我们达成某个结果。就如我们去餐馆，给服务员说我要牛肉盖浇饭，她执行了做牛肉盖浇饭这么一个程序，最后我们得到了这么一盘牛肉盖浇饭。它需要去执行，不然它就像一本武功秘籍，放在那里等人翻看。 进程（process）：进程是程序在一个数据集合上的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux进程管理">
 <meta property="og:url" content="http://example.com/2022/06/01/f9b8456db95444d792d4f1d9e9236bb0/index.html">
 <meta property="og:site_name" content="Personnal Blog of YUAN Tingyi">
-<meta property="og:description" content="[toc] 进程的概念首先程序与进程是什么？程序与进程又有什么区别？  程序（procedure）：不太精确地说，程序就是执行一系列有逻辑、有顺序结构的指令，帮我们达成某个结果。就如我们去餐馆，给服务员说我要牛肉盖浇饭，她执行了做牛肉盖浇饭这么一个程序，最后我们得到了这么一盘牛肉盖浇饭。它需要去执行，不然它就像一本武功秘籍，放在那里等人翻看。 进程（process）：进程是程序在一个数据集合上的一">
+<meta property="og:description" content="[toc] 进程的概念 首先程序与进程是什么？程序与进程又有什么区别？  程序（procedure）：不太精确地说，程序就是执行一系列有逻辑、有顺序结构的指令，帮我们达成某个结果。就如我们去餐馆，给服务员说我要牛肉盖浇饭，她执行了做牛肉盖浇饭这么一个程序，最后我们得到了这么一盘牛肉盖浇饭。它需要去执行，不然它就像一本武功秘籍，放在那里等人翻看。 进程（process）：进程是程序在一个数据集合上的">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/img/9.jpg">
+<meta property="og:image" content="http://example.com/img/1.jpg">
 <meta property="article:published_time" content="2022-06-01T12:34:17.115Z">
 <meta property="article:modified_time" content="2022-06-01T12:35:06.814Z">
 <meta property="article:author" content="YUAN Tingyi">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/img/9.jpg"><link rel="shortcut icon" href="/img/favicon-32x32.png"><link rel="canonical" href="http://example.com/2022/06/01/f9b8456db95444d792d4f1d9e9236bb0/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+<meta name="twitter:image" content="http://example.com/img/1.jpg"><link rel="shortcut icon" href="/img/favicon-32x32.png"><link rel="canonical" href="http://example.com/2022/06/01/f9b8456db95444d792d4f1d9e9236bb0/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
-  localSearch: undefined,
+  localSearch: {"path":"/search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
   translate: undefined,
   noticeOutdate: undefined,
   highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
@@ -141,8 +141,9 @@
       }
     }
     detectApple()
-    })(window)</script><meta name="generator" content="Hexo 6.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">28</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/9.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Personnal Blog of YUAN Tingyi</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Linux进程管理</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-06-01T12:34:17.115Z" title="Created 2022-06-01 20:34:17">2022-06-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-06-01T12:35:06.814Z" title="Updated 2022-06-01 20:35:06">2022-06-01</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Linux进程管理"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>[toc]</p>
-<h2 id="进程的概念"><a href="#进程的概念" class="headerlink" title="进程的概念"></a>进程的概念</h2><p>首先程序与进程是什么？程序与进程又有什么区别？</p>
+    })(window)</script><meta name="generator" content="Hexo 6.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">28</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/1.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Personnal Blog of YUAN Tingyi</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Linux进程管理</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-06-01T12:34:17.115Z" title="Created 2022-06-01 20:34:17">2022-06-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-06-01T12:35:06.814Z" title="Updated 2022-06-01 20:35:06">2022-06-01</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Linux进程管理"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>[toc]</p>
+<h2 id="进程的概念">进程的概念</h2>
+<p>首先程序与进程是什么？程序与进程又有什么区别？</p>
 <ul>
 <li>程序（procedure）：不太精确地说，程序就是执行一系列有逻辑、有顺序结构的指令，帮我们达成某个结果。就如我们去餐馆，给服务员说我要牛肉盖浇饭，她执行了做牛肉盖浇饭这么一个程序，最后我们得到了这么一盘牛肉盖浇饭。它需要去执行，不然它就像一本武功秘籍，放在那里等人翻看。</li>
 <li>进程（process）：进程是程序在一个数据集合上的一次执行过程，在早期的 UNIX、Linux 2.4 及更早的版本中，它是系统进行资源分配和调度的独立基本单位。同上一个例子，就如我们去了餐馆，给服务员说我要牛肉盖浇饭，她执行了做牛肉盖浇饭这么一个程序，而里面做饭的是一个进程，做牛肉汤汁的是一个进程，把牛肉汤汁与饭混合在一起的是一个进程，把饭端上桌的是一个进程。它就像是我们在看武功秘籍这么一个过程，然后一个篇章一个篇章地去练。</li>
@@ -157,13 +158,12 @@
 </ul>
 <p>并发和并行：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">并发：在一个时间段内，宏观来看有多个程序都在活动，有条不紊的执行（每一瞬间只有一个在执行，只是在一段时间有多个程序都执行过）</span><br><span class="line"></span><br><span class="line">并行：在每一个瞬间，都有多个程序都在同时执行，这个必须有多个 CPU 才行</span><br></pre></td></tr></table></figure>
-
 <p>引入进程是因为传统意义上的程序已经不足以描述 OS 中各种活动之间的动态性、并发性、独立性还有相互制约性。程序就像一个公司，只是一些证书，文件的堆积（静态实体）。而当公司运作起来就有各个部门的区分，财务部，技术部，销售部等等，就像各个进程，各个部门之间可以独立运作，也可以有交互（独立性、并发性）。</p>
 <p>而随着程序的发展越做越大，又会继续细分，从而引入了线程的概念，当代多数操作系统、Linux 2.6 及更新的版本中，进程本身不是基本运行单位，而是线程的容器。就像上述所说的，每个部门又会细分为各个工作小组（线程），而工作小组需要的资源需要向上级（进程）申请。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">线程（thread）是操作系统能够进行运算调度的最小单位。它被包含在进程之中，是进程中的实际运作单位。一条线程指的是进程中一个单一顺序的控制流，一个进程中可以并发多个线程，每条线程并行执行不同的任务。因为线程中几乎不包含系统资源，所以执行更快、更有效率。</span><br></pre></td></tr></table></figure>
-
 <p>简而言之，一个程序至少有一个进程，一个进程至少有一个线程。线程的划分尺度小于进程，使得多线程程序的并发性高。另外，进程在执行过程中拥有独立的内存单元，而多个线程共享内存，从而极大地提高了程序的运行效率。</p>
-<h2 id="进程的分类"><a href="#进程的分类" class="headerlink" title="进程的分类"></a>进程的分类</h2><p>进程可以从两个角度来分：</p>
+<h2 id="进程的分类">进程的分类</h2>
+<p>进程可以从两个角度来分：</p>
 <ul>
 <li>以进程的功能与服务的对象来分；</li>
 <li>以应用程序的服务类型来分；</li>
@@ -179,42 +179,38 @@
 <li><strong>批处理进程</strong>：该进程是一个进程集合，负责按顺序启动其他的进程。</li>
 <li><strong>守护进程</strong>：守护进程是一直运行的一种进程，在 Linux 系统启动时启动，在系统关闭时终止。它们独立于控制终端并且周期性的执行某种任务或等待处理某些发生的事件。例如 httpd 进程，一直处于运行状态，等待用户的访问。还有经常用的 cron（在 centOS 系列为 crond）进程，这个进程为 crontab 的守护进程，可以周期性的执行用户设定的某些任务。</li>
 </ul>
-<h2 id="进程的衍生"><a href="#进程的衍生" class="headerlink" title="进程的衍生"></a>进程的衍生</h2><p>进程有这么多的种类，那么进程之间定是有相关性的，而这些有关联性的进程又是如何产生的，如何衍生的？</p>
+<h2 id="进程的衍生">进程的衍生</h2>
+<p>进程有这么多的种类，那么进程之间定是有相关性的，而这些有关联性的进程又是如何产生的，如何衍生的？</p>
 <p>就比如我们启动了终端，就是启动了一个 bash 进程，我们可以在 bash 中再输入 bash 则会再启动一个 bash 的进程，此时第二个 bash 进程就是由第一个 bash 进程创建出来的，他们之间又是个什么关系？</p>
 <p>我们一般称呼第一个 bash 进程是第二 bash 进程的父进程，第二 bash 进程是第一个 bash 进程的子进程，这层关系是如何得来的呢？</p>
 <p>关于父进程与子进程便会提及这两个系统调用 <code>fork()</code> 与 <code>exec()</code></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fork-exec是由 Dennis M. Ritchie 创造的</span><br><span class="line"></span><br><span class="line">fork() 是一个系统调用（system call），它的主要作用就是为当前的进程创建一个新的进程，这个新的进程就是它的子进程，这个子进程除了父进程的返回值和 PID 以外其他的都一模一样，如进程的执行代码段，内存信息，文件描述，寄存器状态等等</span><br><span class="line"></span><br><span class="line">exec() 也是系统调用，作用是切换子进程中的执行程序也就是替换其从父进程复制过来的代码段与数据段</span><br></pre></td></tr></table></figure>
-
 <p>子进程就是父进程通过系统调用 <code>fork()</code> 而产生的复制品，<code>fork()</code> 就是把父进程的 PCB 等进程的数据结构信息直接复制过来，只是修改了 PID，所以一模一样，只有在执行 <code>exec()</code> 之后才会不同，而早先的 <code>fork()</code> 比较消耗资源后来进化成 <code>vfork()</code>，效率高了不少。</p>
 <p>子进程退出后，正常情况下，父进程会收到两个返回值：<code>exit code</code>（SIGCHLD 信号）与 <code>reason for termination</code> 。之后，父进程会使用 <code>wait(&amp;status)</code> 系统调用以获取子进程的退出状态，然后内核就可以从内存中释放已结束的子进程的 PCB；而如若父进程没有这么做的话，子进程的 PCB 就会一直驻留在内存中，一直留在系统中成为僵尸进程（Zombie）。</p>
 <p>虽然僵尸进程是已经放弃了几乎所有内存空间，没有任何可执行代码，也不能被调度，在进程列表中保留一个位置，记载该进程的退出状态等信息供其父进程收集，从而释放它。但是 Linux 系统中能使用的 PID 是有限的，如果系统中存在有大量的僵尸进程，系统将会因为没有可用的 PID 从而导致不能产生新的进程。</p>
 <p>另外如果父进程结束（非正常的结束），未能及时收回子进程，子进程仍在运行，这样的子进程称之为孤儿进程。在 Linux 系统中，孤儿进程一般会被 init 进程所“收养”，成为 init 的子进程。由 init 来做善后处理，所以它并不至于像僵尸进程那样无人问津，不管不顾，大量存在会有危害。</p>
-<p>进程 0 是系统引导时创建的一个特殊进程，也称之为内核初始化，其最后一个动作就是调用 <code>fork()</code> 创建出一个子进程运行 <code>/sbin/init</code> 可执行文件，而该进程就是 PID&#x3D;1 的进程 1，而进程 0 就转为交换进程（也被称为空闲进程），进程 1 （init 进程）是第一个用户态的进程，再由它不断调用 fork() 来创建系统里其他的进程，所以它是所有进程的父进程或者祖先进程。同时它是一个守护程序，直到计算机关机才会停止。</p>
-<h2 id="进程组和-Sessions"><a href="#进程组和-Sessions" class="headerlink" title="进程组和 Sessions"></a>进程组和 Sessions</h2><p>每一个进程都会是一个进程组的成员，而且这个进程组是唯一存在的，他们是依靠 PGID（process group ID）来区别的，而每当一个进程被创建的时候，它便会成为其父进程所在组中的一员。</p>
+<p>进程 0 是系统引导时创建的一个特殊进程，也称之为内核初始化，其最后一个动作就是调用 <code>fork()</code> 创建出一个子进程运行 <code>/sbin/init</code> 可执行文件，而该进程就是 PID=1 的进程 1，而进程 0 就转为交换进程（也被称为空闲进程），进程 1 （init 进程）是第一个用户态的进程，再由它不断调用 fork() 来创建系统里其他的进程，所以它是所有进程的父进程或者祖先进程。同时它是一个守护程序，直到计算机关机才会停止。</p>
+<h2 id="进程组和-Sessions">进程组和 Sessions</h2>
+<p>每一个进程都会是一个进程组的成员，而且这个进程组是唯一存在的，他们是依靠 PGID（process group ID）来区别的，而每当一个进程被创建的时候，它便会成为其父进程所在组中的一员。</p>
 <p>一般情况，进程组的 PGID 等同于进程组的第一个成员的 PID，并且这样的进程称为该进程组的领导者，也就是领导进程，进程一般通过使用 <code>getpgrp()</code> 系统调用来寻找其所在组的 PGID，领导进程可以先终结，此时进程组依然存在，并持有相同的 PGID，直到进程组中最后一个进程终结。</p>
 <p>与进程组类似，每当一个进程被创建的时候，它便会成为其父进程所在 Session 中的一员，每一个进程组都会在一个 Session 中，并且这个 Session 是唯一存在的，</p>
 <p>Session 主要是针对一个 tty 建立，Session 中的每个进程都称为一个工作(job)。每个会话可以连接一个终端(control terminal)。当控制终端有输入输出时，都传递给该会话的前台进程组。Session 意义在于将多个 jobs 囊括在一个终端，并取其中的一个 job 作为前台，来直接接收该终端的输入输出以及终端信号。 其他 jobs 在后台运行。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">前台（foreground）就是在终端中运行，能与你有交互的</span><br><span class="line"></span><br><span class="line">后台（background）就是在终端中运行，但是你并不能与其任何的交互，也不会显示其执行的过程</span><br></pre></td></tr></table></figure>
-
-<h2 id="工作管理"><a href="#工作管理" class="headerlink" title="工作管理"></a>工作管理</h2><p>bash(Bourne-Again shell)支持工作控制（job control），而 sh（Bourne shell）并不支持。</p>
+<h2 id="工作管理">工作管理</h2>
+<p>bash(Bourne-Again shell)支持工作控制（job control），而 sh（Bourne shell）并不支持。</p>
 <p>并且每个终端或者说 bash 只能管理当前终端中的 job，不能管理其他终端中的 job。比如我当前存在两个 bash 分别为 bash1、bash2，bash1 只能管理其自己里面的 job 并不能管理 bash2 里面的 job</p>
 <p>我们都知道当一个进程在前台运作时我们可以用 <code>ctrl + c</code> 来终止它，但是若是在后台的话就不行了。</p>
 <p>我们可以通过 <code>&amp;</code> 这个符号，让我们的命令在后台中运行：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls &amp;</span><br></pre></td></tr></table></figure>
-
 <p>我们还可以通过 <code>ctrl + z</code> 使我们的当前工作停止并丢到后台中去</p>
 <p>被停止并放置在后台的工作我们可以使用这个命令来查看：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jobs</span><br></pre></td></tr></table></figure>
-
 <p>我们可以通过这样的一个命令将后台的工作拿到前台来：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 后面不加参数提取预设工作，加参数提取指定工作的编号</span><br><span class="line"># ubuntu 在 zsh 中需要 %，在 bash 中不需要 %</span><br><span class="line">fg [%jobnumber]</span><br></pre></td></tr></table></figure>
-
 <p>之前我们通过 <code>ctrl + z</code> 使得工作停止放置在后台，若是我们想让其在后台运作我们就使用这样一个命令：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#与fg类似，加参则指定，不加参则取预设</span><br><span class="line">bg [%jobnumber]</span><br></pre></td></tr></table></figure>
-
 <p>既然有方法将被放置在后台的工作提至前台或者让它从停止变成继续运行在后台，当然也有方法删除一个工作，或者重启等等。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># kill的使用格式如下</span><br><span class="line">kill -signal %jobnumber</span><br><span class="line"></span><br><span class="line"># signal从1-64个信号值可以选择，可以这样查看</span><br><span class="line">kill －l</span><br></pre></td></tr></table></figure>
-
 <p>其中常用的有这些信号值</p>
 <table>
 <thead>
@@ -223,7 +219,8 @@
 <th>作用</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td><code>-1</code></td>
 <td>重新读取参数运行，类似与 restart</td>
 </tr>
@@ -239,10 +236,12 @@
 <td><code>-15</code></td>
 <td>正常的方式终止该任务</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">若是在使用 kill ＋信号值然后直接加 pid，你将会对 pid 对应的进程进行操作。</span><br><span class="line"></span><br><span class="line">若是在使用 kill+信号值然后 ％jobnumber，这时所操作的对象是 job，这个数字就是就当前 bash 中后台的运行的 job 的 ID</span><br></pre></td></tr></table></figure>
-
-<h2 id="Linux-进程管理"><a href="#Linux-进程管理" class="headerlink" title="Linux 进程管理"></a>Linux 进程管理</h2><h3 id="进程的查看"><a href="#进程的查看" class="headerlink" title="进程的查看"></a>进程的查看</h3><p>不管在测试的时候、在实际的生产环境中，还是自己的使用过程中，难免会遇到一些进程异常的情况，所以 Linux 为我们提供了一些工具来查看进程的状态信息。我们可以通过 <code>top</code> 实时的查看进程的状态，以及系统的一些信息（如 CPU、内存信息等），我们还可以通过 <code>ps</code> 来静态查看当前的进程信息，同时我们还可以使用 <code>pstree</code> 来查看当前活跃进程的树形结构。</p>
+<h2 id="Linux-进程管理">Linux 进程管理</h2>
+<h3 id="进程的查看">进程的查看</h3>
+<p>不管在测试的时候、在实际的生产环境中，还是自己的使用过程中，难免会遇到一些进程异常的情况，所以 Linux 为我们提供了一些工具来查看进程的状态信息。我们可以通过 <code>top</code> 实时的查看进程的状态，以及系统的一些信息（如 CPU、内存信息等），我们还可以通过 <code>ps</code> 来静态查看当前的进程信息，同时我们还可以使用 <code>pstree</code> 来查看当前活跃进程的树形结构。</p>
 <p><code>top</code> 工具是我们常用的一个查看工具，能实时的查看我们系统的一些关键信息的变化。</p>
 <p><img src="/resource/6c31b0f46b9649d1aced5b2ff1f92462.png" alt="2022-05-15-13-52-12.png"></p>
 <p><code>top</code> 是一个在前台执行的程序，所以执行后便进入到这样的一个交互界面，正是因为交互界面我们才可以实时的获取到系统与进程的信息。在交互界面中我们可以通过一些指令来操作和筛选。在此之前我们先来了解显示了哪些信息。</p>
@@ -254,7 +253,8 @@
 <th>解释</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>top</td>
 <td>表示当前程序的名称</td>
 </tr>
@@ -274,19 +274,19 @@
 <td>load average: 0.29,0.20,0.25</td>
 <td>分别对应 1、5、15 分钟内 cpu 的平均负载</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>load average 在 wikipedia 中的解释是 the system load is a measure of the amount of work that a computer system is doing 也就是对当前 CPU 工作量的度量，具体来说也就是指运行队列的平均长度，也就是等待 CPU 的平均进程数相关的一个计算值。</p>
 <p>我们该如何看待这个 load average 数据呢？</p>
 <p>假设我们的系统是单 CPU、单内核的，把它比喻成是一条单向的桥，把 CPU 任务比作汽车。</p>
 <ul>
-<li>load &#x3D; 0 的时候意味着这个桥上并没有车，cpu 没有任何任务；</li>
+<li>load = 0 的时候意味着这个桥上并没有车，cpu 没有任何任务；</li>
 <li>load &lt; 1 的时候意味着桥上的车并不多，一切都还是很流畅的，cpu 的任务并不多，资源还很充足；</li>
-<li>load &#x3D; 1 的时候就意味着桥已经被车给占满了，没有一点空隙，cpu 已经在全力工作了，所有的资源都被用完了，当然还好，这还在能力范围之内，只是有点慢而已；</li>
+<li>load = 1 的时候就意味着桥已经被车给占满了，没有一点空隙，cpu 已经在全力工作了，所有的资源都被用完了，当然还好，这还在能力范围之内，只是有点慢而已；</li>
 <li>load &gt; 1 的时候就意味着不仅仅是桥上已经被车占满了，就连桥外都被占满了，cpu 已经在全力工作，系统资源的用完了，但是还是有大量的进程在请求，在等待。若是这个值大于 2 表示进程请求超过 CPU 工作能力的 2 倍。而若是这个值大于 5 说明系统已经在超负荷运作了。</li>
 </ul>
 <p>这是单个 CPU 单核的情况，而实际生活中我们需要将得到的这个值除以我们的核数来看。我们可以通过以下的命令来查看 CPU 的个数与核心数：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#查看物理 CPU 的个数</span><br><span class="line">cat /proc/cpuinfo | grep &quot;physical id&quot; | sort | uniq |wc -l</span><br><span class="line"></span><br><span class="line">#每个 cpu 的核心数</span><br><span class="line">cat /proc/cpuinfo | grep &quot;physical id&quot; | grep &quot;0&quot; | wc -l</span><br></pre></td></tr></table></figure>
-
 <p><code>top</code> 的第二行数据，基本上第二行是进程的一个情况统计：</p>
 <table>
 <thead>
@@ -295,7 +295,8 @@
 <th>解释</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>Tasks: 26 total</td>
 <td>进程总数</td>
 </tr>
@@ -315,7 +316,8 @@
 <td>0 zombie</td>
 <td>没有僵尸进程数</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p><code>top</code> 的第三行数据，这一行基本上是 CPU 的一个使用情况的统计了：</p>
 <table>
 <thead>
@@ -324,7 +326,8 @@
 <th>解释</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>Cpu(s): 1.0%us</td>
 <td>用户空间进程占用 CPU 百分比</td>
 </tr>
@@ -356,7 +359,8 @@
 <td>0.0%st</td>
 <td>(Steal time) 是 hypervisor 等虚拟服务中，虚拟 CPU 等待实际 CPU 的时间的百分比</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>CPU 利用率是对一个时间段内 CPU 使用状况的统计，通过这个指标可以看出在某一个时间段内 CPU 被占用的情况，而 Load Average 是 CPU 的 Load，它所包含的信息不是 CPU 的使用率状况，而是在一段时间内 CPU 正在处理以及等待 CPU 处理的进程数情况统计信息，这两个指标并不一样。</p>
 <p><code>top</code> 的第四行数据，这一行基本上是内存的一个使用情况的统计了：</p>
 <table>
@@ -366,7 +370,8 @@
 <th>解释</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>8176740 total</td>
 <td>物理内存总量</td>
 </tr>
@@ -382,9 +387,9 @@
 <td>313088 buffers</td>
 <td>用作内核缓存的内存量</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">系统中可用的物理内存最大值并不是 free 这个单一的值，而是 free + buffers + swap 中的 cached 的和。</span><br></pre></td></tr></table></figure>
-
 <p><code>top</code> 的第五行数据，这一行基本上是交换区的一个使用情况的统计了：</p>
 <table>
 <thead>
@@ -393,7 +398,8 @@
 <th>解释</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>total</td>
 <td>交换区总量</td>
 </tr>
@@ -409,7 +415,8 @@
 <td>cached</td>
 <td>缓冲的交换区总量，内存中的内容被换出到交换区，而后又被换入到内存，但使用过的交换区尚未被覆盖</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>再下面就是进程的一个情况了</p>
 <table>
 <thead>
@@ -418,7 +425,8 @@
 <th>解释</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>PID</td>
 <td>进程 id</td>
 </tr>
@@ -448,7 +456,7 @@
 </tr>
 <tr>
 <td>S</td>
-<td>该进程进程的状态: S&#x3D;sleep R&#x3D;running Z&#x3D;zombie</td>
+<td>该进程进程的状态: S=sleep R=running Z=zombie</td>
 </tr>
 <tr>
 <td>%CPU</td>
@@ -466,10 +474,11 @@
 <td>COMMAND</td>
 <td>该进程运行的名字</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p><strong>NICE 值</strong>叫做静态优先级，是用户空间的一个优先级值，其取值范围是 -20 至 19。这个值越小，表示进程”优先级”越高，而值越大“优先级”越低。nice 值中的 -20 到 19，中 -20 优先级最高， 0 是默认的值，而 19 优先级最低。</p>
 <p><strong>PR 值</strong>表示 Priority 值叫动态优先级，是进程在内核中实际的优先级值，进程优先级的取值范围是通过一个宏定义的，这个宏的名称是 MAX_PRIO，它的值为 140。Linux 实际上实现了 140 个优先级范围，取值范围是从 0-139，这个值越小，优先级越高。而这其中的 0-99 是实时进程的值，而 100-139 是给用户的。</p>
-<p>其中 PR 中的 100 to 139 值部分有这么一个对应 PR &#x3D; 20 + (-20 to +19)，这里的 -20 to +19 便是 nice 值，所以说两个虽然都是优先级，而且有千丝万缕的关系，但是他们的值，他们的作用范围并不相同。</p>
+<p>其中 PR 中的 100 to 139 值部分有这么一个对应 PR = 20 + (-20 to +19)，这里的 -20 to +19 便是 nice 值，所以说两个虽然都是优先级，而且有千丝万缕的关系，但是他们的值，他们的作用范围并不相同。</p>
 <p>VIRT 任务所使用的虚拟内存的总数，其中包含所有的代码，数据，共享库和被换出 swap 空间的页面等所占据空间的总数。</p>
 <p><code>top</code> 是一个前台程序，所以是一个可以交互的：</p>
 <table>
@@ -479,7 +488,8 @@
 <th>解释</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>q</td>
 <td>退出程序</td>
 </tr>
@@ -503,10 +513,12 @@
 <td>k</td>
 <td>终止一个进程，系统提示输入 PID 及发送的信号值。一般终止进程用 15 信号，不能正常结束则使用 9 信号。安全模式下该命令被屏蔽。</td>
 </tr>
-</tbody></table>
-<h3 id="ps-工具的使用"><a href="#ps-工具的使用" class="headerlink" title="ps 工具的使用"></a>ps 工具的使用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">man ps</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 -l 参数可以显示自己这次登录的 bash 相关的进程信息罗列出来：</span></span><br><span class="line">ps -l</span><br><span class="line"><span class="comment"># 罗列出所有的进程信息：</span></span><br><span class="line">ps aux</span><br><span class="line"><span class="comment"># 若是查找其中的某个进程的话，我们还可以配合着 grep 和正则表达式一起使用：</span></span><br><span class="line">ps aux | grep zsh</span><br><span class="line"><span class="comment"># 查看时，将连同部分的进程呈树状显示出来：</span></span><br><span class="line">ps axjf</span><br><span class="line"><span class="comment"># 自定义我们所需要的参数显示：</span></span><br><span class="line">ps -afxo user,ppid,pid,pgid,<span class="built_in">command</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="pstree-的使用"><a href="#pstree-的使用" class="headerlink" title="pstree 的使用"></a>pstree 的使用</h3><p>通过 <code>pstree</code> 可以很直接的看到相同的进程数量，最主要的还是我们可以看到所有进程之间的相关性。</p>
+</tbody>
+</table>
+<h3 id="ps-工具的使用">ps 工具的使用</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">man ps</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 -l 参数可以显示自己这次登录的 bash 相关的进程信息罗列出来：</span></span><br><span class="line">ps -l</span><br><span class="line"><span class="comment"># 罗列出所有的进程信息：</span></span><br><span class="line">ps aux</span><br><span class="line"><span class="comment"># 若是查找其中的某个进程的话，我们还可以配合着 grep 和正则表达式一起使用：</span></span><br><span class="line">ps aux | grep zsh</span><br><span class="line"><span class="comment"># 查看时，将连同部分的进程呈树状显示出来：</span></span><br><span class="line">ps axjf</span><br><span class="line"><span class="comment"># 自定义我们所需要的参数显示：</span></span><br><span class="line">ps -afxo user,ppid,pid,pgid,<span class="built_in">command</span></span><br></pre></td></tr></table></figure>
+<h3 id="pstree-的使用">pstree 的使用</h3>
+<p>通过 <code>pstree</code> 可以很直接的看到相同的进程数量，最主要的还是我们可以看到所有进程之间的相关性。</p>
 <table>
 <thead>
 <tr>
@@ -514,7 +526,8 @@
 <th>解释</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td><code>-A</code></td>
 <td>程序树之间以 ASCII 字符连接</td>
 </tr>
@@ -526,8 +539,113 @@
 <td><code>-u</code></td>
 <td>同时列出每个 process 的所属账户名称</td>
 </tr>
-</tbody></table>
-<h3 id="进程的执行顺序"><a href="#进程的执行顺序" class="headerlink" title="进程的执行顺序"></a>进程的执行顺序</h3><p>我们在使用 ps 命令的时候可以看到大部分的进程都是处于休眠的状态，如果这些进程都被唤醒，那么该谁最先享受 CPU 的服务，后面的进程又该是一个什么样的顺序呢？进程调度的队列又该如何去排列呢？</p>
+</tbody>
+</table>
+<h3 id="进程的执行顺序">进程的执行顺序</h3>
+<p>我们在使用 ps 命令的时候可以看到大部分的进程都是处于休眠的状态，如果这些进程都被唤醒，那么该谁最先享受 CPU 的服务，后面的进程又该是一个什么样的顺序呢？进程调度的队列又该如何去排列呢？</p>
 <p>当然就是靠该进程的优先级值来判定进程调度的优先级，而优先级的值就是上文所提到的 PR 与 nice 来控制与体现了</p>
 <p>而 nice 的值我们是可以通过 nice 命令来修改的，而需要注意的是 nice 值可以调整的范围是 <code>-20 ~ 19</code>，其中 root 有着至高无上的权力，既可以调整自己的进程也可以调整其他用户的程序，并且是所有的值都可以用，而普通用户只可以调制属于自己的进程，并且其使用的范围只能是 <code>0 ~ 19</code>，因为系统为了避免一般用户抢占系统资源而设置的一个限制。</p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">YUAN Tingyi</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2022/06/01/f9b8456db95444d792d4f1d9e9236bb0/">http://example.com/2022/06/01/f9b8456db95444d792d4f1d9e9236bb0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/9.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/gh/overtrue/share.js@master/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/06/01/7610eab370f54ebe8bdc50a4dbc427b8/"><img class="prev-cover" src="/img/8.webp" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">Linux 正则表达式</div></div></a></div><div class="next-post pull-right"><a href="/2022/06/01/cb58b1fff61847a1bb694c22e8c7082c/"><img class="next-cover" src="/img/6.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Linux 系统概述</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">YUAN Tingyi</div><div class="author-info__description">XianrenYty</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">28</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/XianrenYty"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">进程的概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-number">2.</span> <span class="toc-text">进程的分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%9A%84%E8%A1%8D%E7%94%9F"><span class="toc-number">3.</span> <span class="toc-text">进程的衍生</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%BB%84%E5%92%8C-Sessions"><span class="toc-number">4.</span> <span class="toc-text">进程组和 Sessions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E7%AE%A1%E7%90%86"><span class="toc-number">5.</span> <span class="toc-text">工作管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux-%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86"><span class="toc-number">6.</span> <span class="toc-text">Linux 进程管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%9A%84%E6%9F%A5%E7%9C%8B"><span class="toc-number">6.1.</span> <span class="toc-text">进程的查看</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ps-%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">6.2.</span> <span class="toc-text">ps 工具的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pstree-%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">6.3.</span> <span class="toc-text">pstree 的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F"><span class="toc-number">6.4.</span> <span class="toc-text">进程的执行顺序</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/06/01/fd61228310d24c999c625f49b503f7ce/" title="train_test_split 参数详解"><img src="/img/8.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="train_test_split 参数详解"/></a><div class="content"><a class="title" href="/2022/06/01/fd61228310d24c999c625f49b503f7ce/" title="train_test_split 参数详解">train_test_split 参数详解</a><time datetime="2022-06-01T12:52:00.000Z" title="Created 2022-06-01 20:52:00">2022-06-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/01/224bdd4444be4fe0b7826959bc6b40a4/" title="StandardScaler(sklearn)参数详解"><img src="/img/8.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="StandardScaler(sklearn)参数详解"/></a><div class="content"><a class="title" href="/2022/06/01/224bdd4444be4fe0b7826959bc6b40a4/" title="StandardScaler(sklearn)参数详解">StandardScaler(sklearn)参数详解</a><time datetime="2022-06-01T12:51:39.966Z" title="Created 2022-06-01 20:51:39">2022-06-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/01/2fd9e712ce6b4a49a24775586e47e44b/" title="八大排序算法(Python实现)"><img src="/img/5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="八大排序算法(Python实现)"/></a><div class="content"><a class="title" href="/2022/06/01/2fd9e712ce6b4a49a24775586e47e44b/" title="八大排序算法(Python实现)">八大排序算法(Python实现)</a><time datetime="2022-06-01T12:51:26.086Z" title="Created 2022-06-01 20:51:26">2022-06-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/01/9d8547900901416593ba964e6757c6c3/" title="ResNet"><img src="/img/9.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ResNet"/></a><div class="content"><a class="title" href="/2022/06/01/9d8547900901416593ba964e6757c6c3/" title="ResNet">ResNet</a><time datetime="2022-06-01T12:50:56.055Z" title="Created 2022-06-01 20:50:56">2022-06-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/01/b6a6cbce3d7f45a8b2511edf86fb5a24/" title="Paddle高层API实现图像分类（CIFAR-100数据集_ResNet101）"><img src="/img/5.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Paddle高层API实现图像分类（CIFAR-100数据集_ResNet101）"/></a><div class="content"><a class="title" href="/2022/06/01/b6a6cbce3d7f45a8b2511edf86fb5a24/" title="Paddle高层API实现图像分类（CIFAR-100数据集_ResNet101）">Paddle高层API实现图像分类（CIFAR-100数据集_ResNet101）</a><time datetime="2022-06-01T12:48:23.363Z" title="Created 2022-06-01 20:48:23">2022-06-01</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By YUAN Tingyi</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://example.com">YUAN Tingyi</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2022/06/01/f9b8456db95444d792d4f1d9e9236bb0/">http://example.com/2022/06/01/f9b8456db95444d792d4f1d9e9236bb0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/1.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/gh/overtrue/share.js@master/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/06/01/7610eab370f54ebe8bdc50a4dbc427b8/"><img class="prev-cover" src="/img/5.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">Linux 正则表达式</div></div></a></div><div class="next-post pull-right"><a href="/2022/06/01/cb58b1fff61847a1bb694c22e8c7082c/"><img class="next-cover" src="/img/1.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Linux 系统概述</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div><div id="comment-switch"><span class="first-comment">Valine</span><span class="switch-btn"></span><span class="second-comment">Disqus</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">YUAN Tingyi</div><div class="author-info__description">XianrenYty</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">28</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/XianrenYty"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">进程的概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-number">2.</span> <span class="toc-text">进程的分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%9A%84%E8%A1%8D%E7%94%9F"><span class="toc-number">3.</span> <span class="toc-text">进程的衍生</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%BB%84%E5%92%8C-Sessions"><span class="toc-number">4.</span> <span class="toc-text">进程组和 Sessions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E7%AE%A1%E7%90%86"><span class="toc-number">5.</span> <span class="toc-text">工作管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux-%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86"><span class="toc-number">6.</span> <span class="toc-text">Linux 进程管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%9A%84%E6%9F%A5%E7%9C%8B"><span class="toc-number">6.1.</span> <span class="toc-text">进程的查看</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ps-%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">6.2.</span> <span class="toc-text">ps 工具的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pstree-%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">6.3.</span> <span class="toc-text">pstree 的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F"><span class="toc-number">6.4.</span> <span class="toc-text">进程的执行顺序</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/06/01/fd61228310d24c999c625f49b503f7ce/" title="train_test_split 参数详解"><img src="/img/8.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="train_test_split 参数详解"/></a><div class="content"><a class="title" href="/2022/06/01/fd61228310d24c999c625f49b503f7ce/" title="train_test_split 参数详解">train_test_split 参数详解</a><time datetime="2022-06-01T12:52:00.000Z" title="Created 2022-06-01 20:52:00">2022-06-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/01/224bdd4444be4fe0b7826959bc6b40a4/" title="StandardScaler(sklearn)参数详解"><img src="/img/1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="StandardScaler(sklearn)参数详解"/></a><div class="content"><a class="title" href="/2022/06/01/224bdd4444be4fe0b7826959bc6b40a4/" title="StandardScaler(sklearn)参数详解">StandardScaler(sklearn)参数详解</a><time datetime="2022-06-01T12:51:39.966Z" title="Created 2022-06-01 20:51:39">2022-06-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/01/2fd9e712ce6b4a49a24775586e47e44b/" title="八大排序算法(Python实现)"><img src="/img/6.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="八大排序算法(Python实现)"/></a><div class="content"><a class="title" href="/2022/06/01/2fd9e712ce6b4a49a24775586e47e44b/" title="八大排序算法(Python实现)">八大排序算法(Python实现)</a><time datetime="2022-06-01T12:51:26.086Z" title="Created 2022-06-01 20:51:26">2022-06-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/01/9d8547900901416593ba964e6757c6c3/" title="ResNet"><img src="/img/2.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ResNet"/></a><div class="content"><a class="title" href="/2022/06/01/9d8547900901416593ba964e6757c6c3/" title="ResNet">ResNet</a><time datetime="2022-06-01T12:50:56.055Z" title="Created 2022-06-01 20:50:56">2022-06-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/01/b6a6cbce3d7f45a8b2511edf86fb5a24/" title="Paddle高层API实现图像分类（CIFAR-100数据集_ResNet101）"><img src="/img/8.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Paddle高层API实现图像分类（CIFAR-100数据集_ResNet101）"/></a><div class="content"><a class="title" href="/2022/06/01/b6a6cbce3d7f45a8b2511edf86fb5a24/" title="Paddle高层API实现图像分类（CIFAR-100数据集_ResNet101）">Paddle高层API实现图像分类（CIFAR-100数据集_ResNet101）</a><time datetime="2022-06-01T12:48:23.363Z" title="Created 2022-06-01 20:48:23">2022-06-01</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By YUAN Tingyi</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.2
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container:not\([display]\)').forEach(node => {
+            const target = node.parentNode
+            if (target.nodeName.toLowerCase() === 'li') {
+              target.parentNode.classList.add('has-jax')
+            } else {
+              target.classList.add('has-jax')
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '',
+      appKey: '',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script>function loadDisqus () {
+  var disqus_config = function () {
+    this.page.url = 'http://example.com/2022/06/01/f9b8456db95444d792d4f1d9e9236bb0/'
+    this.page.identifier = '2022/06/01/f9b8456db95444d792d4f1d9e9236bb0/'
+    this.page.title = 'Linux进程管理'
+  };
+
+  window.disqusReset = () => {
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  if (window.DISQUS) disqusReset()
+  else {
+    (function() { 
+      var d = document, s = d.createElement('script');
+      s.src = 'https://.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+}
+
+if ('Valine' === 'Disqus' || !true) {
+  if (true) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+  else loadDisqus()
+} else {
+  function loadOtherComment () {
+    loadDisqus()
+  }
+}
+</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
